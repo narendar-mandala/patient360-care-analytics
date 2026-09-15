@@ -1,0 +1,11 @@
+payer_name,payer_type,fin_class_c,payer_code,claim_filing_indicator,timely_filing_days,adjudication_days_min,adjudication_days_max,denial_multiplier
+Medicare,medicare,2,00431,MB,365,14,21,0.8
+Humana,medicare_advantage,5,61101,16,365,18,30,1.3
+Medicaid,medicaid,3,00741,MC,180,25,45,1.4
+Dual Eligible,dual,6,00432,MB,365,14,24,1.0
+Blue Cross Blue Shield,commercial,1,00700,BL,180,18,30,1.0
+UnitedHealthcare,commercial,1,87726,CI,90,15,28,1.2
+Aetna,commercial,1,60054,CI,120,16,30,1.1
+Cigna Health,commercial,1,62308,CI,90,16,30,1.1
+Anthem,commercial,1,00710,BL,180,18,30,1.0
+NO_INSURANCE,self_pay,4,,,,,,

@@ -1,0 +1,7 @@
+{
+  "_comment": "Fill from Epic's published sandbox test-patient list (fhir.epic.com documentation). Use either a FHIR id or search params per patient. Verify every value against the current Epic docs.",
+  "patients": [
+    { "label": "Camila Lopez", "search": { "family": "Lopez", "given": "Camila", "birthdate": "1987-09-12" } },
+    { "label": "example-by-id", "id": "REPLACE_WITH_FHIR_ID" }
+  ]
+}

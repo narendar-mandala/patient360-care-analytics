@@ -1,0 +1,296 @@
+snomed_code,snomed_description,icd10cm_code,condition_class,cohort,charlson_category,chronic_yn,sdoh_domain,map_quality
+66383009,Gingivitis,K05.10,diagnosis,,,N,,close
+444814009,Viral sinusitis,J01.90,diagnosis,,,N,,close
+18718003,Gingival disease,K06.9,diagnosis,,,N,,exact
+109570002,Primary dental caries,K02.9,diagnosis,,,N,,close
+195662009,Acute viral pharyngitis,J02.8,diagnosis,,,N,,close
+10509002,Acute bronchitis,J20.9,diagnosis,,,N,,exact
+271737000,Anemia,D64.9,diagnosis,,,N,,exact
+59621000,Essential hypertension,I10,diagnosis,HTN,,Y,,exact
+40055000,Chronic sinusitis,J32.9,diagnosis,,,Y,,exact
+427898007,Infection of tooth,K04.7,diagnosis,,,N,,approximate
+414545008,Ischemic heart disease,I25.9,diagnosis,IHD,,Y,,close
+65363002,Otitis media,H66.90,diagnosis,,,N,,exact
+125605004,Fracture of bone,T14.8XXA,diagnosis,,,N,,approximate
+43878008,Streptococcal sore throat,J02.0,diagnosis,,,N,,exact
+384709000,Sprain,T14.8XXA,diagnosis,,,N,,approximate
+237602007,Metabolic syndrome X,E88.810,diagnosis,,,Y,,exact
+1149222004,Overdose,T50.901A,diagnosis,,,N,,close
+312608009,Laceration - injury,T14.8XXA,diagnosis,,,N,,approximate
+37320007,Loss of teeth,K08.409,diagnosis,,,Y,,close
+307426000,Acute infective cystitis,N30.00,diagnosis,,,N,,exact
+55822004,Hyperlipidemia,E78.5,diagnosis,,,Y,,exact
+840539006,COVID-19,U07.1,diagnosis,,,N,,exact
+44465007,Sprain of ankle,S93.409A,diagnosis,,,N,,close
+110030002,Concussion injury of brain,S06.0XAA,diagnosis,,,N,,close
+127013003,Disorder of kidney due to diabetes mellitus,E11.29,diagnosis,DIABETES,diabetes_complicated,Y,,close
+431855005,Chronic kidney disease stage 1,N18.1,diagnosis,CKD,renal,Y,,exact
+90781000119102,Microalbuminuria due to type 2 diabetes mellitus,E11.29,diagnosis,DIABETES,diabetes_complicated,Y,,close
+44054006,Diabetes mellitus type 2,E11.9,diagnosis,DIABETES,diabetes_uncomplicated,Y,,exact
+302870006,Hypertriglyceridemia,E78.1,diagnosis,,,Y,,exact
+68496003,Polyp of colon,K63.5,diagnosis,,,N,,exact
+36971009,Sinusitis,J32.9,diagnosis,,,N,,approximate
+62106007,Concussion with no loss of consciousness,S06.0X0A,diagnosis,,,N,,exact
+431856006,Chronic kidney disease stage 2,N18.2,diagnosis,CKD,renal,Y,,exact
+19169002,Miscarriage in first trimester,O03.9,diagnosis,,,N,,close
+75498004,Acute bacterial sinusitis,J01.90,diagnosis,,,N,,close
+70704007,Sprain of wrist,S63.509A,diagnosis,,,N,,close
+197927001,Recurrent urinary tract infection,N39.0,diagnosis,,,N,,close
+6525002,Dependent drug abuse,F19.20,diagnosis,SUD,,Y,,close
+90460009,Injury of neck,S19.9XXA,diagnosis,,,N,,exact
+239873007,Osteoarthritis of knee,M17.9,diagnosis,,,Y,,exact
+39848009,Whiplash injury to neck,S13.4XXA,diagnosis,,,N,,exact
+124171000119105,Chronic intractable migraine without aura,G43.719,diagnosis,,,Y,,exact
+157141000119108,Proteinuria due to type 2 diabetes mellitus,E11.29,diagnosis,DIABETES,diabetes_complicated,Y,,close
+196416002,Impacted molars,K01.1,diagnosis,,,N,,exact
+61804006,Alveolitis of jaw,M27.3,diagnosis,,,N,,exact
+195967001,Asthma,J45.909,diagnosis,ASTHMA,chronic_pulmonary,Y,,exact
+128613002,Seizure disorder,G40.909,diagnosis,,,Y,,close
+64859006,Osteoporosis,M81.0,diagnosis,,,Y,,close
+39898005,Sleep disorder,G47.9,diagnosis,,,Y,,exact
+48333001,Burn injury,T30.0,diagnosis,,,N,,approximate
+80394007,Hyperglycemia,R73.9,diagnosis,,,N,,exact
+433144002,Chronic kidney disease stage 3,N18.30,diagnosis,CKD,renal,Y,,exact
+446654005,Refugee,Z60.3,sdoh,,,N,other_social,approximate
+65966004,Fracture of forearm,S52.90XA,diagnosis,,,N,,exact
+91302008,Sepsis,A41.9,diagnosis,SEPSIS,,N,,exact
+156073000,Complete miscarriage,O03.9,diagnosis,,,N,,exact
+58150001,Fracture of clavicle,S42.009A,diagnosis,,,N,,exact
+263102004,Fracture subluxation of wrist,S62.109A,diagnosis,,,N,,close
+78275009,Obstructive sleep apnea syndrome,G47.33,diagnosis,,,Y,,exact
+284549007,Laceration of hand,S61.419A,diagnosis,,,N,,exact
+16114001,Fracture of ankle,S82.899A,diagnosis,,,N,,close
+84757009,Epilepsy,G40.909,diagnosis,,,Y,,exact
+233678006,Childhood asthma,J45.909,diagnosis,ASTHMA,chronic_pulmonary,Y,,close
+203646004,Adolescent idiopathic scoliosis,M41.129,diagnosis,,,Y,,exact
+283371005,Laceration of forearm,S51.819A,diagnosis,,,N,,exact
+370247008,Facial laceration,S01.81XA,diagnosis,,,N,,exact
+88805009,Chronic congestive heart failure,I50.9,diagnosis,HF,chf,Y,,close
+283385000,Laceration of thigh,S71.119A,diagnosis,,,N,,exact
+203082005,Fibromyalgia,M79.7,diagnosis,,,Y,,exact
+284551006,Laceration of foot,S91.319A,diagnosis,,,N,,exact
+233604007,Pneumonia,J18.9,diagnosis,PNEUMONIA,,N,,exact
+446096008,Perennial allergic rhinitis,J30.89,diagnosis,,,Y,,exact
+26929004,Alzheimer's disease,G30.9,diagnosis,,dementia,Y,,exact
+398254007,Pre-eclampsia,O14.90,diagnosis,,,N,,exact
+254837009,Malignant neoplasm of breast,C50.919,diagnosis,CANCER,malignancy,Y,,exact
+368581000119106,Neuropathy due to type 2 diabetes mellitus,E11.40,diagnosis,DIABETES,diabetes_complicated,Y,,exact
+431857002,Chronic kidney disease stage 4,N18.4,diagnosis,CKD,renal,Y,,exact
+403191005,Partial thickness burn,T30.0,diagnosis,,,N,,approximate
+24079001,Atopic dermatitis,L20.9,diagnosis,,,Y,,exact
+713197008,Recurrent rectal polyp,K62.1,diagnosis,,,N,,exact
+389087006,Hypoxemia,R09.02,diagnosis,,,N,,exact
+1551000119108,Nonproliferative diabetic retinopathy due to type 2 diabetes mellitus,E11.3299,diagnosis,DIABETES,diabetes_complicated,Y,,close
+241929008,Acute allergic reaction,T78.40XA,diagnosis,,,N,,exact
+198992004,Eclampsia in pregnancy,O15.00,diagnosis,,,N,,exact
+239872002,Osteoarthritis of hip,M16.9,diagnosis,,,Y,,exact
+232353008,Perennial allergic rhinitis with seasonal variation,J30.2,diagnosis,,,Y,,close
+403190006,Epidermal burn of skin,T30.0,diagnosis,,,N,,approximate
+201834006,Localized primary osteoarthritis of the hand,M19.049,diagnosis,,,Y,,exact
+401314000,Acute non-ST segment elevation myocardial infarction,I21.4,diagnosis,AMI,myocardial_infarction,N,,exact
+1255252008,Resorption of alveolar process due to dental trauma,K08.89,diagnosis,,,N,,approximate
+35999006,Blighted ovum,O02.0,diagnosis,,,N,,exact
+22298006,Myocardial infarction,I21.9,diagnosis,AMI,myocardial_infarction,N,,exact
+192127007,Child attention deficit disorder,F90.0,diagnosis,,,Y,,close
+125601008,Injury of knee,S89.90XA,diagnosis,,,N,,exact
+57676002,Joint pain,M25.50,symptom,,,N,,exact
+443165006,Osteoporotic fracture of bone,M80.00XA,diagnosis,,,N,,close
+307731004,Injury of tendon of the rotator cuff of shoulder,S46.019A,diagnosis,,,N,,exact
+62564004,Concussion with loss of consciousness,S06.0X9A,diagnosis,,,N,,exact
+76571007,Septic shock,R65.21,diagnosis,SEPSIS,,N,,exact
+74400008,Appendicitis,K37,diagnosis,,,N,,exact
+46752004,Torus palatinus,M27.0,diagnosis,,,N,,exact
+73430006,Sleep apnea,G47.30,diagnosis,,,Y,,exact
+359817006,Closed fracture of hip,S72.009A,diagnosis,,,N,,exact
+87433001,Pulmonary emphysema,J43.9,diagnosis,COPD,chronic_pulmonary,Y,,exact
+367498001,Seasonal allergic rhinitis,J30.2,diagnosis,,,N,,exact
+185086009,Chronic obstructive bronchitis,J44.9,diagnosis,COPD,chronic_pulmonary,Y,,close
+33737001,Fracture of rib,S22.39XA,diagnosis,,,N,,close
+401303003,Acute ST segment elevation myocardial infarction,I21.3,diagnosis,AMI,myocardial_infarction,N,,exact
+5602001,Opioid abuse,F11.10,diagnosis,SUD,,Y,,exact
+85116003,Miscarriage in second trimester,O03.9,diagnosis,,,N,,close
+92691004,Carcinoma in situ of prostate,D07.5,diagnosis,CANCER,,Y,,exact
+262574004,Bullet wound,T14.8XXA,diagnosis,,,N,,approximate
+126906006,Neoplasm of prostate,D40.0,diagnosis,CANCER,,Y,,close
+283545005,Gunshot wound,T14.8XXA,diagnosis,,,N,,approximate
+65710008,Acute respiratory failure,J96.00,diagnosis,,,N,,exact
+90560007,Gout,M10.9,diagnosis,,,Y,,exact
+132281000119108,Acute deep venous thrombosis,I82.409,diagnosis,,,N,,close
+770349000,Sepsis caused by virus,A41.89,diagnosis,SEPSIS,,N,,close
+83664006,Idiopathic atrophic hypothyroidism,E03.4,diagnosis,,,Y,,close
+46177005,End-stage renal disease,N18.6,diagnosis,CKD,renal,Y,,exact
+424132000,Non-small cell carcinoma of lung TNM stage 1,C34.90,diagnosis,CANCER,malignancy,Y,,close
+706870000,Acute pulmonary embolism,I26.99,diagnosis,,,N,,exact
+49436004,Atrial fibrillation,I48.91,diagnosis,,,Y,,exact
+254637007,Non-small cell lung cancer,C34.90,diagnosis,CANCER,malignancy,Y,,close
+230265002,Familial Alzheimer's disease of early onset,G30.0,diagnosis,,dementia,Y,,exact
+79586000,Tubal pregnancy,O00.109,diagnosis,,,N,,close
+363406005,Malignant neoplasm of colon,C18.9,diagnosis,CANCER,malignancy,Y,,exact
+67782005,Acute respiratory distress syndrome,J80,diagnosis,,,N,,exact
+60573004,Aortic valve stenosis,I35.0,diagnosis,,,Y,,exact
+7200002,Alcoholism,F10.20,diagnosis,SUD,,Y,,exact
+230690007,Cerebrovascular accident,I63.9,diagnosis,STROKE,cerebrovascular,N,,exact
+127294003,Traumatic or nontraumatic brain injury,S06.9X9A,diagnosis,,,N,,approximate
+267253006,Fetus with chromosomal abnormality,O35.10X0,diagnosis,,,N,,close
+67787004,Tongue tie,Q38.1,diagnosis,,,N,,exact
+109838007,Overlapping malignant neoplasm of colon,C18.8,diagnosis,CANCER,malignancy,Y,,exact
+444470001,Injury of anterior cruciate ligament,S83.509A,diagnosis,,,N,,close
+40275004,Contact dermatitis,L25.9,diagnosis,,,N,,exact
+97331000119101,Macular edema and retinopathy due to type 2 diabetes mellitus,E11.311,diagnosis,DIABETES,diabetes_complicated,Y,,exact
+263172003,Fracture of mandible,S02.609A,diagnosis,,,N,,exact
+81629009,Traumatic dislocation of temporomandibular joint,S03.00XA,diagnosis,,,N,,close
+427419006,Transformed migraine,G43.709,diagnosis,,,Y,,close
+47693006,Rupture of appendix,K35.32,diagnosis,,,N,,close
+6072007,Bleeding from anus,K62.5,diagnosis,,,N,,exact
+444448004,Injury of medial collateral ligament of knee,S83.419A,diagnosis,,,N,,exact
+234466008,Acquired coagulation disorder,D68.4,diagnosis,,,Y,,exact
+30832001,Rupture of patellar tendon,S76.119A,diagnosis,,,N,,close
+40095003,Injury of kidney,S37.009A,diagnosis,,,N,,exact
+11625007,Torus mandibularis,M27.0,diagnosis,,,N,,exact
+48724000,Mitral valve regurgitation,I34.0,diagnosis,,,Y,,exact
+609496007,Complication occurring during pregnancy,O26.90,diagnosis,,,N,,close
+239720000,Tear of meniscus of knee,S83.209A,diagnosis,,,N,,exact
+84114007,Heart failure,I50.9,diagnosis,HF,chf,Y,,exact
+370143000,Major depressive disorder,F32.9,diagnosis,DEPRESSION,,Y,,exact
+262521009,Traumatic injury of spinal cord and/or vertebral column,S34.109A,diagnosis,,,N,,approximate
+56786000,Pulmonic valve stenosis,I37.0,diagnosis,,,Y,,exact
+60234000,Aortic valve regurgitation,I35.1,diagnosis,,,Y,,exact
+235919008,Gallbladder calculus,K80.20,diagnosis,,,N,,exact
+312157006,Infectious mediastinitis,J98.51,diagnosis,,,N,,exact
+45816000,Pyelonephritis,N12,diagnosis,,,N,,exact
+4557003,Preinfarction syndrome,I20.0,diagnosis,IHD,,N,,exact
+65275009,Acute cholecystitis,K81.0,diagnosis,,,N,,exact
+86406008,Human immunodeficiency virus infection,B20,diagnosis,,aids_hiv,Y,,exact
+93761005,Primary malignant neoplasm of colon,C18.9,diagnosis,CANCER,malignancy,Y,,exact
+1501000119109,Proliferative diabetic retinopathy due to type 2 diabetes mellitus,E11.3599,diagnosis,DIABETES,diabetes_complicated,Y,,close
+109989006,Multiple myeloma,C90.00,diagnosis,CANCER,malignancy,Y,,exact
+87628006,Bacterial infectious disease,A49.9,diagnosis,,,N,,exact
+69896004,Rheumatoid arthritis,M06.9,diagnosis,,rheumatic,Y,,exact
+86175003,Injury of heart,S26.90XA,diagnosis,,,N,,exact
+235595009,Gastroesophageal reflux disease,K21.9,diagnosis,,,Y,,exact
+1734006,Fracture of vertebral column with spinal cord injury,S34.109A,diagnosis,,,N,,approximate
+128188000,Cerebral palsy,G80.9,diagnosis,,hemiplegia_paraplegia,Y,,exact
+403192003,Full thickness burn,T30.0,diagnosis,,,N,,approximate
+27942005,Shock,R57.9,diagnosis,,,N,,exact
+95417003,Primary fibromyalgia syndrome,M79.7,diagnosis,,,Y,,exact
+62479008,Acquired immune deficiency syndrome,B20,diagnosis,,aids_hiv,Y,,exact
+15802004,Dystonia,G24.9,diagnosis,,,Y,,exact
+157265008,Dislocation of hip joint,S73.006A,diagnosis,,,N,,close
+53827007,Excessive salivation,K11.7,diagnosis,,,N,,exact
+15724005,Fracture of vertebral column without spinal cord injury,S32.009A,diagnosis,,,N,,approximate
+36923009,Major depression single episode,F32.9,diagnosis,DEPRESSION,,N,,exact
+127295002,Traumatic brain injury,S06.9X9A,diagnosis,,,N,,close
+110359009,Intellectual disability,F79,diagnosis,,,Y,,exact
+79619009,Mitral valve stenosis,I05.0,diagnosis,,,Y,,exact
+111287006,Tricuspid valve regurgitation,I36.1,diagnosis,,,Y,,close
+37849005,Congenital uterine anomaly,Q51.9,diagnosis,,,Y,,exact
+698754002,Chronic paralysis due to lesion of spinal cord,G82.20,diagnosis,,hemiplegia_paraplegia,Y,,close
+128302006,Chronic hepatitis C,B18.2,diagnosis,,mild_liver,Y,,exact
+60951000119105,Blindness due to type 2 diabetes mellitus,E11.39,diagnosis,DIABETES,diabetes_complicated,Y,,close
+314529007,Medication review due,Z79.899,administrative,,,N,,approximate
+73595000,Stress,Z73.3,sdoh,,,N,stress,exact
+160903007,Full-time employment,,sdoh_protective,,,N,employment,none
+160904001,Part-time employment,,sdoh_protective,,,N,employment,none
+422650009,Social isolation,Z60.4,sdoh,,,N,social_isolation,close
+423315002,Limited social contact,Z60.4,sdoh,,,N,social_isolation,close
+741062008,Not in labor force,Z56.9,sdoh,,,N,employment,approximate
+706893006,Victim of intimate partner abuse,T74.11XA,sdoh,,,N,violence,close
+224299000,Received higher education,,sdoh_protective,,,N,education,none
+424393004,Reports of violence in the environment,Z59.89,sdoh,,,N,violence,approximate
+162864005,Body mass index 30+ - obesity,E66.9,diagnosis,OBESITY,,Y,,close
+72892002,Normal pregnancy,Z34.90,pregnancy,,,N,,exact
+714628002,Prediabetes,R73.03,diagnosis,,,Y,,exact
+73438004,Unemployed,Z56.0,sdoh,,,N,employment,exact
+160968000,Risk activity involvement,Z72.9,sdoh,,,N,risk_behavior,approximate
+82423001,Chronic pain,G89.29,diagnosis,,,Y,,exact
+473461003,Educated to high school level,,sdoh_protective,,,N,education,none
+161744009,Past pregnancy history of miscarriage,Z87.59,history,,,N,,close
+266948004,Has a criminal record,Z65.3,sdoh,,,N,legal,close
+278860009,Chronic low back pain,M54.50,diagnosis,,,Y,,close
+10939881000119105,Unhealthy alcohol drinking behavior,F10.10,diagnosis,SUD,,N,,approximate
+274531002,Abnormal findings diagnostic imaging heart and coronary circulation,R93.1,symptom,,,N,,exact
+278598003,Leaking dental filling,K08.51,diagnosis,,,N,,close
+80583007,Severe anxiety (panic),F41.0,diagnosis,,,N,,close
+278602001,Loose dental filling,K08.51,diagnosis,,,N,,close
+278588009,Fractured dental filling,K08.51,diagnosis,,,N,,close
+105531004,Housing unsatisfactory,Z59.10,sdoh,,,N,housing,close
+278558000,Dental filling lost,K08.531,diagnosis,,,N,,exact
+1121000119107,Chronic neck pain,M54.2,diagnosis,,,Y,,close
+840544004,Suspected COVID-19,Z20.822,administrative,,,N,,exact
+224295006,Only received primary school education,Z55.9,sdoh,,,N,education,approximate
+713458007,Lack of access to transportation,Z59.82,sdoh,,,N,transportation,exact
+266934004,Transport problem,Z59.82,sdoh,,,N,transportation,close
+386661006,Fever,R50.9,symptom,,,N,,exact
+267020005,History of tubal ligation,Z98.51,history,,,N,,exact
+49727002,Cough,R05.9,symptom,,,N,,exact
+361055000,Misuses drugs,F19.10,diagnosis,SUD,,N,,close
+399261000,History of coronary artery bypass grafting,Z95.1,history,,,Y,,exact
+36955009,Loss of taste,R43.2,symptom,,,N,,close
+428251008,History of appendectomy,Z90.49,history,,,N,,close
+84229001,Fatigue,R53.83,symptom,,,N,,exact
+1290882004,History of seizure,Z86.69,history,,,N,,close
+1187604002,Serving in military service,Z56.82,sdoh,,,N,employment,exact
+399211009,History of myocardial infarction,I25.2,history,,myocardial_infarction,Y,,exact
+248595008,Sputum finding,R09.3,symptom,,,N,,exact
+267036007,Dyspnea,R06.00,symptom,,,N,,exact
+56018004,Wheezing,R06.2,symptom,,,N,,exact
+183996000,Sterilization requested,Z30.2,administrative,,,N,,exact
+161665007,History of renal transplant,Z94.0,history,CKD,renal,Y,,exact
+698306007,Awaiting transplantation of kidney,Z76.82,history,CKD,renal,Y,,exact
+271825005,Respiratory distress,R06.03,symptom,,,N,,exact
+267102003,Sore throat,J02.9,symptom,,,N,,close
+25064002,Headache,R51.9,symptom,,,N,,exact
+68962001,Muscle pain,M79.10,symptom,,,N,,exact
+43724002,Chill,R68.83,symptom,,,N,,exact
+32911000,Homeless,Z59.00,sdoh,,,N,housing,exact
+408512008,Body mass index 40+ - severely obese,E66.01,diagnosis,OBESITY,,Y,,exact
+315268008,Suspected prostate cancer,Z03.89,administrative,,,N,,approximate
+162573006,Suspected lung cancer,Z03.89,administrative,,,N,,approximate
+876882001,Died in hospice,,administrative,,,N,,none
+1231000119100,History of aortic valve replacement,Z95.2,history,,,Y,,exact
+449868002,Smokes tobacco daily,F17.210,diagnosis,TOBACCO,,Y,,exact
+236077008,Protracted diarrhea,R19.7,symptom,,,N,,close
+267060006,Diarrhea symptom,R19.7,symptom,,,N,,exact
+66857006,Hemoptysis,R04.2,symptom,,,N,,exact
+698303004,Awaiting transplantation of bone marrow,Z76.82,history,,,N,,exact
+221360009,Spasticity,R25.2,symptom,,,N,,approximate
+68235000,Nasal congestion,R09.81,symptom,,,N,,exact
+249497008,Vomiting symptom,R11.10,symptom,,,N,,exact
+422587007,Nausea,R11.0,symptom,,,N,,exact
+22253000,Pain,R52,symptom,,,N,,exact
+62718007,Dribbling from mouth,R19.8,symptom,,,N,,approximate
+153351000119102,History of peripheral stem cell transplant,Z94.84,history,,,N,,exact
+108631000119101,History of autologous bone marrow transplant,Z94.81,history,,,N,,exact
+103697008,Patient referral for dental care,Z01.20,administrative,,,N,,approximate
+389095005,Contraception care,Z30.09,administrative,,,N,,close
+609328004,Allergic disposition,T78.40XA,diagnosis,,,N,,approximate
+275978004,Screening for malignant neoplasm of colon,Z12.11,administrative,,,N,,exact
+1871000124103,Transition from acute care to home-health care,Z76.89,administrative,,,N,,approximate
+25675004,Patient transfer to skilled nursing facility,Z76.89,administrative,,,N,,approximate
+735029006,Shellfish (allergen),Z91.013,history,,,Y,,close
+102263004,Eggs (allergen),Z91.0120,history,,,Y,,exact
+412071004,Wheat (allergen),Z91.018,history,,,Y,,close
+3718001,Cow's milk (allergen),Z91.0110,history,,,Y,,exact
+762952008,Peanut (allergen),Z91.010,history,,,Y,,exact
+442571000124108,Tree nut (allergen),Z91.018,history,,,Y,,close
+735971005,Fish (allergen),Z91.013,history,,,Y,,close
+256355007,Soy (allergen),Z91.018,history,,,Y,,close
+95281009,Sudden cardiac death,I46.9,diagnosis,,,N,,close
+268547008,Screening for malignant neoplasm of breast,Z12.31,administrative,,,N,,close
+47505003,Posttraumatic stress disorder,F43.10,diagnosis,,,Y,,exact
+45595009,Laparoscopic cholecystectomy (reason for visit),K80.20,diagnosis,,,N,,approximate
+38102005,Cholecystectomy (reason for visit),K80.20,diagnosis,,,N,,approximate
+287185009,Attempted suicide by cutting or stabbing,T14.91XA,diagnosis,,,N,,close
+185349003,Encounter for check up (visit type used as claim diagnosis),Z00.00,administrative,,,N,,approximate
+702927004,Urgent care clinic (visit type used as claim diagnosis),Z76.89,administrative,,,N,,approximate
+162673000,General examination of patient (visit type used as claim diagnosis),Z00.00,administrative,,,N,,close
+410620009,Well child visit (visit type used as claim diagnosis),Z00.129,administrative,,,N,,exact
+36228007,Ophthalmic examination and evaluation (visit type used as claim diagnosis),Z01.00,administrative,,,N,,close
+33879002,Administration of vaccine (visit type used as claim diagnosis),Z23,administrative,,,N,,exact
+50849002,Emergency room admission (visit type used as claim diagnosis),Z76.89,administrative,,,N,,approximate
+185347001,Encounter for problem (visit type used as claim diagnosis),Z76.89,administrative,,,N,,approximate
+169762003,Postnatal visit (visit type used as claim diagnosis),Z39.2,administrative,,,N,,exact
+305336008,Admission to hospice (visit type used as claim diagnosis),Z51.5,administrative,,,N,,close
+453131000124105,Videotelephony encounter (visit type used as claim diagnosis),Z76.89,administrative,,,N,,approximate
+308335008,Patient encounter procedure (visit type used as claim diagnosis),Z76.89,administrative,,,N,,approximate
+390906007,Follow-up encounter (visit type used as claim diagnosis),Z09,administrative,,,N,,close

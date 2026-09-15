@@ -1,0 +1,35 @@
+bundle:
+  name: healthcare-data-platform
+
+variables:
+  catalog:
+    description: Unity Catalog catalog for all layers
+    default: healthcare
+  landing_root:
+    description: Volume path where source systems land files
+    default: /Volumes/healthcare/landing/raw
+  analysis_start_date:
+    description: First day of the reporting period used in Gold
+    default: "2021-09-01"
+  as_of_date:
+    description: Last day of the reporting period; 12-month and 30-day measures count back from here
+    default: "2026-08-31"
+
+include:
+  - resources/*.yml
+
+# Belt-and-braces on top of .gitignore: never sync local data, secrets, or tooling to the workspace.
+sync:
+  exclude:
+    - data/**
+    - "**/keys/**"
+    - "**/.env"
+    - "**/.venv/**"
+    - data_generation/synthea/bin/**
+
+targets:
+  dev:
+    mode: development
+    default: true
+    # No workspace host here: the Databricks CLI takes it from your own profile
+    # (databricks auth login), so the same bundle works in any workspace.

@@ -1,0 +1,13 @@
+priority,description_regex,cpt_hcpcs,code_system,service_category,revenue_code,billable_yn
+10,(?i)referral|admission to|discharge|transfer|notification|discussion|education|documentation|scheduling|certification|review of|planning|coordination|liaising|information gathering|interview|counsel|care conference|(finding)|(situation)|informed|monitoring of patient|close observation|preparation of patient,,NONE,nonbillable,,N
+20,(?i)assessment|screening test|evaluat|risk assessment|questionnaire|walk test|stair-climbing|range of motion|measurement procedure|examination,,NONE,bundled,,N
+30,(?i)plain x-ray,76499,CPT,radiology,0320,Y
+31,(?i)computed tomography,76497,CPT,radiology,0350,Y
+32,(?i)magnetic resonance,76498,CPT,radiology,0610,Y
+33,(?i)ultrason|doppler,76999,CPT,radiology,0402,Y
+40,(?i)dental|tooth|teeth|periodontal|orthodontic|denture,D9999,CDT,dental,,Y
+50,(?i)biopsy|excision|resection|removal of|transplant|replacement|implantation|insertion|grafting|reduction|incision|ectomy|otomy|plasty|endoscopy|ablation|bypass|catheter|ligation|repair,99199,CPT,surgery,0360,Y
+60,(?i)test|culture|panel|count|antibody|antigen|assay|serolog|microscopy|smear|detection,84999,CPT,lab,0300,Y
+70,(?i)therapy|rehabilitation|exercise|class|practice,97799,CPT,therapy,0420,Y
+80,(?i)transfusion|injection|infusion,96379,CPT,medicine,0260,Y
+99,.*,99199,CPT,medicine,0510,Y

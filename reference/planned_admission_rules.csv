@@ -1,0 +1,20 @@
+rule_id,match_on,code,description,category
+PA01,procedure_code,703423002,Combined chemotherapy and radiation therapy,cancer_treatment
+PA02,procedure_code,367336001,Chemotherapy,cancer_treatment
+PA03,procedure_code,33195004,External beam radiation therapy,cancer_treatment
+PA04,procedure_code,1287742003,Radiotherapy,cancer_treatment
+PA05,procedure_code,394894008,Pre-operative chemotherapy,cancer_treatment
+PA06,procedure_code,70536003,Transplant of kidney,transplant
+PA07,procedure_code,711446003,Transplantation of kidney regime,transplant
+PA08,procedure_code,88039007,Transplant of lung,transplant
+PA09,procedure_code,58776007,Autologous bone marrow transplant,transplant
+PA10,procedure_code,234336002,Hemopoietic stem cell transplant,transplant
+PA11,encounter_code,305432006,Admission to surgical transplant department,transplant
+PA12,encounter_code,308251003,Admission to clinical oncology department,cancer_treatment
+PA13,encounter_code,183495009,Non-urgent orthopedic admission,elective_surgery
+PA14,reason_code,183996000,Sterilization requested,elective_surgery
+PA15,procedure_code,287664005,Ligation of bilateral fallopian tubes,elective_surgery
+PA16,procedure_code,52052004,Rehabilitation therapy,rehabilitation
+PA17,procedure_code,386216000,Human parturition (delivery),obstetric_delivery
+PA18,procedure_code,11466000,Cesarean section,obstetric_delivery
+PA19,reason_code,399261000,History of coronary artery bypass grafting (recovery stays after the surgery),post_surgical_care

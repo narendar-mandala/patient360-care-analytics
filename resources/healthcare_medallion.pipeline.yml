@@ -1,0 +1,60 @@
+# Free Edition allows one active pipeline per type, so Bronze -> Silver -> Gold live in this single pipeline.
+resources:
+  pipelines:
+    healthcare_medallion:
+      name: healthcare-medallion
+      catalog: ${var.catalog}
+      schema: bronze
+      serverless: true
+      channel: CURRENT
+      continuous: false
+      configuration:
+        landing_root: ${var.landing_root}
+        # Gold reports on a fixed period so results don't change with the day the pipeline runs.
+        analysis_start_date: ${var.analysis_start_date}
+        as_of_date: ${var.as_of_date}
+      libraries:
+        - file:
+            path: ../databricks/pipelines/bronze/fhir_resources.py
+        - file:
+            path: ../databricks/pipelines/bronze/synthea_csv.sql
+        - file:
+            path: ../databricks/pipelines/bronze/reference.sql
+        - file:
+            path: ../databricks/pipelines/silver/patient.sql
+        - file:
+            path: ../databricks/pipelines/silver/encounter.sql
+        - file:
+            path: ../databricks/pipelines/silver/condition.sql
+        - file:
+            path: ../databricks/pipelines/silver/procedure.sql
+        - file:
+            path: ../databricks/pipelines/silver/observation.sql
+        - file:
+            path: ../databricks/pipelines/silver/medication.sql
+        - file:
+            path: ../databricks/pipelines/silver/immunization.sql
+        - file:
+            path: ../databricks/pipelines/silver/allergy.sql
+        - file:
+            path: ../databricks/pipelines/silver/provider.sql
+        - file:
+            path: ../databricks/pipelines/silver/organization.sql
+        - file:
+            path: ../databricks/pipelines/silver/payer.sql
+        - file:
+            path: ../databricks/pipelines/silver/coverage.sql
+        - file:
+            path: ../databricks/pipelines/silver/claim.sql
+        - file:
+            path: ../databricks/pipelines/silver/claim_transaction.sql
+        - file:
+            path: ../databricks/pipelines/gold/dimensions.sql
+        - file:
+            path: ../databricks/pipelines/gold/facts_clinical.sql
+        - file:
+            path: ../databricks/pipelines/gold/fact_index_admission.sql
+        - file:
+            path: ../databricks/pipelines/gold/kpis.sql
+        - file:
+            path: ../databricks/pipelines/gold/patient_360.sql
