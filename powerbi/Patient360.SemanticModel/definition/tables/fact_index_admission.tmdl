@@ -1,0 +1,224 @@
+/// One row per index inpatient stay: readmission outcome, LACE score, risk tier.
+table fact_index_admission
+	lineageTag: 1fe902ab-ff9a-5130-a37c-4b02864b32a1
+
+	column encounter_id
+		dataType: string
+		lineageTag: f776cea0-8fe7-5020-b152-06bf65e5ff58
+		summarizeBy: none
+		sourceColumn: encounter_id
+
+	column patient_id
+		dataType: string
+		lineageTag: 6eeca80d-c6a9-5430-83a0-e3fcf392ae34
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column facility_id
+		dataType: string
+		lineageTag: 11e54134-0568-5667-8ff8-a86505c2dd95
+		summarizeBy: none
+		sourceColumn: facility_id
+
+	column payer_id
+		dataType: string
+		lineageTag: 32d8093b-fa8d-5e13-8102-f129faf3461d
+		summarizeBy: none
+		sourceColumn: payer_id
+
+	column admit_date_key
+		dataType: int64
+		lineageTag: 755bfb02-7a3c-5cb2-8823-329e827140b2
+		summarizeBy: none
+		sourceColumn: admit_date_key
+
+	column discharge_date_key
+		dataType: int64
+		lineageTag: 4e3e3d3c-1985-5b4a-9af7-f429f078730e
+		summarizeBy: none
+		sourceColumn: discharge_date_key
+
+	column admit_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 909cd33b-d737-53c0-b7c7-b8caae9cae78
+		summarizeBy: none
+		sourceColumn: admit_date
+
+	column discharge_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 46155298-877c-50dd-81df-b570a00c5ac0
+		summarizeBy: none
+		sourceColumn: discharge_date
+
+	column age_at_admission
+		dataType: int64
+		lineageTag: 56c808fa-cf56-5078-aea5-b83635123a7a
+		summarizeBy: none
+		sourceColumn: age_at_admission
+
+	column length_of_stay_days
+		dataType: int64
+		lineageTag: 772c28e8-4ee0-5b20-a503-5deb64269624
+		summarizeBy: none
+		sourceColumn: length_of_stay_days
+
+	column reason_icd10cm_code
+		dataType: string
+		lineageTag: c713c96e-e947-5a88-908e-a52e7b03275e
+		summarizeBy: none
+		sourceColumn: reason_icd10cm_code
+
+	column reason_description
+		dataType: string
+		lineageTag: 91ab83a8-9d85-5132-8cd1-918731ff862a
+		summarizeBy: none
+		sourceColumn: reason_description
+
+	column condition_group
+		dataType: string
+		lineageTag: ec3acad2-e488-530e-9251-96db451cb015
+		summarizeBy: none
+		sourceColumn: condition_group
+
+	column is_hrrp_condition
+		dataType: boolean
+		lineageTag: 858eb0e9-f1f3-50c0-9402-cac2865bfa1b
+		summarizeBy: none
+		sourceColumn: is_hrrp_condition
+
+	column is_planned
+		dataType: boolean
+		lineageTag: a53dfe3f-e536-57d0-9133-1a13e4cc92df
+		summarizeBy: none
+		sourceColumn: is_planned
+
+	column planned_category
+		dataType: string
+		lineageTag: 7334f4b2-d84f-56b4-83f1-32114ea8e652
+		summarizeBy: none
+		sourceColumn: planned_category
+
+	column medical_cost
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: e2816372-f0a2-5333-9dc3-999e5f1d16e9
+		summarizeBy: none
+		sourceColumn: medical_cost
+
+	column payer_paid
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: e9aa7351-7299-551e-82ec-e6deaf3e4954
+		summarizeBy: none
+		sourceColumn: payer_paid
+
+	column follow_up_complete
+		dataType: boolean
+		lineageTag: 532c43f5-d67d-568d-8496-4f216c1b1f16
+		summarizeBy: none
+		sourceColumn: follow_up_complete
+
+	column is_readmitted_30_days
+		dataType: boolean
+		lineageTag: 251758b2-b8c5-55c8-9f84-fe8d74061805
+		summarizeBy: none
+		sourceColumn: is_readmitted_30_days
+
+	column readmission_encounter_id
+		dataType: string
+		lineageTag: d1a2cc8a-2626-5fa5-b86c-0ba6dfae4732
+		summarizeBy: none
+		sourceColumn: readmission_encounter_id
+
+	column days_to_readmission
+		dataType: int64
+		lineageTag: 2ee0d663-4867-5af8-a2d8-e0c386a20195
+		summarizeBy: none
+		sourceColumn: days_to_readmission
+
+	column readmission_cost
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 15907099-330c-5d73-9a78-74ad59415330
+		summarizeBy: none
+		sourceColumn: readmission_cost
+
+	column readmission_payer_paid
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 012caa62-e8e9-59b4-b323-87d5e53c40b2
+		summarizeBy: none
+		sourceColumn: readmission_payer_paid
+
+	column post_discharge_ed_visits
+		dataType: int64
+		lineageTag: 38643632-f86f-58cd-893c-09b35bd0b73a
+		summarizeBy: none
+		sourceColumn: post_discharge_ed_visits
+
+	column came_through_ed
+		dataType: boolean
+		lineageTag: 4c5b369c-0f26-5098-82fa-b58d86818fac
+		summarizeBy: none
+		sourceColumn: came_through_ed
+
+	column charlson_score
+		dataType: int64
+		lineageTag: 21e22144-12e3-52fa-b2a4-b74afed0e5c7
+		summarizeBy: none
+		sourceColumn: charlson_score
+
+	column ed_visits_6_months
+		dataType: int64
+		lineageTag: 24dd17c5-9fcb-5c6e-a39d-2b752a70450e
+		summarizeBy: none
+		sourceColumn: ed_visits_6_months
+
+	column lace_l
+		dataType: int64
+		lineageTag: 8a42f754-5d95-56c5-a4b5-eeb312d1b84f
+		summarizeBy: none
+		sourceColumn: lace_l
+
+	column lace_a
+		dataType: int64
+		lineageTag: 6afff349-5366-5e48-a188-23eef9001c7c
+		summarizeBy: none
+		sourceColumn: lace_a
+
+	column lace_c
+		dataType: int64
+		lineageTag: c2374e24-61e4-55a2-a166-c4dbb99d18e6
+		summarizeBy: none
+		sourceColumn: lace_c
+
+	column lace_e
+		dataType: int64
+		lineageTag: 79b25b00-dcbf-5a0c-af0e-8795133f561b
+		summarizeBy: none
+		sourceColumn: lace_e
+
+	column lace_score
+		dataType: int64
+		lineageTag: 65b3300c-641f-5818-ad93-204394ec6d8d
+		summarizeBy: none
+		sourceColumn: lace_score
+
+	column risk_tier
+		dataType: string
+		lineageTag: 0e62c205-a4e6-56b9-99e8-bbc542b7a43e
+		summarizeBy: none
+		sourceColumn: risk_tier
+
+	partition fact_index_admission = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    fact_index_admission = gold{[Name = "fact_index_admission", Kind = "Table"]}[Data]
+				in
+				    fact_index_admission

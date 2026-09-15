@@ -1,0 +1,61 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "patient_360_v03",
+  "position": {
+    "x": 20,
+    "y": 80,
+    "z": 3000,
+    "width": 300,
+    "height": 360,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "chronic_conditions"
+                }
+              },
+              "queryRef": "patient_360.chronic_conditions",
+              "nativeQueryRef": "chronic_conditions",
+              "displayName": "Chronic conditions"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Active chronic conditions'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

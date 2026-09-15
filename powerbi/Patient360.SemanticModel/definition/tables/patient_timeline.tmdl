@@ -1,0 +1,64 @@
+/// One row per event in a patient's history.
+table patient_timeline
+	lineageTag: 52f96da4-dc86-5992-b5e7-cee59ab9bef8
+
+	column patient_id
+		dataType: string
+		lineageTag: a8610619-3e0f-5bed-ba6f-4ca1f3b0be6b
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column event_ts
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: bfef3143-cc8e-5f1a-acff-2ee35958a8a3
+		summarizeBy: none
+		sourceColumn: event_ts
+
+	column event_category
+		dataType: string
+		lineageTag: e3653032-2c61-546f-8628-9d5145cb9830
+		summarizeBy: none
+		sourceColumn: event_category
+
+	column event_type
+		dataType: string
+		lineageTag: 1b4623ba-b356-5f68-a5ac-ae5368dacbc7
+		summarizeBy: none
+		sourceColumn: event_type
+
+	column description
+		dataType: string
+		lineageTag: 3f50faf8-f0e9-5fab-9b92-34d79c45e32e
+		summarizeBy: none
+		sourceColumn: description
+
+	column code
+		dataType: string
+		lineageTag: 130daec1-e63d-5dad-82fa-1f7e62732269
+		summarizeBy: none
+		sourceColumn: code
+
+	column encounter_id
+		dataType: string
+		lineageTag: 6c474ee8-a7d4-5926-80b3-3f85cecbef69
+		summarizeBy: none
+		sourceColumn: encounter_id
+
+	column amount
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 34736fd6-674c-5a34-86df-58a417de9e97
+		summarizeBy: none
+		sourceColumn: amount
+
+	partition patient_timeline = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    patient_timeline = gold{[Name = "patient_timeline", Kind = "Table"]}[Data]
+				in
+				    patient_timeline

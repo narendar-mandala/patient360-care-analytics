@@ -1,0 +1,76 @@
+/// One row per facility.
+table dim_facility
+	lineageTag: d1c53bdb-9686-5764-96d4-3427a1e0a94d
+
+	column facility_id
+		dataType: string
+		lineageTag: 1be352bf-da3b-56ec-a37a-3618a4b83ca9
+		summarizeBy: none
+		sourceColumn: facility_id
+
+	column source_system
+		dataType: string
+		lineageTag: 8bf38f2a-45e9-592f-a1f6-58fecc009927
+		summarizeBy: none
+		sourceColumn: source_system
+
+	column facility_name
+		dataType: string
+		lineageTag: 4c081ff9-1fa9-5fdb-bb01-3ae12ac3bf37
+		summarizeBy: none
+		sourceColumn: facility_name
+
+	column address
+		dataType: string
+		lineageTag: 72d8264b-1fe1-5677-948f-d5935d2a7db0
+		summarizeBy: none
+		sourceColumn: address
+
+	column city
+		dataType: string
+		lineageTag: 17fd0b88-99be-5bd8-b6e3-3f45e6fbd2f6
+		summarizeBy: none
+		sourceColumn: city
+
+	column state
+		dataType: string
+		lineageTag: 7f983f1d-50f4-52e1-a4d3-8eb9a264fc18
+		summarizeBy: none
+		sourceColumn: state
+
+	column zip
+		dataType: string
+		lineageTag: 1d6ea7cf-a6f9-5c20-94b3-f7f776853cc2
+		summarizeBy: none
+		sourceColumn: zip
+
+	column npi
+		dataType: string
+		lineageTag: 11b9027c-360b-5ca5-9518-dc46e33577b3
+		summarizeBy: none
+		sourceColumn: npi
+
+	column latitude
+		dataType: double
+		dataCategory: Latitude
+		lineageTag: 6e849c61-0f2f-576b-8f03-28dcc8a43834
+		summarizeBy: none
+		sourceColumn: latitude
+
+	column longitude
+		dataType: double
+		dataCategory: Longitude
+		lineageTag: bb3e92fb-fcb0-51f6-bd4f-fba063d37d98
+		summarizeBy: none
+		sourceColumn: longitude
+
+	partition dim_facility = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    dim_facility = gold{[Name = "dim_facility", Kind = "Table"]}[Data]
+				in
+				    dim_facility

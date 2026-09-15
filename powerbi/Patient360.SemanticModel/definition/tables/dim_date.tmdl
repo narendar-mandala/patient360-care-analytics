@@ -1,0 +1,90 @@
+/// One row per day. date_key (yyyymmdd) joins to the facts.
+table dim_date
+	lineageTag: a957de63-801c-5939-bd4c-a7c915bc0743
+
+	column date_key
+		dataType: int64
+		lineageTag: 8ab02b84-0548-5117-96b7-b4fca70cf829
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column 'date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 0eff3690-dd9e-5b8a-9fad-30bbf0d11ce8
+		summarizeBy: none
+		sourceColumn: date
+
+	column year
+		dataType: int64
+		lineageTag: 8df991e3-d50c-5567-b2d6-f7c6f68a2027
+		summarizeBy: none
+		sourceColumn: year
+
+	column quarter
+		dataType: int64
+		lineageTag: b6ca9ee4-a6c6-552b-86a0-ae2c4a0288ce
+		summarizeBy: none
+		sourceColumn: quarter
+
+	column year_quarter
+		dataType: string
+		lineageTag: fbb134a5-1b4c-51af-bb5d-58b6ef191b1e
+		summarizeBy: none
+		sourceColumn: year_quarter
+
+	column month
+		dataType: int64
+		lineageTag: 4fe1cc10-16fa-5422-a278-3f6c6f443f38
+		summarizeBy: none
+		sourceColumn: month
+
+	column month_name
+		dataType: string
+		sortByColumn: month
+		lineageTag: f79dda63-ca3e-5225-88d5-1cbdde5ca71b
+		summarizeBy: none
+		sourceColumn: month_name
+
+	column month_start
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 14a44c18-5d7c-523e-8722-928d069e8ab8
+		summarizeBy: none
+		sourceColumn: month_start
+
+	column year_month
+		dataType: string
+		lineageTag: f3f19d6b-6913-5a62-a803-41f6358f7dd4
+		summarizeBy: none
+		sourceColumn: year_month
+
+	column day_of_week
+		dataType: int64
+		lineageTag: 2e0d3a99-cb9c-54a4-8007-90b7b97598e5
+		summarizeBy: none
+		sourceColumn: day_of_week
+
+	column day_name
+		dataType: string
+		sortByColumn: day_of_week
+		lineageTag: ad01f3c4-3e7c-58f2-8b59-6f5d33f12154
+		summarizeBy: none
+		sourceColumn: day_name
+
+	column is_in_analysis_period
+		dataType: boolean
+		lineageTag: 719c2a2d-f336-51a9-9693-0e071627f531
+		summarizeBy: none
+		sourceColumn: is_in_analysis_period
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    dim_date = gold{[Name = "dim_date", Kind = "Table"]}[Data]
+				in
+				    dim_date

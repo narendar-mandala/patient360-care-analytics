@@ -1,0 +1,211 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "patient_360_v02",
+  "position": {
+    "x": 330,
+    "y": 10,
+    "z": 2000,
+    "width": 930,
+    "height": 120,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "age"
+                }
+              },
+              "queryRef": "patient_360.age",
+              "nativeQueryRef": "age",
+              "displayName": "Age"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "sex"
+                }
+              },
+              "queryRef": "patient_360.sex",
+              "nativeQueryRef": "sex",
+              "displayName": "Sex"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "current_payer_name"
+                }
+              },
+              "queryRef": "patient_360.current_payer_name",
+              "nativeQueryRef": "current_payer_name",
+              "displayName": "Payer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "latest_risk_tier"
+                }
+              },
+              "queryRef": "patient_360.latest_risk_tier",
+              "nativeQueryRef": "latest_risk_tier",
+              "displayName": "Risk tier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "latest_lace_score"
+                }
+              },
+              "queryRef": "patient_360.latest_lace_score",
+              "nativeQueryRef": "latest_lace_score",
+              "displayName": "LACE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "visits_12_months"
+                }
+              },
+              "queryRef": "patient_360.visits_12_months",
+              "nativeQueryRef": "visits_12_months",
+              "displayName": "Visits (12 mo)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "inpatient_admissions_12_months"
+                }
+              },
+              "queryRef": "patient_360.inpatient_admissions_12_months",
+              "nativeQueryRef": "inpatient_admissions_12_months",
+              "displayName": "Admissions (12 mo)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "ed_visits_12_months"
+                }
+              },
+              "queryRef": "patient_360.ed_visits_12_months",
+              "nativeQueryRef": "ed_visits_12_months",
+              "displayName": "ED visits (12 mo)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "medical_cost_12_months"
+                }
+              },
+              "queryRef": "patient_360.medical_cost_12_months",
+              "nativeQueryRef": "medical_cost_12_months",
+              "displayName": "Medical cost (12 mo)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "active_medication_count"
+                }
+              },
+              "queryRef": "patient_360.active_medication_count",
+              "nativeQueryRef": "active_medication_count",
+              "displayName": "Active meds"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "is_high_utilizer"
+                }
+              },
+              "queryRef": "patient_360.is_high_utilizer",
+              "nativeQueryRef": "is_high_utilizer",
+              "displayName": "High utilizer"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Patient summary (as of the reporting date)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

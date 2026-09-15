@@ -1,0 +1,44 @@
+/// One row per payer, with payer category.
+table dim_payer
+	lineageTag: 2a959433-5d13-5593-b3ff-e1116fb451cd
+
+	column payer_id
+		dataType: string
+		lineageTag: deb23252-b8b9-520e-bc8e-7ce82bb52366
+		summarizeBy: none
+		sourceColumn: payer_id
+
+	column payer_name
+		dataType: string
+		lineageTag: 439f7e8e-02a4-573b-81ea-419d85987ed3
+		summarizeBy: none
+		sourceColumn: payer_name
+
+	column payer_type
+		dataType: string
+		lineageTag: 79ab2c38-5289-52e5-aa97-cfd5002b024d
+		summarizeBy: none
+		sourceColumn: payer_type
+
+	column payer_category
+		dataType: string
+		lineageTag: 17907a04-544d-5ba0-bfd2-95d1e378521b
+		summarizeBy: none
+		sourceColumn: payer_category
+
+	column ownership
+		dataType: string
+		lineageTag: cfdd1938-550f-52ec-a0aa-03b60693e99d
+		summarizeBy: none
+		sourceColumn: ownership
+
+	partition dim_payer = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    dim_payer = gold{[Name = "dim_payer", Kind = "Table"]}[Data]
+				in
+				    dim_payer

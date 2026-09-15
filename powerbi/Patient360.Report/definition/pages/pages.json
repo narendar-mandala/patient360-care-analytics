@@ -1,0 +1,10 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "pageOrder": [
+    "executive_overview",
+    "patient_360",
+    "utilization_cost",
+    "care_management"
+  ],
+  "activePageName": "executive_overview"
+}

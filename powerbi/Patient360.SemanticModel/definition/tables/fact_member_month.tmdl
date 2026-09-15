@@ -1,0 +1,51 @@
+/// One row per patient per month of insurance coverage.
+table fact_member_month
+	lineageTag: 16444972-d590-5ae3-bfdc-1a36f2acedf3
+
+	column patient_id
+		dataType: string
+		lineageTag: 5364a2eb-7831-59fc-9f77-db06dfa380bb
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column month_start
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 3824523d-9db6-57aa-9674-8194c8d612c0
+		summarizeBy: none
+		sourceColumn: month_start
+
+	column month_date_key
+		dataType: int64
+		lineageTag: 7be90aba-ad68-5ea8-8479-18e8925b81bd
+		summarizeBy: none
+		sourceColumn: month_date_key
+
+	column payer_id
+		dataType: string
+		lineageTag: 7b1708be-f6ff-5aa5-8424-b6714ebfc329
+		summarizeBy: none
+		sourceColumn: payer_id
+
+	column payer_category
+		dataType: string
+		lineageTag: ece250a5-b9b1-5220-956a-6f5020f5cffa
+		summarizeBy: none
+		sourceColumn: payer_category
+
+	column member_id
+		dataType: string
+		lineageTag: 34f842fe-3199-5fa6-b059-fe0e6e1ce0e9
+		summarizeBy: none
+		sourceColumn: member_id
+
+	partition fact_member_month = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    fact_member_month = gold{[Name = "fact_member_month", Kind = "Table"]}[Data]
+				in
+				    fact_member_month

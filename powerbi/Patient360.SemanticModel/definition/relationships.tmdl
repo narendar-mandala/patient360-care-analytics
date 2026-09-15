@@ -1,0 +1,123 @@
+relationship 4b390880-4f94-5bd6-a55f-d720ab3ffe9b
+	fromColumn: fact_encounter.patient_id
+	toColumn: dim_patient.patient_id
+
+relationship 295956b9-6c8a-5af6-a9a1-83226b7db6f7
+	fromColumn: fact_encounter.facility_id
+	toColumn: dim_facility.facility_id
+
+relationship c9265842-7285-5f1b-8690-9fef756fa45a
+	fromColumn: fact_encounter.provider_id
+	toColumn: dim_provider.provider_id
+
+relationship b72db2b0-3d06-50e2-b75d-f9fea9b94a9d
+	fromColumn: fact_encounter.payer_id
+	toColumn: dim_payer.payer_id
+
+relationship 98965db1-f78a-5b94-a48c-d21c6fdf62bf
+	fromColumn: fact_encounter.start_date_key
+	toColumn: dim_date.date_key
+
+relationship 7278d11b-7861-5d38-b797-94d02456e1ae
+	fromColumn: fact_index_admission.patient_id
+	toColumn: dim_patient.patient_id
+
+relationship d0619b91-541a-515b-9385-f646796697fa
+	fromColumn: fact_index_admission.facility_id
+	toColumn: dim_facility.facility_id
+
+relationship e95acaa8-fb34-5cff-953b-4d31f30e51ba
+	fromColumn: fact_index_admission.payer_id
+	toColumn: dim_payer.payer_id
+
+relationship b9a82865-975e-5136-bd8a-0d8bb4f05766
+	fromColumn: fact_index_admission.discharge_date_key
+	toColumn: dim_date.date_key
+
+relationship 994f6008-2c1f-5a50-885a-e62d2b44ae4e
+	fromColumn: fact_claim.patient_id
+	toColumn: dim_patient.patient_id
+
+relationship db2b5d7d-0e98-5f43-a853-cb60d2054278
+	fromColumn: fact_claim.provider_id
+	toColumn: dim_provider.provider_id
+
+relationship 8a12c7e9-0c5a-5fc4-bc1e-e936fbfd3d6d
+	fromColumn: fact_claim.payer_id
+	toColumn: dim_payer.payer_id
+
+relationship 600a5ac0-6d39-56a0-8876-7da995f629fd
+	fromColumn: fact_claim.service_date_key
+	toColumn: dim_date.date_key
+
+relationship 139463d9-3482-57b4-8c13-c0926caf5dec
+	fromColumn: fact_condition.patient_id
+	toColumn: dim_patient.patient_id
+
+relationship 8e75845b-eb7e-5942-a0b2-827bc5d9c066
+	fromColumn: fact_condition.icd10cm_code
+	toColumn: dim_diagnosis.icd10cm_code
+
+relationship 387419c3-58ae-562f-9739-fffad0e43d02
+	fromColumn: fact_procedure.patient_id
+	toColumn: dim_patient.patient_id
+
+relationship 04a44050-0fd5-54f3-9df5-4cb1928e96cb
+	fromColumn: fact_procedure.procedure_date_key
+	toColumn: dim_date.date_key
+
+relationship 0076332b-9bbe-52f9-8744-dbbe677d497a
+	fromColumn: fact_lab_result.patient_id
+	toColumn: dim_patient.patient_id
+
+relationship 36d5d8e1-442f-5e8c-a8b2-645fd5f4a1a9
+	fromColumn: fact_lab_result.result_date_key
+	toColumn: dim_date.date_key
+
+relationship 74fd72a3-30c3-5e5c-9f4d-6c73a1285d34
+	fromColumn: fact_medication.patient_id
+	toColumn: dim_patient.patient_id
+
+relationship cf03fb38-a22d-5f2a-96d4-2bad64415be4
+	fromColumn: fact_medication.payer_id
+	toColumn: dim_payer.payer_id
+
+relationship 95390ccc-8124-5166-a8aa-f9624a6598e2
+	fromColumn: fact_medication.start_date_key
+	toColumn: dim_date.date_key
+
+relationship 5c7379e3-c05f-52ce-9240-ab15406a8860
+	fromColumn: fact_member_month.patient_id
+	toColumn: dim_patient.patient_id
+
+relationship a2da9543-be17-5226-b301-c4df9ed72dce
+	fromColumn: fact_member_month.payer_id
+	toColumn: dim_payer.payer_id
+
+relationship a822dffb-4f9d-5b8d-8d45-be7082611c21
+	fromColumn: fact_member_month.month_date_key
+	toColumn: dim_date.date_key
+
+relationship c34b92a6-51e7-5763-8a9e-5456d817eebf
+	fromColumn: kpi_monthly.month_date_key
+	toColumn: dim_date.date_key
+
+relationship 385f3b97-731a-552d-81ce-7b37ff503732
+	fromColumn: kpi_monthly.facility_id
+	toColumn: dim_facility.facility_id
+
+relationship ec4f48a6-2c21-501c-a573-f9a038450d8f
+	fromColumn: kpi_active_patients_monthly.month_date_key
+	toColumn: dim_date.date_key
+
+relationship 6b77ce02-9924-5cd6-9e7a-1198737189b2
+	fromColumn: patient_360.patient_id
+	toColumn: dim_patient.patient_id
+
+relationship 38da3e19-41d2-5471-a649-bb5cd55e7609
+	fromColumn: patient_timeline.patient_id
+	toColumn: dim_patient.patient_id
+
+relationship 348bcfdc-db0c-5cd2-a653-5537eed7d687
+	fromColumn: care_management_worklist.patient_id
+	toColumn: dim_patient.patient_id

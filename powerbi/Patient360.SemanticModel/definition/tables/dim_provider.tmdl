@@ -1,0 +1,68 @@
+/// One row per clinician.
+table dim_provider
+	lineageTag: 53bb908d-0fcb-504a-892b-568af1397012
+
+	column provider_id
+		dataType: string
+		lineageTag: ae9b825b-8a52-54d2-a517-8bd59d009547
+		summarizeBy: none
+		sourceColumn: provider_id
+
+	column source_system
+		dataType: string
+		lineageTag: 0c36db71-6eab-5be6-af35-3ed6b2685586
+		summarizeBy: none
+		sourceColumn: source_system
+
+	column provider_name
+		dataType: string
+		lineageTag: bb3aef9e-3052-56f8-a332-8c5bbd49b5b0
+		summarizeBy: none
+		sourceColumn: provider_name
+
+	column sex
+		dataType: string
+		lineageTag: c4b985c7-2d70-5c66-be4b-308624c93bd0
+		summarizeBy: none
+		sourceColumn: sex
+
+	column specialty
+		dataType: string
+		lineageTag: 3b96e911-dcac-5735-869a-78b1664aa9cb
+		summarizeBy: none
+		sourceColumn: specialty
+
+	column facility_id
+		dataType: string
+		lineageTag: 04fea59c-92be-518f-8362-4dffa43975cb
+		summarizeBy: none
+		sourceColumn: facility_id
+
+	column npi
+		dataType: string
+		lineageTag: b2c12b2e-b6d9-58a0-8f95-bb90ea1c03de
+		summarizeBy: none
+		sourceColumn: npi
+
+	column city
+		dataType: string
+		lineageTag: 8664c183-c0a1-560e-aa05-9894e2cca91b
+		summarizeBy: none
+		sourceColumn: city
+
+	column state
+		dataType: string
+		lineageTag: 77d5f902-448c-5e99-b7f8-b51770f24537
+		summarizeBy: none
+		sourceColumn: state
+
+	partition dim_provider = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    dim_provider = gold{[Name = "dim_provider", Kind = "Table"]}[Data]
+				in
+				    dim_provider

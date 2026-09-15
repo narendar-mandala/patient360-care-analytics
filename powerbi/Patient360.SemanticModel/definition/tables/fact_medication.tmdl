@@ -1,0 +1,115 @@
+/// One row per medication order.
+table fact_medication
+	lineageTag: c6c38e26-c80c-5f83-b1e2-a3d225781c5f
+
+	column medication_order_id
+		dataType: string
+		lineageTag: 4a746aa8-0106-5fdc-8397-4890ffed11af
+		summarizeBy: none
+		sourceColumn: medication_order_id
+
+	column patient_id
+		dataType: string
+		lineageTag: 8178743d-9716-55cb-b50b-006e08f778f2
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column encounter_id
+		dataType: string
+		lineageTag: e1c47d04-ca26-5115-8005-5e62b239d8bf
+		summarizeBy: none
+		sourceColumn: encounter_id
+
+	column payer_id
+		dataType: string
+		lineageTag: b9e0d499-0b51-5cad-abcc-7ffe412a037b
+		summarizeBy: none
+		sourceColumn: payer_id
+
+	column start_date_key
+		dataType: int64
+		lineageTag: 61cbdb68-572e-5c66-9246-1a7b6f9df512
+		summarizeBy: none
+		sourceColumn: start_date_key
+
+	column start_ts
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: fc66b10e-4066-50ab-ac77-97221c88b084
+		summarizeBy: none
+		sourceColumn: start_ts
+
+	column stop_ts
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: 8e1708b8-9bd7-555c-8063-5650e9586258
+		summarizeBy: none
+		sourceColumn: stop_ts
+
+	column is_active
+		dataType: boolean
+		lineageTag: e29f98d5-23af-54f2-ab03-874b38d0945c
+		summarizeBy: none
+		sourceColumn: is_active
+
+	column rxnorm_code
+		dataType: string
+		lineageTag: e19021bd-1c31-5170-be8e-623fed71d1a7
+		summarizeBy: none
+		sourceColumn: rxnorm_code
+
+	column description
+		dataType: string
+		lineageTag: 2d3d02e6-9595-5025-9f7a-bce387249270
+		summarizeBy: none
+		sourceColumn: description
+
+	column dispenses
+		dataType: int64
+		lineageTag: 654723bb-9d3a-541c-bc1b-345c60407d7e
+		summarizeBy: none
+		sourceColumn: dispenses
+
+	column pharmacy_cost
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 3af7ef2a-a6f3-591b-89c9-945460813336
+		summarizeBy: none
+		sourceColumn: pharmacy_cost
+
+	column payer_paid
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 608f6748-033d-57d8-a598-d5edabc12540
+		summarizeBy: none
+		sourceColumn: payer_paid
+
+	column patient_responsibility
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 3d25ca18-5845-5ecf-877e-75e8c50f9a57
+		summarizeBy: none
+		sourceColumn: patient_responsibility
+
+	column reason_icd10cm_code
+		dataType: string
+		lineageTag: 3fcd19f5-8e76-5ad9-9d90-75c7e2f5c2f7
+		summarizeBy: none
+		sourceColumn: reason_icd10cm_code
+
+	column condition_group
+		dataType: string
+		lineageTag: ae7515b5-94c3-5726-81ee-cbd60a3763b8
+		summarizeBy: none
+		sourceColumn: condition_group
+
+	partition fact_medication = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    fact_medication = gold{[Name = "fact_medication", Kind = "Table"]}[Data]
+				in
+				    fact_medication

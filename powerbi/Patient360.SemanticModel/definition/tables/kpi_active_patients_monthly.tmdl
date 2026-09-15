@@ -1,0 +1,33 @@
+/// Active patients per month (denominator for ED visits per 1,000).
+table kpi_active_patients_monthly
+	lineageTag: cb21b7c9-1992-5002-8eaa-522ce9480622
+
+	column month_start
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 86369ae4-5585-5fe9-a937-5df64837da82
+		summarizeBy: none
+		sourceColumn: month_start
+
+	column month_date_key
+		dataType: int64
+		lineageTag: c1313524-719f-5643-bbfa-0e9f4939e46e
+		summarizeBy: none
+		sourceColumn: month_date_key
+
+	column active_patients
+		dataType: int64
+		lineageTag: 570d0e01-f2a7-5670-ab8f-f7b1f2dbee83
+		summarizeBy: none
+		sourceColumn: active_patients
+
+	partition kpi_active_patients_monthly = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    kpi_active_patients_monthly = gold{[Name = "kpi_active_patients_monthly", Kind = "Table"]}[Data]
+				in
+				    kpi_active_patients_monthly

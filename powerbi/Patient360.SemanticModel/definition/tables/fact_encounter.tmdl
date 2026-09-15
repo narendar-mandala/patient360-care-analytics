@@ -1,0 +1,151 @@
+/// One row per visit or stay.
+table fact_encounter
+	lineageTag: 574f0088-0af7-526c-919f-58cd83878d64
+
+	column encounter_id
+		dataType: string
+		lineageTag: 98930542-e49e-51ca-9eab-38a6aa4d6e9b
+		summarizeBy: none
+		sourceColumn: encounter_id
+
+	column source_system
+		dataType: string
+		lineageTag: f0efd0af-8de6-5646-9426-ff17b5885fd2
+		summarizeBy: none
+		sourceColumn: source_system
+
+	column patient_id
+		dataType: string
+		lineageTag: abc8c169-7fb6-5912-b857-2c1f7046cb0a
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column provider_id
+		dataType: string
+		lineageTag: 5a7362b8-94a3-5045-85a6-092eee5865ab
+		summarizeBy: none
+		sourceColumn: provider_id
+
+	column facility_id
+		dataType: string
+		lineageTag: 955fb1ba-b06c-5bf2-8294-34450497111b
+		summarizeBy: none
+		sourceColumn: facility_id
+
+	column payer_id
+		dataType: string
+		lineageTag: a77a8a0e-2d4e-54da-b113-a51ac2e72ec8
+		summarizeBy: none
+		sourceColumn: payer_id
+
+	column start_date_key
+		dataType: int64
+		lineageTag: 69a03617-3888-5ffd-9698-209eba21bcea
+		summarizeBy: none
+		sourceColumn: start_date_key
+
+	column end_date_key
+		dataType: int64
+		lineageTag: af39e91b-9f68-5d77-bbd2-1db8e0ab1a7a
+		summarizeBy: none
+		sourceColumn: end_date_key
+
+	column start_ts
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: 94ff0f10-52d9-5c5c-96dc-429879b25ece
+		summarizeBy: none
+		sourceColumn: start_ts
+
+	column end_ts
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: 6ff56923-2d47-59ee-bd6a-84b9eabc8173
+		summarizeBy: none
+		sourceColumn: end_ts
+
+	column care_setting
+		dataType: string
+		lineageTag: 73480c93-9a79-5687-b279-b84a2f2ec893
+		summarizeBy: none
+		sourceColumn: care_setting
+
+	column encounter_class
+		dataType: string
+		lineageTag: fc55b8bf-62ae-5fe6-b71a-a10b580f46ae
+		summarizeBy: none
+		sourceColumn: encounter_class
+
+	column encounter_type
+		dataType: string
+		lineageTag: 191c62ca-8854-54bd-879b-75e38db49f67
+		summarizeBy: none
+		sourceColumn: encounter_type
+
+	column is_inpatient
+		dataType: boolean
+		lineageTag: be8da9dc-7807-5775-a2f2-030b468c8e15
+		summarizeBy: none
+		sourceColumn: is_inpatient
+
+	column is_emergency
+		dataType: boolean
+		lineageTag: a0f738c9-f586-5340-91b3-8eaeffefecdf
+		summarizeBy: none
+		sourceColumn: is_emergency
+
+	column length_of_stay_days
+		dataType: int64
+		lineageTag: 15fdb096-ad33-55cf-af33-b575b0fc6bd9
+		summarizeBy: none
+		sourceColumn: length_of_stay_days
+
+	column reason_icd10cm_code
+		dataType: string
+		lineageTag: 371968d6-33de-5c90-a245-8a878eca6142
+		summarizeBy: none
+		sourceColumn: reason_icd10cm_code
+
+	column reason_description
+		dataType: string
+		lineageTag: 41c64f53-f35f-5499-bcf5-aacb1e4970d8
+		summarizeBy: none
+		sourceColumn: reason_description
+
+	column condition_group
+		dataType: string
+		lineageTag: 43d4ae3c-fb60-5c42-904b-95dedf3e8b11
+		summarizeBy: none
+		sourceColumn: condition_group
+
+	column medical_cost
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 83c5d46a-cc92-51ba-ab6a-64720b792785
+		summarizeBy: none
+		sourceColumn: medical_cost
+
+	column payer_paid
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: b710ebe6-0a52-569c-b6a6-54f03beb3f6d
+		summarizeBy: none
+		sourceColumn: payer_paid
+
+	column patient_responsibility
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 0f914942-22a9-5a32-b351-6d97913f75d9
+		summarizeBy: none
+		sourceColumn: patient_responsibility
+
+	partition fact_encounter = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    fact_encounter = gold{[Name = "fact_encounter", Kind = "Table"]}[Data]
+				in
+				    fact_encounter

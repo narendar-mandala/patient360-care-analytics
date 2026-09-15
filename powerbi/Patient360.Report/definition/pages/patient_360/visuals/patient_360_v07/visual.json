@@ -1,0 +1,109 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "patient_360_v07",
+  "position": {
+    "x": 860,
+    "y": 450,
+    "z": 7000,
+    "width": 400,
+    "height": 260,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_medication"
+                    }
+                  },
+                  "Property": "start_ts"
+                }
+              },
+              "queryRef": "fact_medication.start_ts",
+              "nativeQueryRef": "start_ts",
+              "displayName": "Started"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_medication"
+                    }
+                  },
+                  "Property": "description"
+                }
+              },
+              "queryRef": "fact_medication.description",
+              "nativeQueryRef": "description",
+              "displayName": "Medication"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_medication"
+                    }
+                  },
+                  "Property": "is_active"
+                }
+              },
+              "queryRef": "fact_medication.is_active",
+              "nativeQueryRef": "is_active",
+              "displayName": "Active"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_medication"
+                  }
+                },
+                "Property": "start_ts"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Medications'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

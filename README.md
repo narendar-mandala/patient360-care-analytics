@@ -42,7 +42,7 @@ Reference CSVs ────┘                        as-is      mapped,    KPIs
 | | Silver: typed, mapped, quality-checked tables | Done (14 tables, see docs/05_silver.md) |
 | | Gold: star schema, KPIs, Patient 360 | Done (19 tables, see docs/06_gold.md) |
 | | Deploy: Asset Bundle job and CI | Done (daily job with data checks, GitHub Actions; see docs/07_deploy_and_ci.md) |
-| | Power BI: executive, Patient 360, utilization and cost, care management | Next |
+| | Power BI: executive, Patient 360, utilization and cost, care management | Done (PBIP project, see docs/08_power_bi.md) |
 | **2** | Realistic readmission and ED rates, Clarity-style tables, detailed billing and denials, deliberate data quality defects | Planned (earlier work kept on branch `phase2-realism`) |
 | **3** | Readmission risk model, risk explanations, GenAI patient summaries | Planned |
 
@@ -55,6 +55,7 @@ data_generation/synthea/   Synthea population generation and profiling
 reference/                 lookup CSVs (code mappings, payer types, risk tables) and their checks
 scripts/                   upload to the Databricks Volume
 databricks/                pipelines (bronze, silver, gold), setup SQL, validation SQL
+powerbi/                   Power BI project: semantic model (TMDL) and report (PBIR)
 resources/                 Databricks Asset Bundle resources (pipeline and daily job)
 .github/workflows/         CI: reference data tests, bundle validate and deploy
 data/                      local raw files (git-ignored)
@@ -69,3 +70,4 @@ data/                      local raw files (git-ignored)
 5. [docs/05_silver.md](docs/05_silver.md): the Silver pattern and tables
 6. [docs/06_gold.md](docs/06_gold.md): Gold tables, KPI definitions and readmission logic
 7. [docs/07_deploy_and_ci.md](docs/07_deploy_and_ci.md): the daily job, data checks and CI setup
+8. [docs/08_power_bi.md](docs/08_power_bi.md): connect the Power BI report, model and pages

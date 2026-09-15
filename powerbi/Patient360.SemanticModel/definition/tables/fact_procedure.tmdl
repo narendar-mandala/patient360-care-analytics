@@ -1,0 +1,88 @@
+/// One row per procedure.
+table fact_procedure
+	lineageTag: 61a5c8bc-cc49-5019-b801-8ff84dde1c36
+
+	column procedure_id
+		dataType: string
+		lineageTag: 39b3ee02-8012-58f2-a9d9-dca4d27efa52
+		summarizeBy: none
+		sourceColumn: procedure_id
+
+	column patient_id
+		dataType: string
+		lineageTag: 6d4cf46f-6980-5d4a-ac11-1beae550bb1f
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column encounter_id
+		dataType: string
+		lineageTag: c47f07d7-0ea3-56d4-ad3e-5f714d6dbfcb
+		summarizeBy: none
+		sourceColumn: encounter_id
+
+	column procedure_date_key
+		dataType: int64
+		lineageTag: ea754951-367a-549d-ac35-cfbe270d0e5f
+		summarizeBy: none
+		sourceColumn: procedure_date_key
+
+	column start_ts
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: 2e4daeba-0d58-56c2-98f5-b9da1b787ba8
+		summarizeBy: none
+		sourceColumn: start_ts
+
+	column snomed_code
+		dataType: string
+		lineageTag: 46a2452f-fd27-5ec2-be89-d4a86f95f505
+		summarizeBy: none
+		sourceColumn: snomed_code
+
+	column description
+		dataType: string
+		lineageTag: d655b8f4-ff50-5d90-9c8e-159d3862c857
+		summarizeBy: none
+		sourceColumn: description
+
+	column billing_code
+		dataType: string
+		lineageTag: 50d708e2-3d6b-54d4-9031-07610f1c2cba
+		summarizeBy: none
+		sourceColumn: billing_code
+
+	column billing_code_system
+		dataType: string
+		lineageTag: fd30d7f7-2096-5754-a10f-5e41a9b8274b
+		summarizeBy: none
+		sourceColumn: billing_code_system
+
+	column service_category
+		dataType: string
+		lineageTag: 3339a692-51cc-56cc-a245-751dd456f91a
+		summarizeBy: none
+		sourceColumn: service_category
+
+	column is_billable
+		dataType: boolean
+		lineageTag: 5c3ec3f6-b02b-52bd-9e45-ba0bc393bea2
+		summarizeBy: none
+		sourceColumn: is_billable
+
+	column base_cost
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: f6434bf7-6792-5c77-bbf5-40e23d7e87c6
+		summarizeBy: none
+		sourceColumn: base_cost
+
+	partition fact_procedure = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    fact_procedure = gold{[Name = "fact_procedure", Kind = "Table"]}[Data]
+				in
+				    fact_procedure

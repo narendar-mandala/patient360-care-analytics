@@ -1,0 +1,105 @@
+/// One row per lab result, with abnormal flag.
+table fact_lab_result
+	lineageTag: c16a035b-891a-5d68-ac64-3eba7e08cdde
+
+	column lab_result_id
+		dataType: string
+		lineageTag: 0e888cca-793e-5e98-9bbc-5702e2258fdf
+		summarizeBy: none
+		sourceColumn: lab_result_id
+
+	column patient_id
+		dataType: string
+		lineageTag: 07cb74dd-9b2e-574f-976e-fd5b7fbb7dcd
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column encounter_id
+		dataType: string
+		lineageTag: a24a48cf-4350-5db5-a511-26f27a0c2d5a
+		summarizeBy: none
+		sourceColumn: encounter_id
+
+	column result_date_key
+		dataType: int64
+		lineageTag: f55d4218-d169-5731-bd39-73d64c79a2c4
+		summarizeBy: none
+		sourceColumn: result_date_key
+
+	column result_ts
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: 37f8805d-5d25-5ac5-9fb7-1da7a27e86e6
+		summarizeBy: none
+		sourceColumn: result_ts
+
+	column loinc_code
+		dataType: string
+		lineageTag: a0809a69-19f1-5163-8deb-e089f5d9cdae
+		summarizeBy: none
+		sourceColumn: loinc_code
+
+	column test_name
+		dataType: string
+		lineageTag: 2f6a6e19-1aaa-59a5-ae8c-39001fe1c10e
+		summarizeBy: none
+		sourceColumn: test_name
+
+	column lab_panel
+		dataType: string
+		lineageTag: 197dfbc3-7f36-5dd8-8dae-1c22c750b5e2
+		summarizeBy: none
+		sourceColumn: lab_panel
+
+	column value_numeric
+		dataType: double
+		lineageTag: 2b4e1257-3069-50a5-8154-5f1363568e26
+		summarizeBy: none
+		sourceColumn: value_numeric
+
+	column value_text
+		dataType: string
+		lineageTag: 0ca282b4-8c8c-57f2-9f33-c63a0c0335d9
+		summarizeBy: none
+		sourceColumn: value_text
+
+	column units
+		dataType: string
+		lineageTag: 8af261b2-ef10-54f9-ab74-b5de45ae6aa7
+		summarizeBy: none
+		sourceColumn: units
+
+	column reference_low
+		dataType: double
+		lineageTag: c88a4eab-7591-5011-a6fd-fcd1b662e8a2
+		summarizeBy: none
+		sourceColumn: reference_low
+
+	column reference_high
+		dataType: double
+		lineageTag: ca9b1afa-b482-5685-a228-2c5d56d4f2d7
+		summarizeBy: none
+		sourceColumn: reference_high
+
+	column abnormal_flag
+		dataType: string
+		lineageTag: c64f36b8-72f4-523c-bd5d-2880032596c4
+		summarizeBy: none
+		sourceColumn: abnormal_flag
+
+	column is_abnormal
+		dataType: boolean
+		lineageTag: 9c0367c0-e4c4-5c51-be4c-14185b828772
+		summarizeBy: none
+		sourceColumn: is_abnormal
+
+	partition fact_lab_result = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    fact_lab_result = gold{[Name = "fact_lab_result", Kind = "Table"]}[Data]
+				in
+				    fact_lab_result

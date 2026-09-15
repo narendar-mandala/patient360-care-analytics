@@ -1,0 +1,115 @@
+/// Monthly counts and sums by facility, payer category and condition group.
+table kpi_monthly
+	lineageTag: 01542cf2-e59b-5f5e-8781-bdf9f2551b41
+
+	column month_start
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 26a8143a-3449-5871-bd06-5db0506d6c9b
+		summarizeBy: none
+		sourceColumn: month_start
+
+	column month_date_key
+		dataType: int64
+		lineageTag: 1986d84f-0c1b-59db-9949-4f8dacc31b7e
+		summarizeBy: none
+		sourceColumn: month_date_key
+
+	column facility_id
+		dataType: string
+		lineageTag: baec760e-418f-5a74-96a0-bac6aa5493c8
+		summarizeBy: none
+		sourceColumn: facility_id
+
+	column payer_category
+		dataType: string
+		lineageTag: 3d8b3d7c-2f5d-566e-b92b-978fb1e83fb0
+		summarizeBy: none
+		sourceColumn: payer_category
+
+	column condition_group
+		dataType: string
+		lineageTag: 25f602d1-d71d-5ff4-bf17-29dedbbb305a
+		summarizeBy: none
+		sourceColumn: condition_group
+
+	column admissions
+		dataType: int64
+		lineageTag: 6d1834ce-3b5f-57f3-b75d-e02fc4538ce4
+		summarizeBy: none
+		sourceColumn: admissions
+
+	column discharges
+		dataType: int64
+		lineageTag: 4d424fe7-1798-55bc-a04f-92ec709603b0
+		summarizeBy: none
+		sourceColumn: discharges
+
+	column inpatient_days
+		dataType: int64
+		lineageTag: c75a0849-0fa4-5511-abd5-d96a687d87e0
+		summarizeBy: none
+		sourceColumn: inpatient_days
+
+	column ed_visits
+		dataType: int64
+		lineageTag: a18ef227-de9b-5a24-a784-22288a090c95
+		summarizeBy: none
+		sourceColumn: ed_visits
+
+	column index_admissions
+		dataType: int64
+		lineageTag: d29da973-1b22-544a-ae7f-51bd025e47bf
+		summarizeBy: none
+		sourceColumn: index_admissions
+
+	column readmissions
+		dataType: int64
+		lineageTag: c381445f-2884-5dbc-ba7b-ee376b5b5c48
+		summarizeBy: none
+		sourceColumn: readmissions
+
+	column post_discharge_ed_visits
+		dataType: int64
+		lineageTag: a2d7e9cd-c714-5f0e-8e1e-576121353413
+		summarizeBy: none
+		sourceColumn: post_discharge_ed_visits
+
+	column readmission_cost
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 4893633d-e3f3-5bd2-8b00-b9cae082cb15
+		summarizeBy: none
+		sourceColumn: readmission_cost
+
+	column medical_cost
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 09869284-85b1-5632-9d50-7a8b67a15a07
+		summarizeBy: none
+		sourceColumn: medical_cost
+
+	column payer_paid
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 0ead5e40-72da-5461-82a7-c8b1343a24c1
+		summarizeBy: none
+		sourceColumn: payer_paid
+
+	column patient_responsibility
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: fefa46a4-2069-5176-90f5-b44cacd0f05e
+		summarizeBy: none
+		sourceColumn: patient_responsibility
+
+	partition kpi_monthly = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    kpi_monthly = gold{[Name = "kpi_monthly", Kind = "Table"]}[Data]
+				in
+				    kpi_monthly

@@ -1,0 +1,184 @@
+/// All report measures. Each one sums or divides Gold columns; definitions are in docs/06_gold.md.
+table _Measures
+	lineageTag: e5a7383b-05d5-5767-bb7e-8cb765a970a8
+
+	/// Inpatient stays that started in the period
+	measure Admissions = SUM(kpi_monthly[admissions])
+		formatString: #,0
+		displayFolder: Utilization
+		lineageTag: ced07da1-113d-5698-9a0d-b510d072a2e6
+
+	/// Inpatient stays that ended in the period
+	measure Discharges = SUM(kpi_monthly[discharges])
+		formatString: #,0
+		displayFolder: Utilization
+		lineageTag: c4ebc8e9-a4a0-59f8-b2d4-046f812e7e31
+
+	/// Days in hospital for stays that ended in the period
+	measure 'Inpatient Days' = SUM(kpi_monthly[inpatient_days])
+		formatString: #,0
+		displayFolder: Utilization
+		lineageTag: ee065060-6049-5012-acc4-3832d0025234
+
+	/// Inpatient days divided by discharges
+	measure 'Average Length of Stay' = DIVIDE([Inpatient Days], [Discharges])
+		formatString: 0.00
+		displayFolder: Utilization
+		lineageTag: bef75488-6ac9-5c1c-bcde-761821e66134
+
+	/// Emergency department visits
+	measure 'ED Visits' = SUM(kpi_monthly[ed_visits])
+		formatString: #,0
+		displayFolder: Utilization
+		lineageTag: 2d80ec42-a4b3-52fa-ad85-04488b7d4c26
+
+	/// Active patients summed across months
+	measure 'Active Patient Months' = SUM(kpi_active_patients_monthly[active_patients])
+		formatString: #,0
+		displayFolder: Utilization
+		lineageTag: 7fdf3025-4a08-5040-8fd7-1373c740ee04
+
+	/// ED visits per 1,000 active patients per year
+	measure 'ED Visits per 1,000' = DIVIDE([ED Visits] * 12000, [Active Patient Months])
+		formatString: #,0.0
+		displayFolder: Utilization
+		lineageTag: 5a373cde-a02d-5944-b485-eb8849fa6ab7
+
+	/// Patients with at least one encounter
+	measure 'Patients Seen' = DISTINCTCOUNT(fact_encounter[patient_id])
+		formatString: #,0
+		displayFolder: Utilization
+		lineageTag: bebe77fd-0d2c-5445-ada6-4463810e7b8f
+
+	/// Living patients with 2+ inpatient stays or 4+ ED visits in the last 12 months
+	measure 'High Utilizers' = CALCULATE(COUNTROWS(patient_360), patient_360[is_high_utilizer] = TRUE(), patient_360[is_deceased] = FALSE())
+		formatString: #,0
+		displayFolder: Utilization
+		lineageTag: a8fb5248-3f3b-5510-920a-3c1d8588278d
+
+	/// Index stays with complete 30-day follow-up
+	measure 'Index Admissions' = SUM(kpi_monthly[index_admissions])
+		formatString: #,0
+		displayFolder: Readmissions
+		lineageTag: be71cd81-f55c-5e7a-93c4-1c2cb08f272e
+
+	/// Index stays followed by an unplanned readmission within 30 days
+	measure Readmissions = SUM(kpi_monthly[readmissions])
+		formatString: #,0
+		displayFolder: Readmissions
+		lineageTag: 84831c57-c359-5370-bfc3-11619bc6832e
+
+	/// Readmissions divided by index admissions
+	measure 'Readmission Rate' = DIVIDE([Readmissions], [Index Admissions])
+		formatString: 0.0%
+		displayFolder: Readmissions
+		lineageTag: 9858cd4e-833d-554a-b66d-10722b441f95
+
+	/// Approximate national 30-day all-cause readmission rate, for comparison
+	measure 'Readmission Rate Benchmark' = IF(NOT ISBLANK([Index Admissions]), 0.14)
+		formatString: 0.0%
+		displayFolder: Readmissions
+		lineageTag: 0327d753-88b2-597e-88a7-6551b6e474af
+
+	/// ED visits within 30 days of an index discharge that didn't lead to admission
+	measure 'Post-Discharge ED Visits' = SUM(kpi_monthly[post_discharge_ed_visits])
+		formatString: #,0
+		displayFolder: Readmissions
+		lineageTag: 6300fe3b-6f82-5006-a9f5-bf48f00bba1a
+
+	/// Post-discharge ED visits divided by index admissions
+	measure 'Post-Discharge ED Rate' = DIVIDE([Post-Discharge ED Visits], [Index Admissions])
+		formatString: 0.0%
+		displayFolder: Readmissions
+		lineageTag: 19fa91eb-c73c-5dda-a552-fe84c2d0410a
+
+	/// Cost of readmission stays
+	measure 'Readmission Cost' = SUM(kpi_monthly[readmission_cost])
+		formatString: \$#,0
+		displayFolder: Readmissions
+		lineageTag: 86ef9aba-ce4d-5fbd-9499-e112b9970c22
+
+	/// Total encounter cost
+	measure 'Medical Cost' = SUM(kpi_monthly[medical_cost])
+		formatString: \$#,0
+		displayFolder: Cost
+		lineageTag: db91b389-d799-5532-bc41-8aa7ae8f2041
+
+	/// Amount paid by payers for encounters
+	measure 'Payer Paid' = SUM(kpi_monthly[payer_paid])
+		formatString: \$#,0
+		displayFolder: Cost
+		lineageTag: 58cefaee-c09c-5790-90d2-451ab950b635
+
+	/// Amount owed by patients for encounters
+	measure 'Patient Responsibility' = SUM(kpi_monthly[patient_responsibility])
+		formatString: \$#,0
+		displayFolder: Cost
+		lineageTag: ec67faed-4132-5426-b457-ad71e2b12633
+
+	/// Patient-months of insurance coverage
+	measure 'Member Months' = COUNTROWS(fact_member_month)
+		formatString: #,0
+		displayFolder: Cost
+		lineageTag: 4fc0f0e6-7862-5eae-9540-4449400a4820
+
+	/// Payer paid per member per month
+	measure 'PMPM Paid' = DIVIDE([Payer Paid], [Member Months])
+		formatString: \$#,0.00
+		displayFolder: Cost
+		lineageTag: 33790fbb-6fbd-5611-8579-8151c3ec74d5
+
+	/// Payer paid from encounter detail (use with provider or patient)
+	measure 'Encounter Payer Paid' = SUM(fact_encounter[payer_paid])
+		formatString: \$#,0
+		displayFolder: Cost
+		lineageTag: 638ca79d-16ed-55aa-a306-b17c93a83b2c
+
+	/// Payer paid per patient seen
+	measure 'Cost per Patient' = DIVIDE([Encounter Payer Paid], [Patients Seen])
+		formatString: \$#,0
+		displayFolder: Cost
+		lineageTag: 0611b50d-564e-5751-9bf4-87e6beb0bbf1
+
+	/// Share of payer paid that went to current high utilizers
+	measure 'High Utilizer Share of Cost' =
+			VAR HighUtilizerPatients = CALCULATETABLE(VALUES(patient_360[patient_id]), patient_360[is_high_utilizer] = TRUE())
+			RETURN DIVIDE(CALCULATE([Encounter Payer Paid], TREATAS(HighUtilizerPatients, fact_encounter[patient_id])), [Encounter Payer Paid])
+		formatString: 0.0%
+		displayFolder: Cost
+		lineageTag: c398e997-51f9-5019-b641-5b506c357dc1
+
+	/// Living patients whose latest index stay was in the High LACE tier
+	measure 'High-Risk Patients' = CALCULATE(COUNTROWS(patient_360), patient_360[latest_risk_tier] = "High", patient_360[is_deceased] = FALSE())
+		formatString: #,0
+		displayFolder: Care Management
+		lineageTag: cbc1919e-6e75-5856-9b8a-2a65f4ba35c9
+
+	/// Patients discharged in the last 14 days
+	measure 'Worklist Patients' = COUNTROWS(care_management_worklist)
+		formatString: #,0
+		displayFolder: Care Management
+		lineageTag: fc0fed06-ee1f-5238-a511-239ba1e1a8a8
+
+	/// Index stays with a LACE score and complete follow-up
+	measure 'Scored Discharges' = CALCULATE(COUNTROWS(fact_index_admission), fact_index_admission[follow_up_complete] = TRUE())
+		formatString: #,0
+		displayFolder: Care Management
+		lineageTag: b7b921cf-b460-5984-8583-89781908ab21
+
+	/// Readmission rate from index stay detail, for slicing by risk tier
+	measure 'Readmission Rate for Scored Discharges' = DIVIDE(CALCULATE(COUNTROWS(fact_index_admission), fact_index_admission[follow_up_complete] = TRUE(), fact_index_admission[is_readmitted_30_days] = TRUE()), [Scored Discharges])
+		formatString: 0.0%
+		displayFolder: Care Management
+		lineageTag: 14d24f14-6bd4-581e-a0f3-016b7a34b36a
+
+	column Value
+		dataType: string
+		isHidden
+		lineageTag: 1011520f-238e-517e-a064-fc6b4b39f7e4
+		summarizeBy: none
+		sourceColumn: Value
+
+	partition _Measures = m
+		mode: import
+		source = #table(type table [Value = text], {})

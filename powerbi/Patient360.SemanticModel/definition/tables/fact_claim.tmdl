@@ -1,0 +1,114 @@
+/// One row per claim.
+table fact_claim
+	lineageTag: 54fe2826-4e59-5f54-8f0d-a5c8b7d48e34
+
+	column claim_id
+		dataType: string
+		lineageTag: 3b6a9d90-2e90-5b14-88d5-06fb0f45c0b7
+		summarizeBy: none
+		sourceColumn: claim_id
+
+	column patient_id
+		dataType: string
+		lineageTag: a82b86f9-a25f-545f-a7ec-bcc95ddf0598
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column encounter_id
+		dataType: string
+		lineageTag: 7d8edd7f-594a-569a-8633-e3d6cb5ca244
+		summarizeBy: none
+		sourceColumn: encounter_id
+
+	column provider_id
+		dataType: string
+		lineageTag: 6097126e-7530-51b6-a642-29923956f8af
+		summarizeBy: none
+		sourceColumn: provider_id
+
+	column payer_id
+		dataType: string
+		lineageTag: 39aa87ac-b75e-58d6-9bb8-9732def7cb3a
+		summarizeBy: none
+		sourceColumn: payer_id
+
+	column service_date_key
+		dataType: int64
+		lineageTag: 05a43580-a77e-542a-976b-fa0aad4c2d6c
+		summarizeBy: none
+		sourceColumn: service_date_key
+
+	column service_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: f786f0e5-0d7f-5582-81a7-23f6b7c28f2f
+		summarizeBy: none
+		sourceColumn: service_date
+
+	column claim_type
+		dataType: string
+		lineageTag: 333d9c6a-d887-5d6c-accd-af3482370645
+		summarizeBy: none
+		sourceColumn: claim_type
+
+	column principal_diagnosis_icd10cm_code
+		dataType: string
+		lineageTag: a2cbae2d-3cca-5d88-9352-faee8de070b4
+		summarizeBy: none
+		sourceColumn: principal_diagnosis_icd10cm_code
+
+	column principal_diagnosis_description
+		dataType: string
+		lineageTag: f425948e-13d3-56cd-a330-1d1a9f27cccc
+		summarizeBy: none
+		sourceColumn: principal_diagnosis_description
+
+	column charge_lines
+		dataType: int64
+		lineageTag: ff5524e3-e8ae-5c78-a101-0f3303732ecc
+		summarizeBy: none
+		sourceColumn: charge_lines
+
+	column total_charges
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 048d133c-a3ff-5c9f-b272-a26d05dcc754
+		summarizeBy: none
+		sourceColumn: total_charges
+
+	column total_payments
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 8f0381a7-67cb-50d3-a388-b0f1e654599f
+		summarizeBy: none
+		sourceColumn: total_payments
+
+	column total_outstanding
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 83ef047f-51f9-5332-9c16-7aedd4cc933b
+		summarizeBy: none
+		sourceColumn: total_outstanding
+
+	column primary_status
+		dataType: string
+		lineageTag: 64606b24-5df2-5815-a4f1-a29a295f4386
+		summarizeBy: none
+		sourceColumn: primary_status
+
+	column patient_status
+		dataType: string
+		lineageTag: 5c33818b-32a4-5b01-a116-888a7bb1217e
+		summarizeBy: none
+		sourceColumn: patient_status
+
+	partition fact_claim = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    fact_claim = gold{[Name = "fact_claim", Kind = "Table"]}[Data]
+				in
+				    fact_claim

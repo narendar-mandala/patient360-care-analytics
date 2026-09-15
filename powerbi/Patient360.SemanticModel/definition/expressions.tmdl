@@ -1,0 +1,7 @@
+/// Databricks SQL warehouse server hostname, from the warehouse's Connection details tab
+expression DatabricksServerHostname = "your-workspace.cloud.databricks.com" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 115a40af-1a04-5684-89ef-f00d7132ce4a
+
+/// Databricks SQL warehouse HTTP path, from the warehouse's Connection details tab
+expression DatabricksHttpPath = "/sql/1.0/warehouses/your-warehouse-id" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 11a02285-1210-53a8-a413-19eef44f844f

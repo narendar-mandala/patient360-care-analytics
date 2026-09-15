@@ -1,0 +1,193 @@
+/// One row per patient: 12-month utilization, cost, conditions, medications, labs and risk.
+table patient_360
+	lineageTag: 5d54cf05-c6d8-548b-85fc-d166025ce5a6
+
+	column patient_id
+		dataType: string
+		lineageTag: 46eb47fe-32e7-5ab3-be58-9e044b1fd513
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column source_system
+		dataType: string
+		lineageTag: da4bc75a-03fe-58bb-8938-5a358db0c0ff
+		summarizeBy: none
+		sourceColumn: source_system
+
+	column patient_name
+		dataType: string
+		lineageTag: b52b62fd-7514-5805-b17e-ba447bb5096a
+		summarizeBy: none
+		sourceColumn: patient_name
+
+	column age
+		dataType: int64
+		lineageTag: aef655a2-690b-52b1-9b00-0f0bcbc1a823
+		summarizeBy: none
+		sourceColumn: age
+
+	column age_band
+		dataType: string
+		lineageTag: 4f6053dd-3d84-5080-83ad-8663f2b4cf2d
+		summarizeBy: none
+		sourceColumn: age_band
+
+	column sex
+		dataType: string
+		lineageTag: ce712f42-cac2-5c42-8f9e-ede9856290dc
+		summarizeBy: none
+		sourceColumn: sex
+
+	column race
+		dataType: string
+		lineageTag: 2e991fe7-2a52-5dde-a6fd-c9098ae9caed
+		summarizeBy: none
+		sourceColumn: race
+
+	column ethnicity
+		dataType: string
+		lineageTag: 5afba3b5-dbfc-5e61-9ba2-e9e34079a887
+		summarizeBy: none
+		sourceColumn: ethnicity
+
+	column city
+		dataType: string
+		lineageTag: 4315a0b8-0a8a-57d9-9f06-09f97ec63e3c
+		summarizeBy: none
+		sourceColumn: city
+
+	column is_deceased
+		dataType: boolean
+		lineageTag: 62b3f86f-e663-53f5-a391-eb717f3dbccb
+		summarizeBy: none
+		sourceColumn: is_deceased
+
+	column death_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: d2ada2f0-5c0f-50e0-88fa-9655a0a2dec0
+		summarizeBy: none
+		sourceColumn: death_date
+
+	column current_payer_name
+		dataType: string
+		lineageTag: 0e28c247-6f36-50aa-8767-7f076aaaab58
+		summarizeBy: none
+		sourceColumn: current_payer_name
+
+	column current_payer_category
+		dataType: string
+		lineageTag: 35d118a0-b48c-537e-883f-4089f622c588
+		summarizeBy: none
+		sourceColumn: current_payer_category
+
+	column last_visit_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: d355d940-fb5a-5d03-9238-59d6d65a9d33
+		summarizeBy: none
+		sourceColumn: last_visit_date
+
+	column visits_12_months
+		dataType: int64
+		lineageTag: aa8bf712-56dd-59cb-800f-40bed258fb11
+		summarizeBy: none
+		sourceColumn: visits_12_months
+
+	column inpatient_admissions_12_months
+		dataType: int64
+		lineageTag: 371582f4-94da-5e62-b7b3-1e18b2a2812c
+		summarizeBy: none
+		sourceColumn: inpatient_admissions_12_months
+
+	column ed_visits_12_months
+		dataType: int64
+		lineageTag: 3184256e-359f-5c7b-b6f4-c419f1d44be3
+		summarizeBy: none
+		sourceColumn: ed_visits_12_months
+
+	column readmissions_12_months
+		dataType: int64
+		lineageTag: 367c3d81-c3cf-5848-983c-b62e6a259cff
+		summarizeBy: none
+		sourceColumn: readmissions_12_months
+
+	column medical_cost_12_months
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: f275e24b-c5bc-599c-b08b-1a881e6e075d
+		summarizeBy: none
+		sourceColumn: medical_cost_12_months
+
+	column payer_paid_12_months
+		dataType: decimal
+		formatString: \$#,0.00
+		lineageTag: 4af04ac6-dd85-5c92-900e-ab4595270dba
+		summarizeBy: none
+		sourceColumn: payer_paid_12_months
+
+	column is_high_utilizer
+		dataType: boolean
+		lineageTag: b3203d7a-93f3-5229-ae93-c81a4e9604ba
+		summarizeBy: none
+		sourceColumn: is_high_utilizer
+
+	column chronic_condition_count
+		dataType: int64
+		lineageTag: 64081260-d7db-5e03-9065-faab2521a7da
+		summarizeBy: none
+		sourceColumn: chronic_condition_count
+
+	column chronic_conditions
+		dataType: string
+		lineageTag: d3044055-9c83-5e0d-b754-c82095508a9b
+		summarizeBy: none
+		sourceColumn: chronic_conditions
+
+	column active_medication_count
+		dataType: int64
+		lineageTag: a2799045-78e1-5a1b-990e-e881c3a8052e
+		summarizeBy: none
+		sourceColumn: active_medication_count
+
+	column abnormal_labs_90_days
+		dataType: int64
+		lineageTag: 2dfdc2a6-4f34-5d93-a2f0-b990ec805885
+		summarizeBy: none
+		sourceColumn: abnormal_labs_90_days
+
+	column latest_abnormal_lab
+		dataType: string
+		lineageTag: 44c4c199-349a-5248-82e1-82788deeb403
+		summarizeBy: none
+		sourceColumn: latest_abnormal_lab
+
+	column last_discharge_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 72fbedc5-2e29-5130-843e-fa4de2e42db2
+		summarizeBy: none
+		sourceColumn: last_discharge_date
+
+	column latest_lace_score
+		dataType: int64
+		lineageTag: 4d402885-b674-5c75-9166-ce7787f08018
+		summarizeBy: none
+		sourceColumn: latest_lace_score
+
+	column latest_risk_tier
+		dataType: string
+		lineageTag: 2130303b-88bf-5687-a017-60aa957db5c6
+		summarizeBy: none
+		sourceColumn: latest_risk_tier
+
+	partition patient_360 = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    patient_360 = gold{[Name = "patient_360", Kind = "Table"]}[Data]
+				in
+				    patient_360

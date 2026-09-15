@@ -1,0 +1,162 @@
+/// One row per patient, with age and current payer as of the reporting date.
+table dim_patient
+	lineageTag: 71404b42-f581-537a-a5b3-394d42f2474d
+
+	column patient_id
+		dataType: string
+		lineageTag: d8d8b168-c082-5284-b913-5438f7776aa7
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column source_system
+		dataType: string
+		lineageTag: 19e1c1d7-92eb-5507-a9df-5b1ff32887eb
+		summarizeBy: none
+		sourceColumn: source_system
+
+	column patient_name
+		dataType: string
+		lineageTag: a84624f1-0bbd-533f-9cec-007210c2bfcf
+		summarizeBy: none
+		sourceColumn: patient_name
+
+	column first_name
+		dataType: string
+		lineageTag: 95f2c37c-c2c0-5708-9b7e-2a7266a11cee
+		summarizeBy: none
+		sourceColumn: first_name
+
+	column last_name
+		dataType: string
+		lineageTag: 8db9c856-c5d3-5230-b69e-48ad75ae9a34
+		summarizeBy: none
+		sourceColumn: last_name
+
+	column birth_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 27fe66a8-6e1e-507a-97fa-3c7978c0e4ea
+		summarizeBy: none
+		sourceColumn: birth_date
+
+	column death_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: af0130fc-d46f-5375-91e2-1163d0e3cc15
+		summarizeBy: none
+		sourceColumn: death_date
+
+	column is_deceased
+		dataType: boolean
+		lineageTag: d35f872e-cf9e-513c-9381-6e4078947a2b
+		summarizeBy: none
+		sourceColumn: is_deceased
+
+	column age
+		dataType: int64
+		lineageTag: 268843db-3ecd-58f6-8146-9b1dc918c764
+		summarizeBy: none
+		sourceColumn: age
+
+	column age_band
+		dataType: string
+		lineageTag: 215d3305-136d-5b47-98a7-39c12b4bb2c8
+		summarizeBy: none
+		sourceColumn: age_band
+
+	column sex
+		dataType: string
+		lineageTag: 7b084ce9-2552-51b0-8919-1151e61f3ee9
+		summarizeBy: none
+		sourceColumn: sex
+
+	column race
+		dataType: string
+		lineageTag: d02044b9-265f-5eb5-8110-6f68346797a0
+		summarizeBy: none
+		sourceColumn: race
+
+	column ethnicity
+		dataType: string
+		lineageTag: 1f902943-2487-5a90-bb35-bf5fe98c3078
+		summarizeBy: none
+		sourceColumn: ethnicity
+
+	column marital_status
+		dataType: string
+		lineageTag: 3b2cb9cd-14b5-561b-a58f-feb755429930
+		summarizeBy: none
+		sourceColumn: marital_status
+
+	column city
+		dataType: string
+		lineageTag: 3f6b1825-a02b-523a-845a-995e1267c2eb
+		summarizeBy: none
+		sourceColumn: city
+
+	column county
+		dataType: string
+		lineageTag: e5f0c8f4-42aa-5b11-a79d-0b781293325c
+		summarizeBy: none
+		sourceColumn: county
+
+	column state
+		dataType: string
+		lineageTag: 423bb8d3-78e2-5c79-8eb8-cd34bf4f4e86
+		summarizeBy: none
+		sourceColumn: state
+
+	column zip
+		dataType: string
+		lineageTag: 0d1e23f2-7a47-575d-8a04-f3d9ddaffc5a
+		summarizeBy: none
+		sourceColumn: zip
+
+	column latitude
+		dataType: double
+		dataCategory: Latitude
+		lineageTag: 21ae7da1-6304-5584-b167-e351424ff495
+		summarizeBy: none
+		sourceColumn: latitude
+
+	column longitude
+		dataType: double
+		dataCategory: Longitude
+		lineageTag: e687e1cc-3991-596b-833a-b5fb019ba756
+		summarizeBy: none
+		sourceColumn: longitude
+
+	column current_payer_id
+		dataType: string
+		lineageTag: cf2e7472-2738-54e4-bf90-55a925200379
+		summarizeBy: none
+		sourceColumn: current_payer_id
+
+	column current_payer_name
+		dataType: string
+		lineageTag: 36472a18-ad99-5dc8-949a-c3670d636932
+		summarizeBy: none
+		sourceColumn: current_payer_name
+
+	column current_payer_category
+		dataType: string
+		lineageTag: 12e9116c-a010-5a11-8f2e-295a1c3ff861
+		summarizeBy: none
+		sourceColumn: current_payer_category
+
+	column current_member_id
+		dataType: string
+		lineageTag: c9220653-48d2-5740-bd86-8f6190c1cb87
+		summarizeBy: none
+		sourceColumn: current_member_id
+
+	partition dim_patient = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    dim_patient = gold{[Name = "dim_patient", Kind = "Table"]}[Data]
+				in
+				    dim_patient

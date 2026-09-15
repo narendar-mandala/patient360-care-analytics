@@ -1,0 +1,62 @@
+/// One row per ICD-10-CM code, with condition group.
+table dim_diagnosis
+	lineageTag: 9c80585c-8a62-5255-8126-3292e0130875
+
+	column icd10cm_code
+		dataType: string
+		lineageTag: 5d160c53-92b2-5333-9cf2-52eb22e005c7
+		summarizeBy: none
+		sourceColumn: icd10cm_code
+
+	column icd10cm_category
+		dataType: string
+		lineageTag: 6c5e3697-2c8e-5579-a199-e71315a23ee2
+		summarizeBy: none
+		sourceColumn: icd10cm_category
+
+	column description
+		dataType: string
+		lineageTag: 23db2382-6f25-56c9-aa97-6fbd02b753d3
+		summarizeBy: none
+		sourceColumn: description
+
+	column condition_class
+		dataType: string
+		lineageTag: b1487ae6-6d2d-504d-8db2-45103b062ef3
+		summarizeBy: none
+		sourceColumn: condition_class
+
+	column condition_group
+		dataType: string
+		lineageTag: 8c481cd3-76fd-5259-b562-ffb3e2a4363b
+		summarizeBy: none
+		sourceColumn: condition_group
+
+	column is_hrrp_condition
+		dataType: boolean
+		lineageTag: 7acd1e41-86ee-552b-a670-7cb55132a7a6
+		summarizeBy: none
+		sourceColumn: is_hrrp_condition
+
+	column is_chronic
+		dataType: boolean
+		lineageTag: 97afdc8c-a429-5a5b-b771-990dad9700e0
+		summarizeBy: none
+		sourceColumn: is_chronic
+
+	column charlson_category
+		dataType: string
+		lineageTag: 2ae611b3-1e48-5f5b-b002-49052febfd7b
+		summarizeBy: none
+		sourceColumn: charlson_category
+
+	partition dim_diagnosis = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    dim_diagnosis = gold{[Name = "dim_diagnosis", Kind = "Table"]}[Data]
+				in
+				    dim_diagnosis

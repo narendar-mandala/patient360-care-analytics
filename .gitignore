@@ -15,8 +15,8 @@ venv/
 
 # Power BI local cache
 *.pbix.bak
-.pbi/localSettings.json
-.pbi/cache.abf
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
 
 # Databricks bundle state
 .databricks/

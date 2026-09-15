@@ -1,0 +1,100 @@
+/// One row per diagnosis recorded for a patient.
+table fact_condition
+	lineageTag: 5684f330-0422-5b23-bbe0-38e9f27c9d56
+
+	column condition_id
+		dataType: string
+		lineageTag: 30bb2cf5-c0f7-5a43-b9c1-99b7f58194aa
+		summarizeBy: none
+		sourceColumn: condition_id
+
+	column patient_id
+		dataType: string
+		lineageTag: bc8dcc26-23c5-5f64-a5ea-dc6e8ba70e6c
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column encounter_id
+		dataType: string
+		lineageTag: 5aeacdcb-04fd-5fdf-9dbb-2ee42edad74a
+		summarizeBy: none
+		sourceColumn: encounter_id
+
+	column start_date_key
+		dataType: int64
+		lineageTag: c7770fde-6d2c-57d8-99c4-1084e10647ca
+		summarizeBy: none
+		sourceColumn: start_date_key
+
+	column start_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 4aeccf1a-65a2-5afb-aefc-7e227f7d12f0
+		summarizeBy: none
+		sourceColumn: start_date
+
+	column stop_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: fefea2ce-d837-5f4b-8ed2-0ef363401356
+		summarizeBy: none
+		sourceColumn: stop_date
+
+	column is_active
+		dataType: boolean
+		lineageTag: cee37f8e-ad6a-5f42-b68c-9fe98901997e
+		summarizeBy: none
+		sourceColumn: is_active
+
+	column icd10cm_code
+		dataType: string
+		lineageTag: 5ea7e277-b8de-5359-bbde-b98b5ac75346
+		summarizeBy: none
+		sourceColumn: icd10cm_code
+
+	column snomed_code
+		dataType: string
+		lineageTag: dc2d23c4-0f12-58da-96f9-e39f94d7df5d
+		summarizeBy: none
+		sourceColumn: snomed_code
+
+	column description
+		dataType: string
+		lineageTag: 87c3523f-b992-5eca-aaa6-16550af10454
+		summarizeBy: none
+		sourceColumn: description
+
+	column condition_class
+		dataType: string
+		lineageTag: 02f584ed-dc48-5f6f-84ba-2a0baa19d804
+		summarizeBy: none
+		sourceColumn: condition_class
+
+	column condition_group
+		dataType: string
+		lineageTag: 7fbd67b4-87fc-56b7-91c9-032706fea011
+		summarizeBy: none
+		sourceColumn: condition_group
+
+	column is_chronic
+		dataType: boolean
+		lineageTag: 2bcc0fd4-2c4e-5cd8-88c9-08575e9e0a86
+		summarizeBy: none
+		sourceColumn: is_chronic
+
+	column charlson_category
+		dataType: string
+		lineageTag: c6308aa7-d4e4-5e15-bf79-2002041663f5
+		summarizeBy: none
+		sourceColumn: charlson_category
+
+	partition fact_condition = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    fact_condition = gold{[Name = "fact_condition", Kind = "Table"]}[Data]
+				in
+				    fact_condition

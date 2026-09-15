@@ -1,0 +1,139 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "patient_360_v06",
+  "position": {
+    "x": 430,
+    "y": 450,
+    "z": 6000,
+    "width": 420,
+    "height": 260,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lab_result"
+                    }
+                  },
+                  "Property": "result_ts"
+                }
+              },
+              "queryRef": "fact_lab_result.result_ts",
+              "nativeQueryRef": "result_ts",
+              "displayName": "Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lab_result"
+                    }
+                  },
+                  "Property": "test_name"
+                }
+              },
+              "queryRef": "fact_lab_result.test_name",
+              "nativeQueryRef": "test_name",
+              "displayName": "Test"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lab_result"
+                    }
+                  },
+                  "Property": "value_numeric"
+                }
+              },
+              "queryRef": "fact_lab_result.value_numeric",
+              "nativeQueryRef": "value_numeric",
+              "displayName": "Value"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lab_result"
+                    }
+                  },
+                  "Property": "units"
+                }
+              },
+              "queryRef": "fact_lab_result.units",
+              "nativeQueryRef": "units",
+              "displayName": "Units"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lab_result"
+                    }
+                  },
+                  "Property": "abnormal_flag"
+                }
+              },
+              "queryRef": "fact_lab_result.abnormal_flag",
+              "nativeQueryRef": "abnormal_flag",
+              "displayName": "Flag"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_lab_result"
+                  }
+                },
+                "Property": "result_ts"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Lab results'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

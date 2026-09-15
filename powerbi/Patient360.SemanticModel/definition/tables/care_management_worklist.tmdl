@@ -1,0 +1,135 @@
+/// Recent discharges ranked by LACE score, with reasons.
+table care_management_worklist
+	lineageTag: 1e867556-9570-55da-9b82-f0a7fe76999c
+
+	column worklist_rank
+		dataType: int64
+		lineageTag: e49b6353-4d7e-5b14-9ae6-3312cd78ea52
+		summarizeBy: none
+		sourceColumn: worklist_rank
+
+	column encounter_id
+		dataType: string
+		lineageTag: 82910741-e492-5baa-9777-5b7ef754abc7
+		summarizeBy: none
+		sourceColumn: encounter_id
+
+	column patient_id
+		dataType: string
+		lineageTag: ac60b01b-ae61-5993-a31e-94273f3f36a1
+		summarizeBy: none
+		sourceColumn: patient_id
+
+	column patient_name
+		dataType: string
+		lineageTag: 397e70a3-1018-5ac4-a645-6f1f9a34fc16
+		summarizeBy: none
+		sourceColumn: patient_name
+
+	column age
+		dataType: int64
+		lineageTag: 5b0732ed-b7b3-5d5f-a68a-e0f225014247
+		summarizeBy: none
+		sourceColumn: age
+
+	column sex
+		dataType: string
+		lineageTag: dff40368-33f0-55f4-9ec9-30556d184587
+		summarizeBy: none
+		sourceColumn: sex
+
+	column current_payer_category
+		dataType: string
+		lineageTag: e62ec46b-66e7-5b32-9cd7-63a9730fa5de
+		summarizeBy: none
+		sourceColumn: current_payer_category
+
+	column facility_name
+		dataType: string
+		lineageTag: 4d2b7ad8-bc3f-5bdf-8450-27eb5b886579
+		summarizeBy: none
+		sourceColumn: facility_name
+
+	column discharge_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 4d47f4dd-6614-57f9-a90e-7d37afa5b3ed
+		summarizeBy: none
+		sourceColumn: discharge_date
+
+	column days_since_discharge
+		dataType: int64
+		lineageTag: 3c3a6943-d828-5435-b251-9d90e6a79ded
+		summarizeBy: none
+		sourceColumn: days_since_discharge
+
+	column reason_description
+		dataType: string
+		lineageTag: e8f4425b-7b87-5109-a7a9-5a8d7b64dec5
+		summarizeBy: none
+		sourceColumn: reason_description
+
+	column condition_group
+		dataType: string
+		lineageTag: d3f4a34a-9eb5-564a-bd66-edc9e4e8ee29
+		summarizeBy: none
+		sourceColumn: condition_group
+
+	column length_of_stay_days
+		dataType: int64
+		lineageTag: 94b41737-e4b1-5f96-a6f7-6a17f563e264
+		summarizeBy: none
+		sourceColumn: length_of_stay_days
+
+	column lace_score
+		dataType: int64
+		lineageTag: 4e1c23fc-8460-5345-8081-e3bbfba14e84
+		summarizeBy: none
+		sourceColumn: lace_score
+
+	column risk_tier
+		dataType: string
+		lineageTag: 7f35686d-29db-5000-8848-db5aec590247
+		summarizeBy: none
+		sourceColumn: risk_tier
+
+	column top_risk_drivers
+		dataType: string
+		lineageTag: 84f0a430-9dcd-5b93-9135-ef32eacce33a
+		summarizeBy: none
+		sourceColumn: top_risk_drivers
+
+	column chronic_conditions
+		dataType: string
+		lineageTag: 0424cdd8-488a-547b-b646-86ce9066bdf2
+		summarizeBy: none
+		sourceColumn: chronic_conditions
+
+	column active_medication_count
+		dataType: int64
+		lineageTag: 25b5ea95-cbce-54bb-b7c8-5fdf57813ec4
+		summarizeBy: none
+		sourceColumn: active_medication_count
+
+	column is_high_utilizer
+		dataType: boolean
+		lineageTag: c75e0438-c6c3-557a-b135-604f85a73880
+		summarizeBy: none
+		sourceColumn: is_high_utilizer
+
+	column follow_up_status
+		dataType: string
+		lineageTag: e760784c-8347-52ed-8c71-79cf475af5ca
+		summarizeBy: none
+		sourceColumn: follow_up_status
+
+	partition care_management_worklist = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(DatabricksServerHostname, DatabricksHttpPath, [Catalog = null, Database = null, EnableAutomaticProxyDiscovery = null]),
+				    healthcare = Source{[Name = "healthcare", Kind = "Database"]}[Data],
+				    gold = healthcare{[Name = "gold", Kind = "Schema"]}[Data],
+				    care_management_worklist = gold{[Name = "care_management_worklist", Kind = "Table"]}[Data]
+				in
+				    care_management_worklist
