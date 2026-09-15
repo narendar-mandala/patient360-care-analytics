@@ -2,37 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "utilization_cost_v10",
   "position": {
-    "x": 20,
-    "y": 190,
+    "x": 728,
+    "y": 155,
     "z": 10000,
-    "width": 620,
-    "height": 250,
+    "width": 167,
+    "height": 90,
     "tabOrder": 10000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_date"
-                    }
-                  },
-                  "Property": "year_month"
-                }
-              },
-              "queryRef": "dim_date.year_month",
-              "nativeQueryRef": "year_month",
-              "displayName": "Month"
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -42,52 +23,16 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Admissions"
+                  "Property": "High Utilizers"
                 }
               },
-              "queryRef": "_Measures.Admissions",
-              "nativeQueryRef": "Admissions"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "ED Visits"
-                }
-              },
-              "queryRef": "_Measures.ED Visits",
-              "nativeQueryRef": "ED Visits"
+              "queryRef": "_Measures.High Utilizers",
+              "nativeQueryRef": "High Utilizers"
             }
           ]
         }
       }
     },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Admissions and ED visits by month'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    }
+    "drillFilterOtherVisuals": true
   }
 }

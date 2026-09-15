@@ -2,37 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "utilization_cost_v12",
   "position": {
-    "x": 20,
-    "y": 455,
+    "x": 1082,
+    "y": 155,
     "z": 12000,
-    "width": 410,
-    "height": 250,
+    "width": 167,
+    "height": 90,
     "tabOrder": 12000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "kpi_monthly"
-                    }
-                  },
-                  "Property": "payer_category"
-                }
-              },
-              "queryRef": "kpi_monthly.payer_category",
-              "nativeQueryRef": "payer_category",
-              "displayName": "Payer category"
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -42,70 +23,16 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Payer Paid"
+                  "Property": "Readmission Cost"
                 }
               },
-              "queryRef": "_Measures.Payer Paid",
-              "nativeQueryRef": "Payer Paid"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Patient Responsibility"
-                }
-              },
-              "queryRef": "_Measures.Patient Responsibility",
-              "nativeQueryRef": "Patient Responsibility"
+              "queryRef": "_Measures.Readmission Cost",
+              "nativeQueryRef": "Readmission Cost"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Payer Paid"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Payer paid and patient responsibility by payer'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    }
+    "drillFilterOtherVisuals": true
   }
 }

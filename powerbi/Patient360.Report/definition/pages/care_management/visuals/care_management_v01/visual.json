@@ -5,50 +5,35 @@
     "x": 20,
     "y": 10,
     "z": 1000,
-    "width": 200,
+    "width": 60,
     "height": 60,
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "slicer",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "care_management_worklist"
-                    }
-                  },
-                  "Property": "risk_tier"
-                }
-              },
-              "queryRef": "care_management_worklist.risk_tier",
-              "nativeQueryRef": "risk_tier"
-            }
-          ]
-        }
-      }
-    },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
+    "visualType": "image",
+    "objects": {
+      "general": [
         {
           "properties": {
-            "show": {
+            "imageUrl": {
               "expr": {
-                "Literal": {
-                  "Value": "true"
+                "ResourcePackageItem": {
+                  "PackageName": "RegisteredResources",
+                  "PackageType": 1,
+                  "ItemName": "patient360_logo.png"
                 }
               }
-            },
-            "text": {
+            }
+          }
+        }
+      ],
+      "imageScaling": [
+        {
+          "properties": {
+            "imageScalingType": {
               "expr": {
                 "Literal": {
-                  "Value": "'Risk tier'"
+                  "Value": "'Fit'"
                 }
               }
             }
@@ -56,27 +41,35 @@
         }
       ]
     },
-    "objects": {
-      "data": [
+    "visualContainerObjects": {
+      "padding": [
         {
           "properties": {
-            "mode": {
+            "top": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dropdown'"
+                  "Value": "6D"
                 }
               }
-            }
-          }
-        }
-      ],
-      "header": [
-        {
-          "properties": {
-            "show": {
+            },
+            "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "6D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
                 }
               }
             }

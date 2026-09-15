@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "utilization_cost_v06",
   "position": {
-    "x": 551,
-    "y": 85,
+    "x": 20,
+    "y": 155,
     "z": 6000,
     "width": 167,
     "height": 90,
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Cost per Patient"
+                  "Property": "Medical Cost"
                 }
               },
-              "queryRef": "_Measures.Cost per Patient",
-              "nativeQueryRef": "Cost per Patient"
+              "queryRef": "_Measures.Medical Cost",
+              "nativeQueryRef": "Medical Cost"
             }
           ]
         }

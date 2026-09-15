@@ -2,81 +2,65 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "care_management_v02",
   "position": {
-    "x": 230,
+    "x": 90,
     "y": 10,
     "z": 2000,
-    "width": 220,
+    "width": 650,
     "height": 60,
     "tabOrder": 2000
   },
   "visual": {
-    "visualType": "slicer",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "care_management_worklist"
-                    }
-                  },
-                  "Property": "condition_group"
-                }
-              },
-              "queryRef": "care_management_worklist.condition_group",
-              "nativeQueryRef": "condition_group"
-            }
-          ]
-        }
-      }
-    },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
+    "visualType": "textbox",
+    "objects": {
+      "general": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Care Management",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#F8FAF7",
+                      "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Recent discharges ranked by readmission risk (LACE), with the reasons behind each score",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#ADAEB5",
+                      "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"
+                    }
+                  }
+                ]
               }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Condition group'"
-                }
-              }
-            }
+            ]
           }
         }
       ]
     },
-    "objects": {
-      "data": [
+    "visualContainerObjects": {
+      "padding": [
         {
           "properties": {
-            "mode": {
+            "top": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dropdown'"
+                  "Value": "6D"
                 }
               }
-            }
-          }
-        }
-      ],
-      "header": [
-        {
-          "properties": {
-            "show": {
+            },
+            "left": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "12D"
                 }
               }
             }

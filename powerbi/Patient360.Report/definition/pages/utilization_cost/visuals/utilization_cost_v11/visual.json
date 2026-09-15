@@ -2,37 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "utilization_cost_v11",
   "position": {
-    "x": 650,
-    "y": 190,
+    "x": 905,
+    "y": 155,
     "z": 11000,
-    "width": 610,
-    "height": 250,
+    "width": 167,
+    "height": 90,
     "tabOrder": 11000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "kpi_monthly"
-                    }
-                  },
-                  "Property": "condition_group"
-                }
-              },
-              "queryRef": "kpi_monthly.condition_group",
-              "nativeQueryRef": "condition_group",
-              "displayName": "Condition group"
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -42,56 +23,16 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Medical Cost"
+                  "Property": "High Utilizer Share of Cost"
                 }
               },
-              "queryRef": "_Measures.Medical Cost",
-              "nativeQueryRef": "Medical Cost"
+              "queryRef": "_Measures.High Utilizer Share of Cost",
+              "nativeQueryRef": "High Utilizer Share of Cost"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Medical Cost"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Medical cost by condition group'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    }
+    "drillFilterOtherVisuals": true
   }
 }

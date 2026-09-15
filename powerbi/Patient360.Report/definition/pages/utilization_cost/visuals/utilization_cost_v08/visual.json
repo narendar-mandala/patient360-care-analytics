@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "utilization_cost_v08",
   "position": {
-    "x": 905,
-    "y": 85,
+    "x": 374,
+    "y": 155,
     "z": 8000,
     "width": 167,
     "height": 90,
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "High Utilizer Share of Cost"
+                  "Property": "Patient Responsibility"
                 }
               },
-              "queryRef": "_Measures.High Utilizer Share of Cost",
-              "nativeQueryRef": "High Utilizer Share of Cost"
+              "queryRef": "_Measures.Patient Responsibility",
+              "nativeQueryRef": "Patient Responsibility"
             }
           ]
         }

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "executive_overview_v18",
+  "position": {
+    "x": 650,
+    "y": 525,
+    "z": 18000,
+    "width": 610,
+    "height": 250,
+    "tabOrder": 18000
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_monthly"
+                    }
+                  },
+                  "Property": "payer_category"
+                }
+              },
+              "queryRef": "kpi_monthly.payer_category",
+              "nativeQueryRef": "payer_category",
+              "displayName": "Payer category"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Payer Paid"
+                }
+              },
+              "queryRef": "_Measures.Payer Paid",
+              "nativeQueryRef": "Payer Paid"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Payer paid by payer category'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

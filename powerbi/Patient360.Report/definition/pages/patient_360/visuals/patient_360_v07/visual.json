@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "patient_360_v07",
   "position": {
-    "x": 860,
-    "y": 450,
+    "x": 330,
+    "y": 210,
     "z": 7000,
-    "width": 400,
-    "height": 260,
+    "width": 930,
+    "height": 300,
     "tabOrder": 7000
   },
   "visual": {
@@ -20,45 +20,90 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_medication"
+                      "Entity": "patient_timeline"
                     }
                   },
-                  "Property": "start_ts"
+                  "Property": "event_ts"
                 }
               },
-              "queryRef": "fact_medication.start_ts",
-              "nativeQueryRef": "start_ts",
-              "displayName": "Started"
+              "queryRef": "patient_timeline.event_ts",
+              "nativeQueryRef": "event_ts",
+              "displayName": "When"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_medication"
+                      "Entity": "patient_timeline"
+                    }
+                  },
+                  "Property": "event_category"
+                }
+              },
+              "queryRef": "patient_timeline.event_category",
+              "nativeQueryRef": "event_category",
+              "displayName": "Event"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_timeline"
+                    }
+                  },
+                  "Property": "event_type"
+                }
+              },
+              "queryRef": "patient_timeline.event_type",
+              "nativeQueryRef": "event_type",
+              "displayName": "Type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_timeline"
                     }
                   },
                   "Property": "description"
                 }
               },
-              "queryRef": "fact_medication.description",
+              "queryRef": "patient_timeline.description",
               "nativeQueryRef": "description",
-              "displayName": "Medication"
+              "displayName": "Description"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_medication"
+                      "Entity": "patient_timeline"
                     }
                   },
-                  "Property": "is_active"
+                  "Property": "code"
                 }
               },
-              "queryRef": "fact_medication.is_active",
-              "nativeQueryRef": "is_active",
-              "displayName": "Active"
+              "queryRef": "patient_timeline.code",
+              "nativeQueryRef": "code",
+              "displayName": "Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_timeline"
+                    }
+                  },
+                  "Property": "amount"
+                }
+              },
+              "queryRef": "patient_timeline.amount",
+              "nativeQueryRef": "amount",
+              "displayName": "Amount"
             }
           ]
         }
@@ -70,10 +115,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "fact_medication"
+                    "Entity": "patient_timeline"
                   }
                 },
-                "Property": "start_ts"
+                "Property": "event_ts"
               }
             },
             "direction": "Descending"
@@ -97,7 +142,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Medications'"
+                  "Value": "'Timeline (most recent first)'"
                 }
               }
             }

@@ -2,37 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "care_management_v08",
   "position": {
-    "x": 20,
-    "y": 400,
+    "x": 870,
+    "y": 80,
     "z": 8000,
-    "width": 500,
-    "height": 305,
+    "width": 190,
+    "height": 90,
     "tabOrder": 8000
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_index_admission"
-                    }
-                  },
-                  "Property": "risk_tier"
-                }
-              },
-              "queryRef": "fact_index_admission.risk_tier",
-              "nativeQueryRef": "risk_tier",
-              "displayName": "Risk tier"
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -42,39 +23,16 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Readmission Rate for Scored Discharges"
+                  "Property": "Scored Discharges"
                 }
               },
-              "queryRef": "_Measures.Readmission Rate for Scored Discharges",
-              "nativeQueryRef": "Readmission Rate for Scored Discharges",
-              "displayName": "Readmission rate"
+              "queryRef": "_Measures.Scored Discharges",
+              "nativeQueryRef": "Scored Discharges"
             }
           ]
         }
       }
     },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Readmission rate by LACE risk tier'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    }
+    "drillFilterOtherVisuals": true
   }
 }

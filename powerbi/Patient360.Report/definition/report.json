@@ -17,6 +17,11 @@
           "name": "Windows11DarkTheme.json",
           "path": "Windows11DarkTheme.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "patient360_logo.png",
+          "path": "patient360_logo.png",
+          "type": "Image"
         }
       ]
     }

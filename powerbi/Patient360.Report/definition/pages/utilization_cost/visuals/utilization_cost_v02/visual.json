@@ -2,81 +2,65 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "utilization_cost_v02",
   "position": {
-    "x": 210,
+    "x": 90,
     "y": 10,
     "z": 2000,
-    "width": 220,
+    "width": 650,
     "height": 60,
     "tabOrder": 2000
   },
   "visual": {
-    "visualType": "slicer",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "kpi_monthly"
-                    }
-                  },
-                  "Property": "payer_category"
-                }
-              },
-              "queryRef": "kpi_monthly.payer_category",
-              "nativeQueryRef": "payer_category"
-            }
-          ]
-        }
-      }
-    },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
+    "visualType": "textbox",
+    "objects": {
+      "general": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Utilization and Cost",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#F8FAF7",
+                      "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Where care happens and where the money goes, by condition, payer, facility and provider",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#ADAEB5",
+                      "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif"
+                    }
+                  }
+                ]
               }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Payer category'"
-                }
-              }
-            }
+            ]
           }
         }
       ]
     },
-    "objects": {
-      "data": [
+    "visualContainerObjects": {
+      "padding": [
         {
           "properties": {
-            "mode": {
+            "top": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dropdown'"
+                  "Value": "6D"
                 }
               }
-            }
-          }
-        }
-      ],
-      "header": [
-        {
-          "properties": {
-            "show": {
+            },
+            "left": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "12D"
                 }
               }
             }

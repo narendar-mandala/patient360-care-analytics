@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "executive_overview_v09",
   "position": {
-    "x": 795,
-    "y": 85,
+    "x": 330,
+    "y": 155,
     "z": 9000,
     "width": 145,
     "height": 90,
@@ -23,11 +23,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Payer Paid"
+                  "Property": "Average Length of Stay"
                 }
               },
-              "queryRef": "_Measures.Payer Paid",
-              "nativeQueryRef": "Payer Paid"
+              "queryRef": "_Measures.Average Length of Stay",
+              "nativeQueryRef": "Average Length of Stay",
+              "displayName": "Avg stay (days)"
             }
           ]
         }

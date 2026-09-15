@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "patient_360_v05",
   "position": {
-    "x": 20,
-    "y": 450,
+    "x": 330,
+    "y": 80,
     "z": 5000,
-    "width": 400,
-    "height": 260,
+    "width": 930,
+    "height": 120,
     "tabOrder": 5000
   },
   "visual": {
@@ -20,81 +20,168 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_condition"
+                      "Entity": "patient_360"
                     }
                   },
-                  "Property": "start_date"
+                  "Property": "age"
                 }
               },
-              "queryRef": "fact_condition.start_date",
-              "nativeQueryRef": "start_date",
-              "displayName": "Since"
+              "queryRef": "patient_360.age",
+              "nativeQueryRef": "age",
+              "displayName": "Age"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_condition"
+                      "Entity": "patient_360"
                     }
                   },
-                  "Property": "description"
+                  "Property": "sex"
                 }
               },
-              "queryRef": "fact_condition.description",
-              "nativeQueryRef": "description",
-              "displayName": "Diagnosis"
+              "queryRef": "patient_360.sex",
+              "nativeQueryRef": "sex",
+              "displayName": "Sex"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_condition"
+                      "Entity": "patient_360"
                     }
                   },
-                  "Property": "icd10cm_code"
+                  "Property": "current_payer_name"
                 }
               },
-              "queryRef": "fact_condition.icd10cm_code",
-              "nativeQueryRef": "icd10cm_code",
-              "displayName": "ICD-10-CM"
+              "queryRef": "patient_360.current_payer_name",
+              "nativeQueryRef": "current_payer_name",
+              "displayName": "Payer"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_condition"
+                      "Entity": "patient_360"
                     }
                   },
-                  "Property": "is_active"
+                  "Property": "latest_risk_tier"
                 }
               },
-              "queryRef": "fact_condition.is_active",
-              "nativeQueryRef": "is_active",
-              "displayName": "Active"
+              "queryRef": "patient_360.latest_risk_tier",
+              "nativeQueryRef": "latest_risk_tier",
+              "displayName": "Risk tier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "latest_lace_score"
+                }
+              },
+              "queryRef": "patient_360.latest_lace_score",
+              "nativeQueryRef": "latest_lace_score",
+              "displayName": "LACE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "visits_12_months"
+                }
+              },
+              "queryRef": "patient_360.visits_12_months",
+              "nativeQueryRef": "visits_12_months",
+              "displayName": "Visits (12 mo)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "inpatient_admissions_12_months"
+                }
+              },
+              "queryRef": "patient_360.inpatient_admissions_12_months",
+              "nativeQueryRef": "inpatient_admissions_12_months",
+              "displayName": "Admissions (12 mo)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "ed_visits_12_months"
+                }
+              },
+              "queryRef": "patient_360.ed_visits_12_months",
+              "nativeQueryRef": "ed_visits_12_months",
+              "displayName": "ED visits (12 mo)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "medical_cost_12_months"
+                }
+              },
+              "queryRef": "patient_360.medical_cost_12_months",
+              "nativeQueryRef": "medical_cost_12_months",
+              "displayName": "Medical cost (12 mo)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "active_medication_count"
+                }
+              },
+              "queryRef": "patient_360.active_medication_count",
+              "nativeQueryRef": "active_medication_count",
+              "displayName": "Active meds"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "patient_360"
+                    }
+                  },
+                  "Property": "is_high_utilizer"
+                }
+              },
+              "queryRef": "patient_360.is_high_utilizer",
+              "nativeQueryRef": "is_high_utilizer",
+              "displayName": "High utilizer"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "fact_condition"
-                  }
-                },
-                "Property": "start_date"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true,
@@ -112,7 +199,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Diagnoses'"
+                  "Value": "'Patient summary (as of the reporting date)'"
                 }
               }
             }

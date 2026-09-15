@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "executive_overview_v08",
   "position": {
-    "x": 640,
-    "y": 85,
+    "x": 175,
+    "y": 155,
     "z": 8000,
     "width": 145,
     "height": 90,
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Post-Discharge ED Rate"
+                  "Property": "Readmission Rate"
                 }
               },
-              "queryRef": "_Measures.Post-Discharge ED Rate",
-              "nativeQueryRef": "Post-Discharge ED Rate"
+              "queryRef": "_Measures.Readmission Rate",
+              "nativeQueryRef": "Readmission Rate"
             }
           ]
         }

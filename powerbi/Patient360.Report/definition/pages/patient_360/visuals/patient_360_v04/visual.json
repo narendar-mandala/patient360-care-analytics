@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "patient_360_v04",
   "position": {
-    "x": 330,
-    "y": 140,
+    "x": 20,
+    "y": 80,
     "z": 4000,
-    "width": 930,
-    "height": 300,
+    "width": 300,
+    "height": 60,
     "tabOrder": 4000
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
@@ -20,111 +20,17 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "patient_timeline"
+                      "Entity": "dim_patient"
                     }
                   },
-                  "Property": "event_ts"
+                  "Property": "patient_name"
                 }
               },
-              "queryRef": "patient_timeline.event_ts",
-              "nativeQueryRef": "event_ts",
-              "displayName": "When"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "patient_timeline"
-                    }
-                  },
-                  "Property": "event_category"
-                }
-              },
-              "queryRef": "patient_timeline.event_category",
-              "nativeQueryRef": "event_category",
-              "displayName": "Event"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "patient_timeline"
-                    }
-                  },
-                  "Property": "event_type"
-                }
-              },
-              "queryRef": "patient_timeline.event_type",
-              "nativeQueryRef": "event_type",
-              "displayName": "Type"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "patient_timeline"
-                    }
-                  },
-                  "Property": "description"
-                }
-              },
-              "queryRef": "patient_timeline.description",
-              "nativeQueryRef": "description",
-              "displayName": "Description"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "patient_timeline"
-                    }
-                  },
-                  "Property": "code"
-                }
-              },
-              "queryRef": "patient_timeline.code",
-              "nativeQueryRef": "code",
-              "displayName": "Code"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "patient_timeline"
-                    }
-                  },
-                  "Property": "amount"
-                }
-              },
-              "queryRef": "patient_timeline.amount",
-              "nativeQueryRef": "amount",
-              "displayName": "Amount"
+              "queryRef": "dim_patient.patient_name",
+              "nativeQueryRef": "patient_name"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "patient_timeline"
-                  }
-                },
-                "Property": "event_ts"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true,
@@ -142,7 +48,48 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Timeline (most recent first)'"
+                  "Value": "'Select a patient'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

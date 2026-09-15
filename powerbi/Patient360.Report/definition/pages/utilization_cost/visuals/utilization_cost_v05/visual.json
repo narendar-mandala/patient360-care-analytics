@@ -2,37 +2,87 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "utilization_cost_v05",
   "position": {
-    "x": 374,
-    "y": 85,
+    "x": 210,
+    "y": 80,
     "z": 5000,
-    "width": 167,
-    "height": 90,
+    "width": 220,
+    "height": 60,
     "tabOrder": 5000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "kpi_monthly"
                     }
                   },
-                  "Property": "Patient Responsibility"
+                  "Property": "payer_category"
                 }
               },
-              "queryRef": "_Measures.Patient Responsibility",
-              "nativeQueryRef": "Patient Responsibility"
+              "queryRef": "kpi_monthly.payer_category",
+              "nativeQueryRef": "payer_category"
             }
           ]
         }
       }
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Payer category'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

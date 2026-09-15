@@ -2,37 +2,87 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "care_management_v05",
   "position": {
-    "x": 870,
-    "y": 10,
+    "x": 230,
+    "y": 80,
     "z": 5000,
-    "width": 190,
-    "height": 90,
+    "width": 220,
+    "height": 60,
     "tabOrder": 5000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "care_management_worklist"
                     }
                   },
-                  "Property": "Scored Discharges"
+                  "Property": "condition_group"
                 }
               },
-              "queryRef": "_Measures.Scored Discharges",
-              "nativeQueryRef": "Scored Discharges"
+              "queryRef": "care_management_worklist.condition_group",
+              "nativeQueryRef": "condition_group"
             }
           ]
         }
       }
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Condition group'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

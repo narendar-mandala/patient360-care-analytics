@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "executive_overview_v15",
   "position": {
-    "x": 650,
-    "y": 455,
+    "x": 20,
+    "y": 260,
     "z": 15000,
-    "width": 610,
+    "width": 620,
     "height": 250,
     "tabOrder": 15000
   },
   "visual": {
-    "visualType": "donutChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,15 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "kpi_monthly"
+                      "Entity": "dim_date"
                     }
                   },
-                  "Property": "payer_category"
+                  "Property": "year_quarter"
                 }
               },
-              "queryRef": "kpi_monthly.payer_category",
-              "nativeQueryRef": "payer_category",
-              "displayName": "Payer category"
+              "queryRef": "dim_date.year_quarter",
+              "nativeQueryRef": "year_quarter",
+              "displayName": "Quarter"
             }
           ]
         },
@@ -42,11 +42,25 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Payer Paid"
+                  "Property": "Readmission Rate"
                 }
               },
-              "queryRef": "_Measures.Payer Paid",
-              "nativeQueryRef": "Payer Paid"
+              "queryRef": "_Measures.Readmission Rate",
+              "nativeQueryRef": "Readmission Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Readmission Rate Benchmark"
+                }
+              },
+              "queryRef": "_Measures.Readmission Rate Benchmark",
+              "nativeQueryRef": "Readmission Rate Benchmark"
             }
           ]
         }
@@ -67,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Payer paid by payer category'"
+                  "Value": "'Readmission rate by quarter vs benchmark'"
                 }
               }
             }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "patient_360_v06",
   "position": {
-    "x": 430,
-    "y": 450,
+    "x": 20,
+    "y": 150,
     "z": 6000,
-    "width": 420,
-    "height": 260,
+    "width": 300,
+    "height": 360,
     "tabOrder": 6000
   },
   "visual": {
@@ -20,96 +20,18 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_lab_result"
+                      "Entity": "patient_360"
                     }
                   },
-                  "Property": "result_ts"
+                  "Property": "chronic_conditions"
                 }
               },
-              "queryRef": "fact_lab_result.result_ts",
-              "nativeQueryRef": "result_ts",
-              "displayName": "Date"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_lab_result"
-                    }
-                  },
-                  "Property": "test_name"
-                }
-              },
-              "queryRef": "fact_lab_result.test_name",
-              "nativeQueryRef": "test_name",
-              "displayName": "Test"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_lab_result"
-                    }
-                  },
-                  "Property": "value_numeric"
-                }
-              },
-              "queryRef": "fact_lab_result.value_numeric",
-              "nativeQueryRef": "value_numeric",
-              "displayName": "Value"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_lab_result"
-                    }
-                  },
-                  "Property": "units"
-                }
-              },
-              "queryRef": "fact_lab_result.units",
-              "nativeQueryRef": "units",
-              "displayName": "Units"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_lab_result"
-                    }
-                  },
-                  "Property": "abnormal_flag"
-                }
-              },
-              "queryRef": "fact_lab_result.abnormal_flag",
-              "nativeQueryRef": "abnormal_flag",
-              "displayName": "Flag"
+              "queryRef": "patient_360.chronic_conditions",
+              "nativeQueryRef": "chronic_conditions",
+              "displayName": "Chronic conditions"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "fact_lab_result"
-                  }
-                },
-                "Property": "result_ts"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true,
@@ -127,7 +49,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Lab results'"
+                  "Value": "'Active chronic conditions'"
                 }
               }
             }

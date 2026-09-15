@@ -2,37 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "executive_overview_v12",
   "position": {
-    "x": 20,
-    "y": 190,
+    "x": 795,
+    "y": 155,
     "z": 12000,
-    "width": 620,
-    "height": 250,
+    "width": 145,
+    "height": 90,
     "tabOrder": 12000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_date"
-                    }
-                  },
-                  "Property": "year_quarter"
-                }
-              },
-              "queryRef": "dim_date.year_quarter",
-              "nativeQueryRef": "year_quarter",
-              "displayName": "Quarter"
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -42,52 +23,16 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Readmission Rate"
+                  "Property": "Payer Paid"
                 }
               },
-              "queryRef": "_Measures.Readmission Rate",
-              "nativeQueryRef": "Readmission Rate"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Readmission Rate Benchmark"
-                }
-              },
-              "queryRef": "_Measures.Readmission Rate Benchmark",
-              "nativeQueryRef": "Readmission Rate Benchmark"
+              "queryRef": "_Measures.Payer Paid",
+              "nativeQueryRef": "Payer Paid"
             }
           ]
         }
       }
     },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Readmission rate by quarter vs benchmark'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    }
+    "drillFilterOtherVisuals": true
   }
 }

@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "executive_overview_v11",
   "position": {
-    "x": 1105,
-    "y": 85,
+    "x": 640,
+    "y": 155,
     "z": 11000,
     "width": 145,
     "height": 90,
@@ -23,11 +23,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "High-Risk Patients"
+                  "Property": "Post-Discharge ED Rate"
                 }
               },
-              "queryRef": "_Measures.High-Risk Patients",
-              "nativeQueryRef": "High-Risk Patients"
+              "queryRef": "_Measures.Post-Discharge ED Rate",
+              "nativeQueryRef": "Post-Discharge ED Rate",
+              "displayName": "Post-discharge ED"
             }
           ]
         }

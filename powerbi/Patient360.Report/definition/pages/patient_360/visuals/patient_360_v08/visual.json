@@ -1,0 +1,124 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "patient_360_v08",
+  "position": {
+    "x": 20,
+    "y": 520,
+    "z": 8000,
+    "width": 400,
+    "height": 260,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_condition"
+                    }
+                  },
+                  "Property": "start_date"
+                }
+              },
+              "queryRef": "fact_condition.start_date",
+              "nativeQueryRef": "start_date",
+              "displayName": "Since"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_condition"
+                    }
+                  },
+                  "Property": "description"
+                }
+              },
+              "queryRef": "fact_condition.description",
+              "nativeQueryRef": "description",
+              "displayName": "Diagnosis"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_condition"
+                    }
+                  },
+                  "Property": "icd10cm_code"
+                }
+              },
+              "queryRef": "fact_condition.icd10cm_code",
+              "nativeQueryRef": "icd10cm_code",
+              "displayName": "ICD-10-CM"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_condition"
+                    }
+                  },
+                  "Property": "is_active"
+                }
+              },
+              "queryRef": "fact_condition.is_active",
+              "nativeQueryRef": "is_active",
+              "displayName": "Active"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_condition"
+                  }
+                },
+                "Property": "start_date"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Diagnoses'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

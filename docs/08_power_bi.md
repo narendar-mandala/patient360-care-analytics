@@ -10,7 +10,7 @@ powerbi/
     relationships.tmdl                  joins between tables
     tables/*.tmdl                       one file per Gold table, plus _Measures
   Patient360.Report/definition/pages/   one folder per page, one folder per visual
-  Patient360.Report/StaticResources/    report theme
+  Patient360.Report/StaticResources/    report theme and logo
 ```
 
 ## Connect to Databricks
@@ -46,6 +46,8 @@ The benchmark is a fixed 14%, roughly the national 30-day all-cause readmission 
 ## Look and feel
 
 The report uses a dark, Windows 11 style theme based on the Metricalist "Power BI Windows 11 Theme": dark grey page, rounded tiles, blue palette and Segoe UI fonts. It's stored with the report in `StaticResources/RegisteredResources/Windows11DarkTheme.json`, with two changes from the original: larger KPI card values (22pt) and dark gridlines so charts stay readable on the dark background. To change the look, edit that file or pick another theme under **View > Themes**.
+
+Every page has the same header: the Patient360 logo (`StaticResources/RegisteredResources/patient360_logo.png`), the page title with a one-line description, and page buttons on the right for moving between pages. Bar charts show their values as data labels.
 
 ## Pages
 

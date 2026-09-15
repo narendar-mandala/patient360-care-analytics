@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "executive_overview_v07",
   "position": {
-    "x": 485,
-    "y": 85,
+    "x": 20,
+    "y": 155,
     "z": 7000,
     "width": 145,
     "height": 90,
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "ED Visits per 1,000"
+                  "Property": "Admissions"
                 }
               },
-              "queryRef": "_Measures.ED Visits per 1,000",
-              "nativeQueryRef": "ED Visits per 1,000"
+              "queryRef": "_Measures.Admissions",
+              "nativeQueryRef": "Admissions"
             }
           ]
         }

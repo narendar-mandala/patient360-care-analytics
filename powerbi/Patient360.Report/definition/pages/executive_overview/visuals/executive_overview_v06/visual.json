@@ -2,38 +2,87 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "executive_overview_v06",
   "position": {
-    "x": 330,
-    "y": 85,
+    "x": 440,
+    "y": 80,
     "z": 6000,
-    "width": 145,
-    "height": 90,
+    "width": 220,
+    "height": 60,
     "tabOrder": 6000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "kpi_monthly"
                     }
                   },
-                  "Property": "Average Length of Stay"
+                  "Property": "condition_group"
                 }
               },
-              "queryRef": "_Measures.Average Length of Stay",
-              "nativeQueryRef": "Average Length of Stay",
-              "displayName": "Avg length of stay (days)"
+              "queryRef": "kpi_monthly.condition_group",
+              "nativeQueryRef": "condition_group"
             }
           ]
         }
       }
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Condition group'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

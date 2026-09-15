@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "utilization_cost_v13",
   "position": {
-    "x": 440,
-    "y": 455,
+    "x": 20,
+    "y": 260,
     "z": 13000,
-    "width": 410,
+    "width": 620,
     "height": 250,
     "tabOrder": 13000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,15 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_facility"
+                      "Entity": "dim_date"
                     }
                   },
-                  "Property": "facility_name"
+                  "Property": "year_month"
                 }
               },
-              "queryRef": "dim_facility.facility_name",
-              "nativeQueryRef": "facility_name",
-              "displayName": "Facility"
+              "queryRef": "dim_date.year_month",
+              "nativeQueryRef": "year_month",
+              "displayName": "Month"
             }
           ]
         },
@@ -42,32 +42,28 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Medical Cost"
+                  "Property": "Admissions"
                 }
               },
-              "queryRef": "_Measures.Medical Cost",
-              "nativeQueryRef": "Medical Cost"
+              "queryRef": "_Measures.Admissions",
+              "nativeQueryRef": "Admissions"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "ED Visits"
+                }
+              },
+              "queryRef": "_Measures.ED Visits",
+              "nativeQueryRef": "ED Visits"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Medical Cost"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true,
@@ -85,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Medical cost by facility'"
+                  "Value": "'Admissions and ED visits by month'"
                 }
               }
             }

@@ -3,7 +3,7 @@
   "name": "utilization_cost",
   "displayName": "Utilization and Cost",
   "displayOption": "FitToPage",
-  "height": 720,
+  "height": 790,
   "width": 1280,
   "filterConfig": {
     "filters": [

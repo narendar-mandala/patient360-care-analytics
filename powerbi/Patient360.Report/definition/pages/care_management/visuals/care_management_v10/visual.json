@@ -1,0 +1,229 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "care_management_v10",
+  "position": {
+    "x": 20,
+    "y": 185,
+    "z": 10000,
+    "width": 1240,
+    "height": 270,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "care_management_worklist"
+                    }
+                  },
+                  "Property": "worklist_rank"
+                }
+              },
+              "queryRef": "care_management_worklist.worklist_rank",
+              "nativeQueryRef": "worklist_rank",
+              "displayName": "Rank"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "care_management_worklist"
+                    }
+                  },
+                  "Property": "patient_name"
+                }
+              },
+              "queryRef": "care_management_worklist.patient_name",
+              "nativeQueryRef": "patient_name",
+              "displayName": "Patient"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "care_management_worklist"
+                    }
+                  },
+                  "Property": "age"
+                }
+              },
+              "queryRef": "care_management_worklist.age",
+              "nativeQueryRef": "age",
+              "displayName": "Age"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "care_management_worklist"
+                    }
+                  },
+                  "Property": "facility_name"
+                }
+              },
+              "queryRef": "care_management_worklist.facility_name",
+              "nativeQueryRef": "facility_name",
+              "displayName": "Facility"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "care_management_worklist"
+                    }
+                  },
+                  "Property": "discharge_date"
+                }
+              },
+              "queryRef": "care_management_worklist.discharge_date",
+              "nativeQueryRef": "discharge_date",
+              "displayName": "Discharged"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "care_management_worklist"
+                    }
+                  },
+                  "Property": "days_since_discharge"
+                }
+              },
+              "queryRef": "care_management_worklist.days_since_discharge",
+              "nativeQueryRef": "days_since_discharge",
+              "displayName": "Days since"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "care_management_worklist"
+                    }
+                  },
+                  "Property": "reason_description"
+                }
+              },
+              "queryRef": "care_management_worklist.reason_description",
+              "nativeQueryRef": "reason_description",
+              "displayName": "Reason for stay"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "care_management_worklist"
+                    }
+                  },
+                  "Property": "lace_score"
+                }
+              },
+              "queryRef": "care_management_worklist.lace_score",
+              "nativeQueryRef": "lace_score",
+              "displayName": "LACE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "care_management_worklist"
+                    }
+                  },
+                  "Property": "risk_tier"
+                }
+              },
+              "queryRef": "care_management_worklist.risk_tier",
+              "nativeQueryRef": "risk_tier",
+              "displayName": "Risk tier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "care_management_worklist"
+                    }
+                  },
+                  "Property": "top_risk_drivers"
+                }
+              },
+              "queryRef": "care_management_worklist.top_risk_drivers",
+              "nativeQueryRef": "top_risk_drivers",
+              "displayName": "Why"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "care_management_worklist"
+                    }
+                  },
+                  "Property": "follow_up_status"
+                }
+              },
+              "queryRef": "care_management_worklist.follow_up_status",
+              "nativeQueryRef": "follow_up_status",
+              "displayName": "Follow-up"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "care_management_worklist"
+                  }
+                },
+                "Property": "worklist_rank"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Call list: patients discharged in the last 14 days'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

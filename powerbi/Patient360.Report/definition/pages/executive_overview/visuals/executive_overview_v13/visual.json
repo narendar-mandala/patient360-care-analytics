@@ -2,37 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "executive_overview_v13",
   "position": {
-    "x": 650,
-    "y": 190,
+    "x": 950,
+    "y": 155,
     "z": 13000,
-    "width": 610,
-    "height": 250,
+    "width": 145,
+    "height": 90,
     "tabOrder": 13000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "kpi_monthly"
-                    }
-                  },
-                  "Property": "condition_group"
-                }
-              },
-              "queryRef": "kpi_monthly.condition_group",
-              "nativeQueryRef": "condition_group",
-              "displayName": "Condition group"
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -42,70 +23,16 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Admissions"
+                  "Property": "PMPM Paid"
                 }
               },
-              "queryRef": "_Measures.Admissions",
-              "nativeQueryRef": "Admissions"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Readmissions"
-                }
-              },
-              "queryRef": "_Measures.Readmissions",
-              "nativeQueryRef": "Readmissions"
+              "queryRef": "_Measures.PMPM Paid",
+              "nativeQueryRef": "PMPM Paid"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Admissions"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Admissions and readmissions by condition group'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    }
+    "drillFilterOtherVisuals": true
   }
 }

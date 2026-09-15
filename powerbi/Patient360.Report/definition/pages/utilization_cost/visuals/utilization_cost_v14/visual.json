@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "utilization_cost_v14",
   "position": {
-    "x": 860,
-    "y": 455,
+    "x": 650,
+    "y": 260,
     "z": 14000,
-    "width": 400,
+    "width": 610,
     "height": 250,
     "tabOrder": 14000
   },
@@ -20,15 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_provider"
+                      "Entity": "kpi_monthly"
                     }
                   },
-                  "Property": "provider_name"
+                  "Property": "condition_group"
                 }
               },
-              "queryRef": "dim_provider.provider_name",
-              "nativeQueryRef": "provider_name",
-              "displayName": "Provider"
+              "queryRef": "kpi_monthly.condition_group",
+              "nativeQueryRef": "condition_group",
+              "displayName": "Condition group"
             }
           ]
         },
@@ -42,12 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Encounter Payer Paid"
+                  "Property": "Medical Cost"
                 }
               },
-              "queryRef": "_Measures.Encounter Payer Paid",
-              "nativeQueryRef": "Encounter Payer Paid",
-              "displayName": "Payer paid"
+              "queryRef": "_Measures.Medical Cost",
+              "nativeQueryRef": "Medical Cost"
             }
           ]
         }
@@ -62,7 +61,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Encounter Payer Paid"
+                "Property": "Medical Cost"
               }
             },
             "direction": "Descending"
@@ -86,7 +85,33 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Payer paid by provider'"
+                  "Value": "'Medical cost by condition group'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#CCCCCC'"
+                    }
+                  }
                 }
               }
             }
