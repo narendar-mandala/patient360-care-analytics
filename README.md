@@ -41,8 +41,8 @@ Reference CSVs ────┘                        as-is      mapped,    KPIs
 | | Bronze: Synthea CSVs and reference tables | Done (14 CSV tables, 10 reference tables, reconciled) |
 | | Silver: typed, mapped, quality-checked tables | Done (14 tables, see docs/05_silver.md) |
 | | Gold: star schema, KPIs, Patient 360 | Done (19 tables, see docs/06_gold.md) |
-| | Deploy: Asset Bundle job and CI | Next |
-| | Power BI: executive, Patient 360, utilization and cost, care management | |
+| | Deploy: Asset Bundle job and CI | Done (daily job with data checks, GitHub Actions; see docs/07_deploy_and_ci.md) |
+| | Power BI: executive, Patient 360, utilization and cost, care management | Next |
 | **2** | Realistic readmission and ED rates, Clarity-style tables, detailed billing and denials, deliberate data quality defects | Planned (earlier work kept on branch `phase2-realism`) |
 | **3** | Readmission risk model, risk explanations, GenAI patient summaries | Planned |
 
@@ -55,7 +55,8 @@ data_generation/synthea/   Synthea population generation and profiling
 reference/                 lookup CSVs (code mappings, payer types, risk tables) and their checks
 scripts/                   upload to the Databricks Volume
 databricks/                pipelines (bronze, silver, gold), setup SQL, validation SQL
-resources/                 Databricks Asset Bundle resources
+resources/                 Databricks Asset Bundle resources (pipeline and daily job)
+.github/workflows/         CI: reference data tests, bundle validate and deploy
 data/                      local raw files (git-ignored)
 ```
 
@@ -67,3 +68,4 @@ data/                      local raw files (git-ignored)
 4. [docs/04_requirements.md](docs/04_requirements.md): problem statement, KPIs and what's in each phase
 5. [docs/05_silver.md](docs/05_silver.md): the Silver pattern and tables
 6. [docs/06_gold.md](docs/06_gold.md): Gold tables, KPI definitions and readmission logic
+7. [docs/07_deploy_and_ci.md](docs/07_deploy_and_ci.md): the daily job, data checks and CI setup

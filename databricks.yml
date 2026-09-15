@@ -14,6 +14,10 @@ variables:
   as_of_date:
     description: Last day of the reporting period; 12-month and 30-day measures count back from here
     default: "2026-08-31"
+  warehouse_id:
+    description: SQL warehouse that runs the job's data checks (and serves Power BI)
+    lookup:
+      warehouse: Serverless Starter Warehouse
 
 include:
   - resources/*.yml

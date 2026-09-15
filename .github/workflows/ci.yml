@@ -1,0 +1,71 @@
+# CI/CD for the Databricks project.
+#
+#   reference-checks  every push and pull request: consistency tests for the reference (lookup) files
+#   bundle            every push and pull request: validate the Databricks Asset Bundle
+#                     pushes to main: also deploy it (pipeline + job) to the workspace
+#
+# The bundle job needs two repository secrets (Settings > Secrets and variables > Actions):
+#   DATABRICKS_HOST   workspace URL, for example https://dbc-xxxxxxxx-xxxx.cloud.databricks.com
+#   DATABRICKS_TOKEN  a Databricks personal access token
+# See docs/07_deploy_and_ci.md.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reference-checks:
+    name: Reference data checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install test dependencies
+        run: pip install duckdb pytest
+
+      # Tests that need a local Synthea run are skipped here; the rest check the files against each other.
+      - name: Run reference tests
+        run: pytest reference -q -rs
+
+  bundle:
+    name: Databricks bundle
+    runs-on: ubuntu-latest
+    needs: reference-checks
+    # Secrets aren't available to pull requests from forks, so only run for this repository.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check that Databricks secrets are set
+        run: |
+          if [ -z "$DATABRICKS_HOST" ] || [ -z "$DATABRICKS_TOKEN" ]; then
+            echo "::error::Add DATABRICKS_HOST and DATABRICKS_TOKEN as repository secrets (see docs/07_deploy_and_ci.md)."
+            exit 1
+          fi
+
+      - uses: databricks/setup-cli@main
+
+      - name: Validate bundle
+        run: databricks bundle validate --target dev
+
+      - name: Deploy bundle
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: databricks bundle deploy --target dev

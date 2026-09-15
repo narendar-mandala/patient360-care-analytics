@@ -1,0 +1,30 @@
+# Daily job: refresh the medallion pipeline, then run the data checks.
+# In the dev target (development mode) Databricks pauses the schedule; start the job by hand or unpause it in the UI.
+resources:
+  jobs:
+    healthcare_daily:
+      name: healthcare-daily-refresh
+      max_concurrent_runs: 1
+
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?"   # 6:00 AM every day
+        timezone_id: America/New_York
+
+      email_notifications:
+        on_failure:
+          - ${workspace.current_user.userName}
+
+      tasks:
+        - task_key: refresh_pipeline
+          description: Load new files into Bronze and rebuild Silver and Gold
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.healthcare_medallion.id}
+
+        - task_key: data_checks
+          description: Stop the run if Gold is empty, Silver lost records, or an unexpected data quality check failed
+          depends_on:
+            - task_key: refresh_pipeline
+          sql_task:
+            warehouse_id: ${var.warehouse_id}
+            file:
+              path: ../databricks/validation/job_checks.sql
