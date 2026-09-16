@@ -24,3 +24,6 @@ venv/
 # Local tooling
 data_generation/.venv/
 .pytest_cache/
+
+# Power BI Desktop local editor state
+**/.pbi/
