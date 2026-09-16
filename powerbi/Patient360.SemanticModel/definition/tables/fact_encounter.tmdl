@@ -47,8 +47,10 @@ table fact_encounter
 	column end_date_key
 		dataType: int64
 		lineageTag: af39e91b-9f68-5d77-bbd2-1db8e0ab1a7a
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: end_date_key
+
+		annotation SummarizationSetBy = Automatic
 
 	column start_ts
 		dataType: dateTime
@@ -57,12 +59,22 @@ table fact_encounter
 		summarizeBy: none
 		sourceColumn: start_ts
 
+		variation Variation
+			isDefault
+			relationship: 52efd7bb-b588-42bf-85bc-b94498abd582
+			defaultHierarchy: LocalDateTable_2bd36245-81ed-464b-b493-35cee7f3a857.'Date Hierarchy'
+
 	column end_ts
 		dataType: dateTime
 		formatString: yyyy-mm-dd hh:nn
 		lineageTag: 6ff56923-2d47-59ee-bd6a-84b9eabc8173
 		summarizeBy: none
 		sourceColumn: end_ts
+
+		variation Variation
+			isDefault
+			relationship: 0bde6d4b-331a-4c6e-bd83-0062e01eef55
+			defaultHierarchy: LocalDateTable_611a4bc4-5908-46d9-9ea9-3bcd764a67c7.'Date Hierarchy'
 
 	column care_setting
 		dataType: string
@@ -97,8 +109,10 @@ table fact_encounter
 	column length_of_stay_days
 		dataType: int64
 		lineageTag: 15fdb096-ad33-55cf-af33-b575b0fc6bd9
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: length_of_stay_days
+
+		annotation SummarizationSetBy = Automatic
 
 	column reason_icd10cm_code
 		dataType: string
@@ -119,25 +133,31 @@ table fact_encounter
 		sourceColumn: condition_group
 
 	column medical_cost
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 83c5d46a-cc92-51ba-ab6a-64720b792785
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: medical_cost
 
+		annotation SummarizationSetBy = Automatic
+
 	column payer_paid
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: b710ebe6-0a52-569c-b6a6-54f03beb3f6d
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: payer_paid
 
+		annotation SummarizationSetBy = Automatic
+
 	column patient_responsibility
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 0f914942-22a9-5a32-b351-6d97913f75d9
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: patient_responsibility
+
+		annotation SummarizationSetBy = Automatic
 
 	partition fact_encounter = m
 		mode: import
@@ -149,3 +169,4 @@ table fact_encounter
 				    fact_encounter = gold{[Name = "fact_encounter", Kind = "Table"]}[Data]
 				in
 				    fact_encounter
+

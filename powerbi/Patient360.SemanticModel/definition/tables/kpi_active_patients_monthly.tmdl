@@ -9,6 +9,13 @@ table kpi_active_patients_monthly
 		summarizeBy: none
 		sourceColumn: month_start
 
+		variation Variation
+			isDefault
+			relationship: 3be2d6cc-2ce9-44d9-b3c6-69beb5729350
+			defaultHierarchy: LocalDateTable_6be4a7b4-29d4-407a-9265-55617f8ee4eb.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column month_date_key
 		dataType: int64
 		lineageTag: c1313524-719f-5643-bbfa-0e9f4939e46e
@@ -18,8 +25,10 @@ table kpi_active_patients_monthly
 	column active_patients
 		dataType: int64
 		lineageTag: 570d0e01-f2a7-5670-ab8f-f7b1f2dbee83
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: active_patients
+
+		annotation SummarizationSetBy = Automatic
 
 	partition kpi_active_patients_monthly = m
 		mode: import
@@ -31,3 +40,4 @@ table kpi_active_patients_monthly
 				    kpi_active_patients_monthly = gold{[Name = "kpi_active_patients_monthly", Kind = "Table"]}[Data]
 				in
 				    kpi_active_patients_monthly
+

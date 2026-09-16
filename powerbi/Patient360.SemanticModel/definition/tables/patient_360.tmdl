@@ -23,8 +23,10 @@ table patient_360
 	column age
 		dataType: int64
 		lineageTag: aef655a2-690b-52b1-9b00-0f0bcbc1a823
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
 
 	column age_band
 		dataType: string
@@ -69,6 +71,13 @@ table patient_360
 		summarizeBy: none
 		sourceColumn: death_date
 
+		variation Variation
+			isDefault
+			relationship: aa240a10-f231-4000-baeb-35ad25e43c6a
+			defaultHierarchy: LocalDateTable_50463e0d-edb7-4614-ada8-d021c6290eea.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column current_payer_name
 		dataType: string
 		lineageTag: 0e28c247-6f36-50aa-8767-7f076aaaab58
@@ -88,43 +97,62 @@ table patient_360
 		summarizeBy: none
 		sourceColumn: last_visit_date
 
+		variation Variation
+			isDefault
+			relationship: 7feca9e0-7a23-43e8-8b16-69fa9f170e5e
+			defaultHierarchy: LocalDateTable_f1d3023d-eb6d-4e27-9a2e-aa67820b38f7.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column visits_12_months
 		dataType: int64
 		lineageTag: aa8bf712-56dd-59cb-800f-40bed258fb11
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: visits_12_months
+
+		annotation SummarizationSetBy = Automatic
 
 	column inpatient_admissions_12_months
 		dataType: int64
 		lineageTag: 371582f4-94da-5e62-b7b3-1e18b2a2812c
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: inpatient_admissions_12_months
+
+		annotation SummarizationSetBy = Automatic
 
 	column ed_visits_12_months
 		dataType: int64
 		lineageTag: 3184256e-359f-5c7b-b6f4-c419f1d44be3
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: ed_visits_12_months
+
+		annotation SummarizationSetBy = Automatic
 
 	column readmissions_12_months
 		dataType: int64
 		lineageTag: 367c3d81-c3cf-5848-983c-b62e6a259cff
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: readmissions_12_months
 
+		annotation SummarizationSetBy = Automatic
+
 	column medical_cost_12_months
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: f275e24b-c5bc-599c-b08b-1a881e6e075d
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: medical_cost_12_months
 
+		annotation SummarizationSetBy = Automatic
+
 	column payer_paid_12_months
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 4af04ac6-dd85-5c92-900e-ab4595270dba
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: payer_paid_12_months
+
+		annotation SummarizationSetBy = Automatic
 
 	column is_high_utilizer
 		dataType: boolean
@@ -135,8 +163,10 @@ table patient_360
 	column chronic_condition_count
 		dataType: int64
 		lineageTag: 64081260-d7db-5e03-9065-faab2521a7da
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: chronic_condition_count
+
+		annotation SummarizationSetBy = Automatic
 
 	column chronic_conditions
 		dataType: string
@@ -147,14 +177,18 @@ table patient_360
 	column active_medication_count
 		dataType: int64
 		lineageTag: a2799045-78e1-5a1b-990e-e881c3a8052e
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: active_medication_count
+
+		annotation SummarizationSetBy = Automatic
 
 	column abnormal_labs_90_days
 		dataType: int64
 		lineageTag: 2dfdc2a6-4f34-5d93-a2f0-b990ec805885
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: abnormal_labs_90_days
+
+		annotation SummarizationSetBy = Automatic
 
 	column latest_abnormal_lab
 		dataType: string
@@ -169,11 +203,20 @@ table patient_360
 		summarizeBy: none
 		sourceColumn: last_discharge_date
 
+		variation Variation
+			isDefault
+			relationship: 2bd60282-f20e-45ae-ba3d-855f3c523029
+			defaultHierarchy: LocalDateTable_b15c185a-1fd7-4b9f-b9b1-df1942fb59da.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column latest_lace_score
 		dataType: int64
 		lineageTag: 4d402885-b674-5c75-9166-ce7787f08018
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: latest_lace_score
+
+		annotation SummarizationSetBy = Automatic
 
 	column latest_risk_tier
 		dataType: string
@@ -191,3 +234,4 @@ table patient_360
 				    patient_360 = gold{[Name = "patient_360", Kind = "Table"]}[Data]
 				in
 				    patient_360
+

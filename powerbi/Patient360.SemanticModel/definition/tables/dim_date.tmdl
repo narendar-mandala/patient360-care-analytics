@@ -8,24 +8,35 @@ table dim_date
 		summarizeBy: none
 		sourceColumn: date_key
 
-	column 'date'
+	column date
 		dataType: dateTime
 		formatString: yyyy-mm-dd
 		lineageTag: 0eff3690-dd9e-5b8a-9fad-30bbf0d11ce8
 		summarizeBy: none
 		sourceColumn: date
 
+		variation Variation
+			isDefault
+			relationship: b918f539-5c26-4e73-9751-9fb155ecd31d
+			defaultHierarchy: LocalDateTable_7f60fb97-8fda-4e34-8ad8-e7635e9fc76c.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column year
 		dataType: int64
 		lineageTag: 8df991e3-d50c-5567-b2d6-f7c6f68a2027
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
 
 	column quarter
 		dataType: int64
 		lineageTag: b6ca9ee4-a6c6-552b-86a0-ae2c4a0288ce
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
 
 	column year_quarter
 		dataType: string
@@ -36,15 +47,17 @@ table dim_date
 	column month
 		dataType: int64
 		lineageTag: 4fe1cc10-16fa-5422-a278-3f6c6f443f38
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
 
 	column month_name
 		dataType: string
-		sortByColumn: month
 		lineageTag: f79dda63-ca3e-5225-88d5-1cbdde5ca71b
 		summarizeBy: none
 		sourceColumn: month_name
+		sortByColumn: month
 
 	column month_start
 		dataType: dateTime
@@ -52,6 +65,13 @@ table dim_date
 		lineageTag: 14a44c18-5d7c-523e-8722-928d069e8ab8
 		summarizeBy: none
 		sourceColumn: month_start
+
+		variation Variation
+			isDefault
+			relationship: af82e791-5dc9-4625-8e44-c2cf592efff4
+			defaultHierarchy: LocalDateTable_9c066741-d4cc-4b6a-a0d7-3adb9bad4038.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column year_month
 		dataType: string
@@ -62,15 +82,17 @@ table dim_date
 	column day_of_week
 		dataType: int64
 		lineageTag: 2e0d3a99-cb9c-54a4-8007-90b7b97598e5
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: day_of_week
+
+		annotation SummarizationSetBy = Automatic
 
 	column day_name
 		dataType: string
-		sortByColumn: day_of_week
 		lineageTag: ad01f3c4-3e7c-58f2-8b59-6f5d33f12154
 		summarizeBy: none
 		sourceColumn: day_name
+		sortByColumn: day_of_week
 
 	column is_in_analysis_period
 		dataType: boolean
@@ -88,3 +110,4 @@ table dim_date
 				    dim_date = gold{[Name = "dim_date", Kind = "Table"]}[Data]
 				in
 				    dim_date
+

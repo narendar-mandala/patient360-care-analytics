@@ -39,12 +39,26 @@ table dim_patient
 		summarizeBy: none
 		sourceColumn: birth_date
 
+		variation Variation
+			isDefault
+			relationship: 878e7b98-b806-415e-924e-11b5717f3a31
+			defaultHierarchy: LocalDateTable_549c29e0-2c5d-4c8b-a895-327461b07e2a.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column death_date
 		dataType: dateTime
 		formatString: yyyy-mm-dd
 		lineageTag: af0130fc-d46f-5375-91e2-1163d0e3cc15
 		summarizeBy: none
 		sourceColumn: death_date
+
+		variation Variation
+			isDefault
+			relationship: 6f8ee40b-d26a-41f7-beb5-bfb565f783e1
+			defaultHierarchy: LocalDateTable_96f3310c-1366-4484-8625-821d3697bae8.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column is_deceased
 		dataType: boolean
@@ -55,8 +69,10 @@ table dim_patient
 	column age
 		dataType: int64
 		lineageTag: 268843db-3ecd-58f6-8146-9b1dc918c764
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
 
 	column age_band
 		dataType: string
@@ -114,17 +130,21 @@ table dim_patient
 
 	column latitude
 		dataType: double
-		dataCategory: Latitude
 		lineageTag: 21ae7da1-6304-5584-b167-e351424ff495
-		summarizeBy: none
+		dataCategory: Latitude
+		summarizeBy: sum
 		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
 
 	column longitude
 		dataType: double
-		dataCategory: Longitude
 		lineageTag: e687e1cc-3991-596b-833a-b5fb019ba756
-		summarizeBy: none
+		dataCategory: Longitude
+		summarizeBy: sum
 		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
 
 	column current_payer_id
 		dataType: string
@@ -160,3 +180,4 @@ table dim_patient
 				    dim_patient = gold{[Name = "dim_patient", Kind = "Table"]}[Data]
 				in
 				    dim_patient
+

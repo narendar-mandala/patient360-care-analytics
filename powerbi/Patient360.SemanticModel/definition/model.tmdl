@@ -6,6 +6,14 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+
+annotation PBI_QueryOrder = ["_Measures","dim_date","dim_patient","dim_provider","dim_facility","dim_payer","dim_diagnosis","fact_encounter","fact_condition","fact_procedure","fact_lab_result","fact_medication","fact_claim","fact_member_month","fact_index_admission","kpi_monthly","kpi_active_patients_monthly","patient_360","patient_timeline","care_management_worklist","DatabricksServerHostname","DatabricksHttpPath"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
 ref table _Measures
 ref table dim_date
 ref table dim_patient
@@ -26,3 +34,30 @@ ref table kpi_active_patients_monthly
 ref table patient_360
 ref table patient_timeline
 ref table care_management_worklist
+ref table DateTableTemplate_fe88c937-19e5-499d-8875-e6ea4ba51277
+ref table LocalDateTable_7f60fb97-8fda-4e34-8ad8-e7635e9fc76c
+ref table LocalDateTable_9c066741-d4cc-4b6a-a0d7-3adb9bad4038
+ref table LocalDateTable_549c29e0-2c5d-4c8b-a895-327461b07e2a
+ref table LocalDateTable_96f3310c-1366-4484-8625-821d3697bae8
+ref table LocalDateTable_2bd36245-81ed-464b-b493-35cee7f3a857
+ref table LocalDateTable_611a4bc4-5908-46d9-9ea9-3bcd764a67c7
+ref table LocalDateTable_6d69fb2f-3d71-455b-a08d-b2caaea93181
+ref table LocalDateTable_0adb2e88-d01e-471a-b0e9-fc16942b34dc
+ref table LocalDateTable_951b03d7-e573-46a7-9e34-1ea5f087acfa
+ref table LocalDateTable_3c53a600-c08f-484a-8987-8c9bb98f5c3e
+ref table LocalDateTable_22c02baf-5ab2-4c82-b983-dd804a0d2524
+ref table LocalDateTable_26802197-10cb-43ed-871a-ff25acb25076
+ref table LocalDateTable_c843fa2a-8b37-4a6c-a6c7-aeaf91597438
+ref table LocalDateTable_d1130586-563f-467b-8975-7754d5e365e9
+ref table LocalDateTable_520ba685-8d29-48b2-beab-15e92d9c826c
+ref table LocalDateTable_1c38525e-0502-48d7-8180-67157cb43940
+ref table LocalDateTable_e99f238e-a0da-4e3f-af59-06dab6dbaead
+ref table LocalDateTable_6be4a7b4-29d4-407a-9265-55617f8ee4eb
+ref table LocalDateTable_50463e0d-edb7-4614-ada8-d021c6290eea
+ref table LocalDateTable_f1d3023d-eb6d-4e27-9a2e-aa67820b38f7
+ref table LocalDateTable_b15c185a-1fd7-4b9f-b9b1-df1942fb59da
+ref table LocalDateTable_1bf36618-5ab3-45b3-9c0f-96b356bcfb10
+ref table LocalDateTable_b1cc59a4-aa01-429c-91c8-4efd24049eed
+
+ref cultureInfo en-US
+

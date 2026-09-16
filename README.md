@@ -75,7 +75,6 @@ Four pages, each answering one question.
 
 ### Executive Overview: how are we doing?
 
-<!-- Add the screenshot to docs/images/ with this name -->
 ![Executive Overview](docs/images/01-executive-overview.png)
 
 Admissions, readmission rate against the national benchmark, average length of stay, ED visits per 1,000, post-discharge ED rate, payer paid, per-member-per-month cost and high-risk patients, with trends and breakdowns by condition group, facility and payer.
@@ -97,8 +96,6 @@ Total cost, payer paid, patient responsibility, cost per patient and the share o
 ![Care Management](docs/images/04-care-management.png)
 
 Patients discharged in the last 14 days, ranked by their LACE readmission risk score, with the reasons behind each score in plain language, plus how the readmission rate actually turned out by risk tier.
-
-*Screenshots go in [docs/images/](docs/images/). See the notes in that folder for the file names.*
 
 ## The approach: build it in phases
 

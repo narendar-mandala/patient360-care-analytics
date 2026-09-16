@@ -42,3 +42,4 @@ table dim_payer
 				    dim_payer = gold{[Name = "dim_payer", Kind = "Table"]}[Data]
 				in
 				    dim_payer
+

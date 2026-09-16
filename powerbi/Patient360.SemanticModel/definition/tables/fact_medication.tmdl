@@ -39,12 +39,22 @@ table fact_medication
 		summarizeBy: none
 		sourceColumn: start_ts
 
+		variation Variation
+			isDefault
+			relationship: a3e9acd4-c867-4820-9335-4dc7ae9dcd9c
+			defaultHierarchy: LocalDateTable_22c02baf-5ab2-4c82-b983-dd804a0d2524.'Date Hierarchy'
+
 	column stop_ts
 		dataType: dateTime
 		formatString: yyyy-mm-dd hh:nn
 		lineageTag: 8e1708b8-9bd7-555c-8063-5650e9586258
 		summarizeBy: none
 		sourceColumn: stop_ts
+
+		variation Variation
+			isDefault
+			relationship: cd97777f-4b74-4086-9078-3b269ec45d65
+			defaultHierarchy: LocalDateTable_26802197-10cb-43ed-871a-ff25acb25076.'Date Hierarchy'
 
 	column is_active
 		dataType: boolean
@@ -67,29 +77,37 @@ table fact_medication
 	column dispenses
 		dataType: int64
 		lineageTag: 654723bb-9d3a-541c-bc1b-345c60407d7e
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: dispenses
 
+		annotation SummarizationSetBy = Automatic
+
 	column pharmacy_cost
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 3af7ef2a-a6f3-591b-89c9-945460813336
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: pharmacy_cost
 
+		annotation SummarizationSetBy = Automatic
+
 	column payer_paid
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 608f6748-033d-57d8-a598-d5edabc12540
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: payer_paid
 
+		annotation SummarizationSetBy = Automatic
+
 	column patient_responsibility
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 3d25ca18-5845-5ecf-877e-75e8c50f9a57
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: patient_responsibility
+
+		annotation SummarizationSetBy = Automatic
 
 	column reason_icd10cm_code
 		dataType: string
@@ -113,3 +131,4 @@ table fact_medication
 				    fact_medication = gold{[Name = "fact_medication", Kind = "Table"]}[Data]
 				in
 				    fact_medication
+

@@ -45,6 +45,13 @@ table fact_claim
 		summarizeBy: none
 		sourceColumn: service_date
 
+		variation Variation
+			isDefault
+			relationship: 57b00e99-1113-4568-a18d-f1a3eb2592f8
+			defaultHierarchy: LocalDateTable_c843fa2a-8b37-4a6c-a6c7-aeaf91597438.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column claim_type
 		dataType: string
 		lineageTag: 333d9c6a-d887-5d6c-accd-af3482370645
@@ -66,29 +73,37 @@ table fact_claim
 	column charge_lines
 		dataType: int64
 		lineageTag: ff5524e3-e8ae-5c78-a101-0f3303732ecc
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: charge_lines
 
+		annotation SummarizationSetBy = Automatic
+
 	column total_charges
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 048d133c-a3ff-5c9f-b272-a26d05dcc754
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: total_charges
 
+		annotation SummarizationSetBy = Automatic
+
 	column total_payments
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 8f0381a7-67cb-50d3-a388-b0f1e654599f
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: total_payments
 
+		annotation SummarizationSetBy = Automatic
+
 	column total_outstanding
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 83ef047f-51f9-5332-9c16-7aedd4cc933b
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: total_outstanding
+
+		annotation SummarizationSetBy = Automatic
 
 	column primary_status
 		dataType: string
@@ -112,3 +127,4 @@ table fact_claim
 				    fact_claim = gold{[Name = "fact_claim", Kind = "Table"]}[Data]
 				in
 				    fact_claim
+

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "utilization_cost_v05",
   "position": {
     "x": 210,
     "y": 80,
     "z": 5000,
-    "width": 220,
     "height": 60,
+    "width": 220,
     "tabOrder": 5000
   },
   "visual": {
@@ -27,34 +27,12 @@
                 }
               },
               "queryRef": "kpi_monthly.payer_category",
-              "nativeQueryRef": "payer_category"
+              "nativeQueryRef": "payer_category",
+              "active": true
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Payer category'"
-                }
-              }
-            }
-          }
-        }
-      ]
     },
     "objects": {
       "data": [
@@ -83,6 +61,29 @@
           }
         }
       ]
-    }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Payer category'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
   }
 }

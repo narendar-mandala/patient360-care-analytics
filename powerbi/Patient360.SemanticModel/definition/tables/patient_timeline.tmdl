@@ -15,6 +15,11 @@ table patient_timeline
 		summarizeBy: none
 		sourceColumn: event_ts
 
+		variation Variation
+			isDefault
+			relationship: 63337b43-63e0-482f-ac78-f165c7818cb5
+			defaultHierarchy: LocalDateTable_1bf36618-5ab3-45b3-9c0f-96b356bcfb10.'Date Hierarchy'
+
 	column event_category
 		dataType: string
 		lineageTag: e3653032-2c61-546f-8628-9d5145cb9830
@@ -46,11 +51,13 @@ table patient_timeline
 		sourceColumn: encounter_id
 
 	column amount
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 34736fd6-674c-5a34-86df-58a417de9e97
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
 
 	partition patient_timeline = m
 		mode: import
@@ -62,3 +69,4 @@ table patient_timeline
 				    patient_timeline = gold{[Name = "patient_timeline", Kind = "Table"]}[Data]
 				in
 				    patient_timeline
+

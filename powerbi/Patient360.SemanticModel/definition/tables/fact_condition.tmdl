@@ -23,8 +23,10 @@ table fact_condition
 	column start_date_key
 		dataType: int64
 		lineageTag: c7770fde-6d2c-57d8-99c4-1084e10647ca
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: start_date_key
+
+		annotation SummarizationSetBy = Automatic
 
 	column start_date
 		dataType: dateTime
@@ -33,12 +35,26 @@ table fact_condition
 		summarizeBy: none
 		sourceColumn: start_date
 
+		variation Variation
+			isDefault
+			relationship: 38f02f53-c273-4d9e-94fa-1a8ee58268fd
+			defaultHierarchy: LocalDateTable_6d69fb2f-3d71-455b-a08d-b2caaea93181.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column stop_date
 		dataType: dateTime
 		formatString: yyyy-mm-dd
 		lineageTag: fefea2ce-d837-5f4b-8ed2-0ef363401356
 		summarizeBy: none
 		sourceColumn: stop_date
+
+		variation Variation
+			isDefault
+			relationship: d728fdf7-4103-446c-9b11-de8fa5a132d9
+			defaultHierarchy: LocalDateTable_0adb2e88-d01e-471a-b0e9-fc16942b34dc.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column is_active
 		dataType: boolean
@@ -98,3 +114,4 @@ table fact_condition
 				    fact_condition = gold{[Name = "fact_condition", Kind = "Table"]}[Data]
 				in
 				    fact_condition
+

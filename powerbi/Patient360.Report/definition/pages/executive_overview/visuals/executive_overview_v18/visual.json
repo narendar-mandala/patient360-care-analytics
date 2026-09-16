@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "executive_overview_v18",
   "position": {
     "x": 650,
     "y": 525,
     "z": 18000,
-    "width": 610,
     "height": 250,
+    "width": 610,
     "tabOrder": 18000
   },
   "visual": {
@@ -28,6 +28,7 @@
               },
               "queryRef": "kpi_monthly.payer_category",
               "nativeQueryRef": "payer_category",
+              "active": true,
               "displayName": "Payer category"
             }
           ]
@@ -52,7 +53,34 @@
         }
       }
     },
-    "drillFilterOtherVisuals": true,
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#CCCCCC'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -74,6 +102,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "patient_360_v09",
   "position": {
     "x": 430,
     "y": 520,
     "z": 9000,
-    "width": 420,
     "height": 260,
+    "width": 420,
     "tabOrder": 9000
   },
   "visual": {
@@ -112,7 +112,24 @@
         "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true,
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "130.01259892736817D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_lab_result.test_name"
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -134,6 +151,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

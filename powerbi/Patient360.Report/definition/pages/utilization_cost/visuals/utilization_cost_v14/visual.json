@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "utilization_cost_v14",
   "position": {
     "x": 650,
     "y": 260,
     "z": 14000,
-    "width": 610,
     "height": 250,
+    "width": 610,
     "tabOrder": 14000
   },
   "visual": {
@@ -28,6 +28,7 @@
               },
               "queryRef": "kpi_monthly.condition_group",
               "nativeQueryRef": "condition_group",
+              "active": true,
               "displayName": "Condition group"
             }
           ]
@@ -70,29 +71,6 @@
         "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Medical cost by condition group'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
     "objects": {
       "labels": [
         {
@@ -118,6 +96,29 @@
           }
         }
       ]
-    }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Medical cost by condition group'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
   }
 }

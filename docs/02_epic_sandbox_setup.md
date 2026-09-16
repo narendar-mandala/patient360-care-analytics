@@ -1,15 +1,15 @@
-# 02 — Epic FHIR Sandbox Setup
+# 02 - Epic FHIR sandbox setup
 
 Goal: pull real R4 resources from Epic's public sandbox using the **Backend Services** (system-to-system) OAuth flow. This is the same pattern a hospital data platform uses for scheduled extracts.
 
 > Epic's developer portal UI changes from time to time. If a label below doesn't match what you see, follow the intent of the step. The OAuth mechanics (JWT client assertion, RS384) are standards-based and stable.
 
-## Step 1 — Create a developer account
+## Step 1: Create a developer account
 
 1. Go to **https://fhir.epic.com** and sign up for a free account.
 2. Confirm your email and log in.
 
-## Step 2 — Generate your key pair (locally)
+## Step 2: Generate your key pair (locally)
 
 Run from `ingestion\epic_fhir` (PowerShell). Call the venv's Python directly rather than `activate`: Windows' default execution policy blocks `Activate.ps1`.
 
@@ -28,7 +28,7 @@ This creates, all git-ignored:
 | `keys/jwks.json` | Public key as a JWK Set (with `kid`) | Yes, public by design |
 | `keys/publickey509.pem` | Public key as an X.509 cert | Yes, public by design |
 
-## Step 3 — Register the app
+## Step 3: Register the app
 
 In the portal: **Build Apps → Create**.
 
@@ -61,7 +61,7 @@ Accept the terms and click **Save & Ready for Sandbox**. Copy the **Non-Producti
 
 > A new client ID can take a while to become active in the sandbox, anywhere from minutes to many hours. An `invalid_client` error right after registration usually just means "wait".
 
-## Step 4 — Configure and extract
+## Step 4: Configure and extract
 
 ```powershell
 copy .env.example .env                                   # paste EPIC_CLIENT_ID

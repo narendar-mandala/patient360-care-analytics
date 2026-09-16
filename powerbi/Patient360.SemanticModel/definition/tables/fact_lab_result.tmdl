@@ -33,6 +33,11 @@ table fact_lab_result
 		summarizeBy: none
 		sourceColumn: result_ts
 
+		variation Variation
+			isDefault
+			relationship: 8796cec5-49a1-44b4-8361-f00120bb947d
+			defaultHierarchy: LocalDateTable_3c53a600-c08f-484a-8987-8c9bb98f5c3e.'Date Hierarchy'
+
 	column loinc_code
 		dataType: string
 		lineageTag: a0809a69-19f1-5163-8deb-e089f5d9cdae
@@ -54,8 +59,10 @@ table fact_lab_result
 	column value_numeric
 		dataType: double
 		lineageTag: 2b4e1257-3069-50a5-8154-5f1363568e26
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: value_numeric
+
+		annotation SummarizationSetBy = Automatic
 
 	column value_text
 		dataType: string
@@ -72,14 +79,18 @@ table fact_lab_result
 	column reference_low
 		dataType: double
 		lineageTag: c88a4eab-7591-5011-a6fd-fcd1b662e8a2
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: reference_low
+
+		annotation SummarizationSetBy = Automatic
 
 	column reference_high
 		dataType: double
 		lineageTag: ca9b1afa-b482-5685-a228-2c5d56d4f2d7
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: reference_high
+
+		annotation SummarizationSetBy = Automatic
 
 	column abnormal_flag
 		dataType: string
@@ -103,3 +114,4 @@ table fact_lab_result
 				    fact_lab_result = gold{[Name = "fact_lab_result", Kind = "Table"]}[Data]
 				in
 				    fact_lab_result
+

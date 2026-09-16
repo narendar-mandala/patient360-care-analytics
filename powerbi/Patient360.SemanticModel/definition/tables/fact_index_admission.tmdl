@@ -29,8 +29,10 @@ table fact_index_admission
 	column admit_date_key
 		dataType: int64
 		lineageTag: 755bfb02-7a3c-5cb2-8823-329e827140b2
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: admit_date_key
+
+		annotation SummarizationSetBy = Automatic
 
 	column discharge_date_key
 		dataType: int64
@@ -45,6 +47,13 @@ table fact_index_admission
 		summarizeBy: none
 		sourceColumn: admit_date
 
+		variation Variation
+			isDefault
+			relationship: 2b381d92-bf06-4d41-bbb3-f3d02228c4b6
+			defaultHierarchy: LocalDateTable_520ba685-8d29-48b2-beab-15e92d9c826c.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column discharge_date
 		dataType: dateTime
 		formatString: yyyy-mm-dd
@@ -52,17 +61,28 @@ table fact_index_admission
 		summarizeBy: none
 		sourceColumn: discharge_date
 
+		variation Variation
+			isDefault
+			relationship: 0791b74b-655e-478c-802c-64387c333956
+			defaultHierarchy: LocalDateTable_1c38525e-0502-48d7-8180-67157cb43940.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column age_at_admission
 		dataType: int64
 		lineageTag: 56c808fa-cf56-5078-aea5-b83635123a7a
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: age_at_admission
+
+		annotation SummarizationSetBy = Automatic
 
 	column length_of_stay_days
 		dataType: int64
 		lineageTag: 772c28e8-4ee0-5b20-a503-5deb64269624
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: length_of_stay_days
+
+		annotation SummarizationSetBy = Automatic
 
 	column reason_icd10cm_code
 		dataType: string
@@ -101,18 +121,22 @@ table fact_index_admission
 		sourceColumn: planned_category
 
 	column medical_cost
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: e2816372-f0a2-5333-9dc3-999e5f1d16e9
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: medical_cost
 
+		annotation SummarizationSetBy = Automatic
+
 	column payer_paid
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: e9aa7351-7299-551e-82ec-e6deaf3e4954
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: payer_paid
+
+		annotation SummarizationSetBy = Automatic
 
 	column follow_up_complete
 		dataType: boolean
@@ -135,28 +159,36 @@ table fact_index_admission
 	column days_to_readmission
 		dataType: int64
 		lineageTag: 2ee0d663-4867-5af8-a2d8-e0c386a20195
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: days_to_readmission
 
+		annotation SummarizationSetBy = Automatic
+
 	column readmission_cost
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 15907099-330c-5d73-9a78-74ad59415330
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: readmission_cost
 
+		annotation SummarizationSetBy = Automatic
+
 	column readmission_payer_paid
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 012caa62-e8e9-59b4-b323-87d5e53c40b2
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: readmission_payer_paid
+
+		annotation SummarizationSetBy = Automatic
 
 	column post_discharge_ed_visits
 		dataType: int64
 		lineageTag: 38643632-f86f-58cd-893c-09b35bd0b73a
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: post_discharge_ed_visits
+
+		annotation SummarizationSetBy = Automatic
 
 	column came_through_ed
 		dataType: boolean
@@ -167,44 +199,58 @@ table fact_index_admission
 	column charlson_score
 		dataType: int64
 		lineageTag: 21e22144-12e3-52fa-b2a4-b74afed0e5c7
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: charlson_score
+
+		annotation SummarizationSetBy = Automatic
 
 	column ed_visits_6_months
 		dataType: int64
 		lineageTag: 24dd17c5-9fcb-5c6e-a39d-2b752a70450e
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: ed_visits_6_months
+
+		annotation SummarizationSetBy = Automatic
 
 	column lace_l
 		dataType: int64
 		lineageTag: 8a42f754-5d95-56c5-a4b5-eeb312d1b84f
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: lace_l
+
+		annotation SummarizationSetBy = Automatic
 
 	column lace_a
 		dataType: int64
 		lineageTag: 6afff349-5366-5e48-a188-23eef9001c7c
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: lace_a
+
+		annotation SummarizationSetBy = Automatic
 
 	column lace_c
 		dataType: int64
 		lineageTag: c2374e24-61e4-55a2-a166-c4dbb99d18e6
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: lace_c
+
+		annotation SummarizationSetBy = Automatic
 
 	column lace_e
 		dataType: int64
 		lineageTag: 79b25b00-dcbf-5a0c-af0e-8795133f561b
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: lace_e
+
+		annotation SummarizationSetBy = Automatic
 
 	column lace_score
 		dataType: int64
 		lineageTag: 65b3300c-641f-5818-ad93-204394ec6d8d
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: lace_score
+
+		annotation SummarizationSetBy = Automatic
 
 	column risk_tier
 		dataType: string
@@ -222,3 +268,4 @@ table fact_index_admission
 				    fact_index_admission = gold{[Name = "fact_index_admission", Kind = "Table"]}[Data]
 				in
 				    fact_index_admission
+

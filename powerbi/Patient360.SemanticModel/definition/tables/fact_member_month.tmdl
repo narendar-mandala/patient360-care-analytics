@@ -15,6 +15,13 @@ table fact_member_month
 		summarizeBy: none
 		sourceColumn: month_start
 
+		variation Variation
+			isDefault
+			relationship: 1de60b6f-2277-4263-975c-9de9eac0054f
+			defaultHierarchy: LocalDateTable_d1130586-563f-467b-8975-7754d5e365e9.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column month_date_key
 		dataType: int64
 		lineageTag: 7be90aba-ad68-5ea8-8479-18e8925b81bd
@@ -49,3 +56,4 @@ table fact_member_month
 				    fact_member_month = gold{[Name = "fact_member_month", Kind = "Table"]}[Data]
 				in
 				    fact_member_month
+

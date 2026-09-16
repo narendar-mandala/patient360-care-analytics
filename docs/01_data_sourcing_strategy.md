@@ -1,4 +1,4 @@
-# 01 — Data Sourcing Strategy
+# 01 - Data sourcing strategy
 
 ## The constraint
 
@@ -110,7 +110,7 @@ raw/
 
 On Databricks this path becomes a Unity Catalog Volume (e.g. `/Volumes/healthcare/landing/raw/`). On Azure it becomes an ADLS Gen2 container. The pipelines stay the same either way.
 
-## Dev run profile — `p1000_s42_massachusetts` (2026-09-15)
+## Dev run profile: `p1000_s42_massachusetts` (2026-09-15)
 
 1,144 patients (1,000 alive, 144 deceased). 3.5 GB on disk: CSV 744 MB, FHIR NDJSON 2.7 GB, notes 84 MB.
 

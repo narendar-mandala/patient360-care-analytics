@@ -182,3 +182,4 @@ table _Measures
 	partition _Measures = m
 		mode: import
 		source = #table(type table [Value = text], {})
+

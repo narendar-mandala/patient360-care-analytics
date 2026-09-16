@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "executive_overview_v04",
   "position": {
     "x": 20,
     "y": 80,
     "z": 4000,
-    "width": 180,
     "height": 60,
+    "width": 180,
     "tabOrder": 4000
   },
   "visual": {
@@ -27,34 +27,12 @@
                 }
               },
               "queryRef": "dim_date.year",
-              "nativeQueryRef": "year"
+              "nativeQueryRef": "year",
+              "active": true
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Year'"
-                }
-              }
-            }
-          }
-        }
-      ]
     },
     "objects": {
       "data": [
@@ -83,6 +61,29 @@
           }
         }
       ]
-    }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Year'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
   }
 }

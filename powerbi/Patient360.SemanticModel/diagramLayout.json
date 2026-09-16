@@ -1,0 +1,282 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 2162.505678791907,
+            "y": 712.944826379789
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "e5a7383b-05d5-5767-bb7e-8cb765a970a8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1252.8916970053378,
+            "y": 1356.6611695293616
+          },
+          "nodeIndex": "care_management_worklist",
+          "nodeLineageTag": "1e867556-9570-55da-9b82-f0a7fe76999c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 648.796374436023,
+            "y": 434.61333330045022
+          },
+          "nodeIndex": "dim_date",
+          "nodeLineageTag": "a957de63-801c-5939-bd4c-a7c915bc0743",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1928.505678791907,
+            "y": 889.12367076869918
+          },
+          "nodeIndex": "dim_diagnosis",
+          "nodeLineageTag": "9c80585c-8a62-5255-8126-3292e0130875",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 893.447515300933
+          },
+          "nodeIndex": "dim_facility",
+          "nodeLineageTag": "d1c53bdb-9686-5764-96d4-3427a1e0a94d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1161.4854271819688,
+            "y": 999.30417358156024
+          },
+          "nodeIndex": "dim_patient",
+          "nodeLineageTag": "71404b42-f581-537a-a5b3-394d42f2474d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 672.50105898427614,
+            "y": 790.58853176590344
+          },
+          "nodeIndex": "dim_payer",
+          "nodeLineageTag": "2a959433-5d13-5593-b3ff-e1116fb451cd",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 358.874690382989,
+            "y": 189.93122309555633
+          },
+          "nodeIndex": "dim_provider",
+          "nodeLineageTag": "53bb908d-0fcb-504a-892b-568af1397012",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 938.57275497975684,
+            "y": 156.28492856112121
+          },
+          "nodeIndex": "fact_claim",
+          "nodeLineageTag": "54fe2826-4e59-5f54-8f0d-a5c8b7d48e34",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1639.7703590180568,
+            "y": 930.97944547635643
+          },
+          "nodeIndex": "fact_condition",
+          "nodeLineageTag": "5684f330-0422-5b23-bbe0-38e9f27c9d56",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 358.93662973206426,
+            "y": 684.08974592323045
+          },
+          "nodeIndex": "fact_encounter",
+          "nodeLineageTag": "574f0088-0af7-526c-919f-58cd83878d64",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 463.35940437780516,
+            "y": 1046.7752818096342
+          },
+          "nodeIndex": "fact_index_admission",
+          "nodeLineageTag": "1fe902ab-ff9a-5130-a37c-4b02864b32a1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1227.1362375906883,
+            "y": 286.28043729036131
+          },
+          "nodeIndex": "fact_lab_result",
+          "nodeLineageTag": "c16a035b-891a-5d68-ac64-3eba7e08cdde",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 817.838333171359,
+            "y": 1046.1970510786209
+          },
+          "nodeIndex": "fact_medication",
+          "nodeLineageTag": "c6c38e26-c80c-5f83-b1e2-a3d225781c5f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 961.980452756784,
+            "y": 718.86707412205863
+          },
+          "nodeIndex": "fact_member_month",
+          "nodeLineageTag": "16444972-d590-5ae3-bfdc-1a36f2acedf3",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1251.5227024283558,
+            "y": 639.6572252992471
+          },
+          "nodeIndex": "fact_procedure",
+          "nodeLineageTag": "61a5c8bc-cc49-5019-b801-8ff84dde1c36",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 970.29950737343665,
+            "y": -50
+          },
+          "nodeIndex": "kpi_active_patients_monthly",
+          "nodeLineageTag": "cb21b7c9-1992-5002-8eaa-522ce9480622",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 68.986294524818049,
+            "y": 536.22224228776236
+          },
+          "nodeIndex": "kpi_monthly",
+          "nodeLineageTag": "01542cf2-e59b-5f5e-8781-bdf9f2551b41",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1541.1045988937935,
+            "y": 573.66864432821285
+          },
+          "nodeIndex": "patient_360",
+          "nodeLineageTag": "5d54cf05-c6d8-548b-85fc-d166025ce5a6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 736.11462058365623,
+            "y": 1403.8896527595775
+          },
+          "nodeIndex": "patient_timeline",
+          "nodeLineageTag": "52f96da4-dc86-5992-b5e7-cee59ab9bef8",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

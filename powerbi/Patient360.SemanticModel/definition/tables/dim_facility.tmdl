@@ -52,15 +52,15 @@ table dim_facility
 
 	column latitude
 		dataType: double
-		dataCategory: Latitude
 		lineageTag: 6e849c61-0f2f-576b-8f03-28dcc8a43834
+		dataCategory: Latitude
 		summarizeBy: none
 		sourceColumn: latitude
 
 	column longitude
 		dataType: double
-		dataCategory: Longitude
 		lineageTag: bb3e92fb-fcb0-51f6-bd4f-fba063d37d98
+		dataCategory: Longitude
 		summarizeBy: none
 		sourceColumn: longitude
 
@@ -74,3 +74,4 @@ table dim_facility
 				    dim_facility = gold{[Name = "dim_facility", Kind = "Table"]}[Data]
 				in
 				    dim_facility
+

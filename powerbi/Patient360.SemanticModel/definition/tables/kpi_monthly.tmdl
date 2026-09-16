@@ -9,6 +9,13 @@ table kpi_monthly
 		summarizeBy: none
 		sourceColumn: month_start
 
+		variation Variation
+			isDefault
+			relationship: 88c25ed3-ab04-45ae-9648-7a6c91b0a63e
+			defaultHierarchy: LocalDateTable_e99f238e-a0da-4e3f-af59-06dab6dbaead.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column month_date_key
 		dataType: int64
 		lineageTag: 1986d84f-0c1b-59db-9949-4f8dacc31b7e
@@ -36,72 +43,94 @@ table kpi_monthly
 	column admissions
 		dataType: int64
 		lineageTag: 6d1834ce-3b5f-57f3-b75d-e02fc4538ce4
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: admissions
+
+		annotation SummarizationSetBy = Automatic
 
 	column discharges
 		dataType: int64
 		lineageTag: 4d424fe7-1798-55bc-a04f-92ec709603b0
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: discharges
+
+		annotation SummarizationSetBy = Automatic
 
 	column inpatient_days
 		dataType: int64
 		lineageTag: c75a0849-0fa4-5511-abd5-d96a687d87e0
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: inpatient_days
+
+		annotation SummarizationSetBy = Automatic
 
 	column ed_visits
 		dataType: int64
 		lineageTag: a18ef227-de9b-5a24-a784-22288a090c95
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: ed_visits
+
+		annotation SummarizationSetBy = Automatic
 
 	column index_admissions
 		dataType: int64
 		lineageTag: d29da973-1b22-544a-ae7f-51bd025e47bf
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: index_admissions
+
+		annotation SummarizationSetBy = Automatic
 
 	column readmissions
 		dataType: int64
 		lineageTag: c381445f-2884-5dbc-ba7b-ee376b5b5c48
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: readmissions
+
+		annotation SummarizationSetBy = Automatic
 
 	column post_discharge_ed_visits
 		dataType: int64
 		lineageTag: a2d7e9cd-c714-5f0e-8e1e-576121353413
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: post_discharge_ed_visits
 
+		annotation SummarizationSetBy = Automatic
+
 	column readmission_cost
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 4893633d-e3f3-5bd2-8b00-b9cae082cb15
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: readmission_cost
 
+		annotation SummarizationSetBy = Automatic
+
 	column medical_cost
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 09869284-85b1-5632-9d50-7a8b67a15a07
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: medical_cost
 
+		annotation SummarizationSetBy = Automatic
+
 	column payer_paid
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 0ead5e40-72da-5461-82a7-c8b1343a24c1
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: payer_paid
 
+		annotation SummarizationSetBy = Automatic
+
 	column patient_responsibility
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: fefa46a4-2069-5176-90f5-b44cacd0f05e
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: patient_responsibility
+
+		annotation SummarizationSetBy = Automatic
 
 	partition kpi_monthly = m
 		mode: import
@@ -113,3 +142,4 @@ table kpi_monthly
 				    kpi_monthly = gold{[Name = "kpi_monthly", Kind = "Table"]}[Data]
 				in
 				    kpi_monthly
+

@@ -60,3 +60,4 @@ table dim_diagnosis
 				    dim_diagnosis = gold{[Name = "dim_diagnosis", Kind = "Table"]}[Data]
 				in
 				    dim_diagnosis
+

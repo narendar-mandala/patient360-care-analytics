@@ -66,3 +66,4 @@ table dim_provider
 				    dim_provider = gold{[Name = "dim_provider", Kind = "Table"]}[Data]
 				in
 				    dim_provider
+

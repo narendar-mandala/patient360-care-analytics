@@ -121,3 +121,119 @@ relationship 38da3e19-41d2-5471-a649-bb5cd55e7609
 relationship 348bcfdc-db0c-5cd2-a653-5537eed7d687
 	fromColumn: care_management_worklist.patient_id
 	toColumn: dim_patient.patient_id
+
+relationship b918f539-5c26-4e73-9751-9fb155ecd31d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_date.date
+	toColumn: LocalDateTable_7f60fb97-8fda-4e34-8ad8-e7635e9fc76c.Date
+
+relationship af82e791-5dc9-4625-8e44-c2cf592efff4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_date.month_start
+	toColumn: LocalDateTable_9c066741-d4cc-4b6a-a0d7-3adb9bad4038.Date
+
+relationship 878e7b98-b806-415e-924e-11b5717f3a31
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_patient.birth_date
+	toColumn: LocalDateTable_549c29e0-2c5d-4c8b-a895-327461b07e2a.Date
+
+relationship 6f8ee40b-d26a-41f7-beb5-bfb565f783e1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_patient.death_date
+	toColumn: LocalDateTable_96f3310c-1366-4484-8625-821d3697bae8.Date
+
+relationship 52efd7bb-b588-42bf-85bc-b94498abd582
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_encounter.start_ts
+	toColumn: LocalDateTable_2bd36245-81ed-464b-b493-35cee7f3a857.Date
+
+relationship 0bde6d4b-331a-4c6e-bd83-0062e01eef55
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_encounter.end_ts
+	toColumn: LocalDateTable_611a4bc4-5908-46d9-9ea9-3bcd764a67c7.Date
+
+relationship 38f02f53-c273-4d9e-94fa-1a8ee58268fd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_condition.start_date
+	toColumn: LocalDateTable_6d69fb2f-3d71-455b-a08d-b2caaea93181.Date
+
+relationship d728fdf7-4103-446c-9b11-de8fa5a132d9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_condition.stop_date
+	toColumn: LocalDateTable_0adb2e88-d01e-471a-b0e9-fc16942b34dc.Date
+
+relationship 43459383-6fd7-48e4-bfe9-0c06f3a8fb93
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_procedure.start_ts
+	toColumn: LocalDateTable_951b03d7-e573-46a7-9e34-1ea5f087acfa.Date
+
+relationship 8796cec5-49a1-44b4-8361-f00120bb947d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_lab_result.result_ts
+	toColumn: LocalDateTable_3c53a600-c08f-484a-8987-8c9bb98f5c3e.Date
+
+relationship a3e9acd4-c867-4820-9335-4dc7ae9dcd9c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_medication.start_ts
+	toColumn: LocalDateTable_22c02baf-5ab2-4c82-b983-dd804a0d2524.Date
+
+relationship cd97777f-4b74-4086-9078-3b269ec45d65
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_medication.stop_ts
+	toColumn: LocalDateTable_26802197-10cb-43ed-871a-ff25acb25076.Date
+
+relationship 57b00e99-1113-4568-a18d-f1a3eb2592f8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_claim.service_date
+	toColumn: LocalDateTable_c843fa2a-8b37-4a6c-a6c7-aeaf91597438.Date
+
+relationship 1de60b6f-2277-4263-975c-9de9eac0054f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_member_month.month_start
+	toColumn: LocalDateTable_d1130586-563f-467b-8975-7754d5e365e9.Date
+
+relationship 2b381d92-bf06-4d41-bbb3-f3d02228c4b6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_index_admission.admit_date
+	toColumn: LocalDateTable_520ba685-8d29-48b2-beab-15e92d9c826c.Date
+
+relationship 0791b74b-655e-478c-802c-64387c333956
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_index_admission.discharge_date
+	toColumn: LocalDateTable_1c38525e-0502-48d7-8180-67157cb43940.Date
+
+relationship 88c25ed3-ab04-45ae-9648-7a6c91b0a63e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: kpi_monthly.month_start
+	toColumn: LocalDateTable_e99f238e-a0da-4e3f-af59-06dab6dbaead.Date
+
+relationship 3be2d6cc-2ce9-44d9-b3c6-69beb5729350
+	joinOnDateBehavior: datePartOnly
+	fromColumn: kpi_active_patients_monthly.month_start
+	toColumn: LocalDateTable_6be4a7b4-29d4-407a-9265-55617f8ee4eb.Date
+
+relationship aa240a10-f231-4000-baeb-35ad25e43c6a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: patient_360.death_date
+	toColumn: LocalDateTable_50463e0d-edb7-4614-ada8-d021c6290eea.Date
+
+relationship 7feca9e0-7a23-43e8-8b16-69fa9f170e5e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: patient_360.last_visit_date
+	toColumn: LocalDateTable_f1d3023d-eb6d-4e27-9a2e-aa67820b38f7.Date
+
+relationship 2bd60282-f20e-45ae-ba3d-855f3c523029
+	joinOnDateBehavior: datePartOnly
+	fromColumn: patient_360.last_discharge_date
+	toColumn: LocalDateTable_b15c185a-1fd7-4b9f-b9b1-df1942fb59da.Date
+
+relationship 63337b43-63e0-482f-ac78-f165c7818cb5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: patient_timeline.event_ts
+	toColumn: LocalDateTable_1bf36618-5ab3-45b3-9c0f-96b356bcfb10.Date
+
+relationship 663cc3a5-df30-4c7e-a32b-a3a7bcbd7b73
+	joinOnDateBehavior: datePartOnly
+	fromColumn: care_management_worklist.discharge_date
+	toColumn: LocalDateTable_b1cc59a4-aa01-429c-91c8-4efd24049eed.Date
+

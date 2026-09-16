@@ -33,6 +33,11 @@ table fact_procedure
 		summarizeBy: none
 		sourceColumn: start_ts
 
+		variation Variation
+			isDefault
+			relationship: 43459383-6fd7-48e4-bfe9-0c06f3a8fb93
+			defaultHierarchy: LocalDateTable_951b03d7-e573-46a7-9e34-1ea5f087acfa.'Date Hierarchy'
+
 	column snomed_code
 		dataType: string
 		lineageTag: 46a2452f-fd27-5ec2-be89-d4a86f95f505
@@ -70,11 +75,13 @@ table fact_procedure
 		sourceColumn: is_billable
 
 	column base_cost
-		dataType: decimal
+		dataType: double
 		formatString: \$#,0.00
 		lineageTag: f6434bf7-6792-5c77-bbf5-40e23d7e87c6
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: base_cost
+
+		annotation SummarizationSetBy = Automatic
 
 	partition fact_procedure = m
 		mode: import
@@ -86,3 +93,4 @@ table fact_procedure
 				    fact_procedure = gold{[Name = "fact_procedure", Kind = "Table"]}[Data]
 				in
 				    fact_procedure
+

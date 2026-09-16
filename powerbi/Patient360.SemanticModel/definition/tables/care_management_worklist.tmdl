@@ -5,8 +5,10 @@ table care_management_worklist
 	column worklist_rank
 		dataType: int64
 		lineageTag: e49b6353-4d7e-5b14-9ae6-3312cd78ea52
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: worklist_rank
+
+		annotation SummarizationSetBy = Automatic
 
 	column encounter_id
 		dataType: string
@@ -29,8 +31,10 @@ table care_management_worklist
 	column age
 		dataType: int64
 		lineageTag: 5b0732ed-b7b3-5d5f-a68a-e0f225014247
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
 
 	column sex
 		dataType: string
@@ -57,11 +61,20 @@ table care_management_worklist
 		summarizeBy: none
 		sourceColumn: discharge_date
 
+		variation Variation
+			isDefault
+			relationship: 663cc3a5-df30-4c7e-a32b-a3a7bcbd7b73
+			defaultHierarchy: LocalDateTable_b1cc59a4-aa01-429c-91c8-4efd24049eed.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column days_since_discharge
 		dataType: int64
 		lineageTag: 3c3a6943-d828-5435-b251-9d90e6a79ded
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: days_since_discharge
+
+		annotation SummarizationSetBy = Automatic
 
 	column reason_description
 		dataType: string
@@ -78,14 +91,18 @@ table care_management_worklist
 	column length_of_stay_days
 		dataType: int64
 		lineageTag: 94b41737-e4b1-5f96-a6f7-6a17f563e264
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: length_of_stay_days
+
+		annotation SummarizationSetBy = Automatic
 
 	column lace_score
 		dataType: int64
 		lineageTag: 4e1c23fc-8460-5345-8081-e3bbfba14e84
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: lace_score
+
+		annotation SummarizationSetBy = Automatic
 
 	column risk_tier
 		dataType: string
@@ -108,8 +125,10 @@ table care_management_worklist
 	column active_medication_count
 		dataType: int64
 		lineageTag: 25b5ea95-cbce-54bb-b7c8-5fdf57813ec4
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: active_medication_count
+
+		annotation SummarizationSetBy = Automatic
 
 	column is_high_utilizer
 		dataType: boolean
@@ -133,3 +152,4 @@ table care_management_worklist
 				    care_management_worklist = gold{[Name = "care_management_worklist", Kind = "Table"]}[Data]
 				in
 				    care_management_worklist
+

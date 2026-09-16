@@ -429,6 +429,8 @@ Free Edition may only have one user, so some of these groups will be simulated. 
 | BQ-09 | AUROC, capture rate vs LACE | Model metrics table | Model Performance | ML-03 to ML-05, BI-08 |
 | BQ-10 | Quality check pass rate, freshness | `ops.dq_results` | Data Quality | DQ-01 to DQ-06 |
 
+BQ-03, BQ-08, BQ-09 and BQ-10 depend on tables that arrive in Phase 2 and Phase 3 (detailed billing, model predictions, quality results). The rest are built and in the reports today.
+
 ---
 
 ## 15. Decisions
@@ -445,14 +447,6 @@ Agreed on 2026-09-15.
 | D-6 | Analysis window | 2021-09-01 to 2026-08-31 |
 | D-7 | Delivery approach | Three phases (section 2a). Phase 1 keeps transformations in SQL on Databricks and uses Synthea's data as generated. Realism work moves to Phase 2 and ML/GenAI to Phase 3. |
 
----|---|---|---|
-| D-1 | Power BI: Desktop only, or Pro/PPU so we can publish, test row-level security and schedule refreshes? | Build in Desktop (PBIP) either way, and publish if a license is available | Narendar |
-| D-2 | Headline readmission number: all unplanned readmissions, or only the HRRP conditions? | Both. Use all unplanned readmissions as the headline and model target, and show HRRP conditions as a breakdown. | Narendar |
-| D-3 | Demo size: 25k patients or 50k+? | 25k, and revisit once Silver and Gold are running on 1k | Narendar |
-| D-4 | Risk tiers: top 10% and next 20%, or a fixed probability cut-off? | Percentages, since they match how many patients care managers can actually handle | Narendar |
-| D-5 | LLM for summaries: Databricks Foundation Model APIs (if Free Edition has them) or an outside API like Claude through a Databricks App? | Check what Free Edition offers first, and keep it easy to switch | Narendar |
-| D-6 | Analysis window of 2021-09-01 to 2026-08-31? | Accept | Narendar |
-
 ---
 
 ## 16. When each phase is done
@@ -463,14 +457,6 @@ Agreed on 2026-09-15.
 | 2: Realism | Readmission rate 12% to 18% with no single condition group above 20% of readmissions; admissions and ED visits in realistic ranges; Clarity-style and claims tables in Bronze and Silver; injected defects logged in a manifest and at least 95% caught |
 | 3: Intelligence | The model beats LACE on a time-based holdout (BO-2); predictions and explanations are in Gold; the summary evaluation meets AI-06; a model card is committed |
 
----|---|
-| 2: Data shaping | All "must have" SHP tables are generated for 1k patients from a seed; at least 95% of condition rows map to ICD-10; readmission rate is 12% to 18% with no single condition group making up more than 20% of readmissions; the defect manifest exists; unit tests pass |
-| 3b: Bronze CSV | All Clarity-style and claims tables are in Bronze, and row counts match the files exactly |
-| 5: Silver and Gold | All "must have" GLD tables are built; quality results are written; at least 95% of injected defects are caught; KPIs match hand calculations for 5 patients |
-| 6: Deployment | `bundle deploy` and the end-to-end job both succeed; CI passes on `main` |
-| 7: Power BI | Pages 1 to 4 are finished in PBIP; every visual uses a KPI from section 6; pages load within 5 seconds |
-| 8: AI | The model beats LACE on the time-based holdout (BO-2); predictions and SHAP drivers are in Gold; the summary evaluation meets AI-06; the model card is committed |
-
 ---
 
-*Once this is signed off, the next step is Phase 2 data shaping (SHP-01 to SHP-09).*
+*Phase 1 was delivered on 2026-09-15. See [09_project_status.md](09_project_status.md) for what was built and what comes next.*
